@@ -1,0 +1,635 @@
+{
+	"info": {
+		"_postman_id": "925a883c-470a-4441-9b5c-054a7bb1a622",
+		"name": "campReg",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18451652",
+		"_collection_link": "https://bold-shadow-179574.postman.co/workspace/campReg~200c0865-9780-4367-a7da-aa8f3533a97a/collection/18451652-925a883c-470a-4441-9b5c-054a7bb1a622?action=share&source=collection_link&creator=18451652"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"sheiksteen@yahoo.com\",\r\n    \"password\":\"sheiksteen\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\": \"SHEIKSTEEN P S\",\r\n    \"place\": \"VILAKUDY\",\r\n    \"age\": \"45\",\r\n    \"gender\": \"Male\",\r\n    \"phone\": \"9947484562\",\r\n    \"email\": \"sheiksteen@yahoo.com\",\r\n    \"password\": \"sheiksteen\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"535a537a-118d-43f8-a813-5dfbe8f1aa5b\",\r\n    \"name\": \"new shibily\",\r\n    \"phone\": \"8848452233\",\r\n    \"email\": \"shibily@gmil.com\",\r\n    \"gender\": \"female\",\r\n    \"place\": \"angamaluy\",\r\n    \"age\": \"10\",\r\n    \"password\": \"Shibily123@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/user/update/535a537a-118d-43f8-a813-5dfbe8f1aa5b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"update",
+								"535a537a-118d-43f8-a813-5dfbe8f1aa5b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaGVpa3N0ZWVuQHlhaG9vLmNvbSIsImlhdCI6MTcyMjY2ODAzNCwiZXhwIjoxNzIyNzU0NDM0fQ.al46sEllP-sFMbArzV3i6Gugtu5jViz-dZvzEXQEw0Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJTaGliaWx5IiwiaWF0IjoxNzEzNzgwODUyLCJleHAiOjE3MTM3ODA4ODJ9.P_ErQmfIH5kdIm-lAeSOdICqLc0xt3XuSxCgZBubRIU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/user/delete/535a537a-118d-43f8-a813-5dfbe8f1aa5b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"delete",
+								"535a537a-118d-43f8-a813-5dfbe8f1aa5b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Events",
+			"item": [
+				{
+					"name": "add events",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJTaGliaWx5IiwiaWF0IjoxNzE5OTM4MDg4LCJleHAiOjE3MTk5NDE2ODh9.xz7pF6OUBqoobZrezTW8PW9V_jypYeEw-Adu9K4ZwGU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \r\n    \"title\": \"oNAM\",\r\n    \"description\": \"ONAM\",\r\n    \"place\": \"EKMO\",\r\n    \"seats\": \"10\",\r\n    \"adultAmount\": 100,\r\n    \"childAmount\": 600,\r\n    \"startDate\": \"2024-10-10\",\r\n    \"endDate\": \"2025-10-10\",\r\n    \"status\": \"1\",\r\n    \"seatsBooked\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/event/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"event",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all Events",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0aW5nIiwiaWF0IjoxNzEzOTAxODUxLCJleHAiOjE3MTM5MDE4ODF9.PBZ93U84d_6gDsgd27cQ66r2PYqBk7zr3IS9gg-tjB4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/event/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"event",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eventsby id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0aW5nIiwiaWF0IjoxNzEzODk1MjIzLCJleHAiOjE3MTM4OTUyNTN9.5qUmDYj7dgWeJU27Nh9RIivF6TGCNfMRMju31RwHnPU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/event/dd062272-4059-4f74-bb0e-6563111012e1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"event",
+								"dd062272-4059-4f74-bb0e-6563111012e1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"eventId\": \"dd062272-4059-4f74-bb0e-6563111012e1\",\r\n    \"title\": \"new camp\",\r\n    \"description\": \"ONAM\",\r\n    \"startDate\": \"2024-10-10T00:00:00.000+00:00\",\r\n    \"endDate\": \"2025-10-10T00:00:00.000+00:00\",\r\n    \"place\": \"EKMO\",\r\n    \"adultAmount\": 10,\r\n    \"childAmount\": 600,\r\n    \"seats\": 10,\r\n    \"seatsBooked\": 0,\r\n    \"status\": \"CREATED\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/event/update/dd062272-4059-4f74-bb0e-6563111012e1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"event",
+								"update",
+								"dd062272-4059-4f74-bb0e-6563111012e1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0aW5nIiwiaWF0IjoxNzEzOTAzMzg0LCJleHAiOjE3MTM5MDM0MTR9.ZbSmBuRurxAwwawkO-OLWC38dei7eit2McLWoQEtupE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/event/delete/dd062272-4059-4f74-bb0e-6563111012e1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"event",
+								"delete",
+								"dd062272-4059-4f74-bb0e-6563111012e1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "all booking",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/booking/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"booking",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add bookings",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"dependentsCount\": 165,\r\n        \"paymentVia\": \"CASH\",\r\n        \"totalAmount\": \"5000.00\",\r\n        \"amountPaid\": \"0.00\",\r\n        \"isPaid\": \"TRUE\",\r\n        \"bookingStatus\": \"CREATED\",\r\n        \"bookingDate\": \"2025-10-10\",\r\n        \"userId\": \"\",\r\n        \"dependentId\": \"\",\r\n        \"eventId\": \"16a9009c-5526-4066-a04f-6dff2a02ccdd\",\r\n        \"loggedInPrincipalId\": \"2454678c-4801-4171-a70b-4989387d15c6\",\r\n        \"dependents\": [\r\n            {\r\n                \"depententName\": \"abc 2 \",\r\n                \"age\": 10,\r\n                \"gender\": \"male\",\r\n                \"place\": \"AKMP\"\r\n            }\r\n        ]\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/booking/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"booking",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "booking By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0aW5nIiwiaWF0IjoxNzE0NDcxNjQzLCJleHAiOjE3MTQ0NzUyNDN9.rje0Zk0KY-fXB8Hk5MYnK9RjJIW9lnI7KUbCxRiwGAc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/booking/231c5123-219d-4899-a4fa-3dd29bc503da",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"booking",
+								"231c5123-219d-4899-a4fa-3dd29bc503da"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update booking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0aW5nIiwiaWF0IjoxNzE0NDc3MTQ5LCJleHAiOjE3MTQ0ODA3NDl9.xmB8g-Rnn9OLGYEgssK3QyaU5tDRBRW0C0xiORl8gRc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"id\": \"7249dbcf-4912-463b-b408-fac0a8072582\",\r\n        \"loggedPrincipalId\": \"2454678c-4801-4171-a70b-4989387d15c6\",\r\n        \"campId\": \"16a9009c-5526-4066-a04f-6dff2a02ccdd\",\r\n        \"amount\": 1500.00,\r\n        \"bookingTime\": \"2025-10-10T00:00:00.000+00:00\",\r\n        \"dependentsCount\": 165,\r\n        \"paymentVia\": \"CASH\",\r\n        \"totalAmount\": 5000.00,\r\n        \"amountPaid\": 0.00,\r\n        \"bookingStatus\": \"CREATED\",\r\n        \"bookerName\": \"Shibin new\",\r\n        \"bookerPhone\": \"8844455866\",\r\n        \"bookerAge\": 25,\r\n        \"bookerPlace\": \"Punalur\",\r\n        \"paid\": false\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/booking/update/7249dbcf-4912-463b-b408-fac0a8072582",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"booking",
+								"update",
+								"7249dbcf-4912-463b-b408-fac0a8072582"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "booking",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/booking/delete/231c5123-219d-4899-a4fa-3dd29bc503da",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"booking",
+								"delete",
+								"231c5123-219d-4899-a4fa-3dd29bc503da"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update booking",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "      {\"amount\": 10.00\r\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/booking/update/7249dbcf-4912-463b-b408-fac0a8072582",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"booking",
+								"update",
+								"7249dbcf-4912-463b-b408-fac0a8072582"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "booking by camp ID",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "booking by phone number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/booking/phone/12121212",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"booking",
+								"phone",
+								"12121212"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dependents",
+			"item": [
+				{
+					"name": "all dependents",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJTaGliaWx5IiwiaWF0IjoxNzE5ODMwMDQ3LCJleHAiOjE3MTk4MzM2NDd9.uGZMEgIh47OxM6YkTitdit4EJGtMNCnviluSSMD6Cpc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/dependent/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"dependent",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add dependents",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0aW5nIiwiaWF0IjoxNzE0NDg5NTYwLCJleHAiOjE3MTQ0OTMxNjB9.YB_uQX42VeY6WDyRFpP9cX1pNnP2yG_XVg0Ki1wOG2I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"name\":\"sharatha 2 \",\r\n    \"age\":10,\r\n    \"gender\":\"FEMALE\",\r\n    \"phone\":\"884566585\",\r\n    \"place\":\"AKKM\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/dependent/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"dependent",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
