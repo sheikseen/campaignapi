@@ -1,7 +1,7 @@
 package com.shiel.campaignapi.dto;
 
 public class SignupUserDto {
-	private String userId;
+	private Integer userId;
 	private String fullName;
 	private String place;
 	private String phone;
@@ -37,11 +37,11 @@ public class SignupUserDto {
 		return this;
 	}
 
-	public String getUserId() {
+	public Integer getUserId() {
 		return userId;
 	}
 
-	public void setUserId(String userId) {
+	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
 
