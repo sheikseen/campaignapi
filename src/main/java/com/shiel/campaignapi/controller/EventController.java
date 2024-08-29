@@ -19,7 +19,6 @@ import com.shiel.campaignapi.service.EventService;
 import jakarta.validation.Valid;
 
 
-
 @RestController
 @RequestMapping("/events")
 public class EventController {
