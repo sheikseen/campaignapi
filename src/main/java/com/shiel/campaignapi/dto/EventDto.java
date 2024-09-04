@@ -10,7 +10,7 @@ import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Digits;
 
 public class EventDto implements Serializable {
-	private String eventId;
+	private Long eventId;
 	private String title;
 	private String description;
 	private String place;
@@ -29,11 +29,11 @@ public class EventDto implements Serializable {
 	private Event.EventStatus status;
 	private int seatsBooked;
 
-	public String getEventId() {
+	public Long getEventId() {
 		return eventId;
 	}
 
-	public void setEventId(String eventId) {
+	public void setEventId(Long eventId) {
 		this.eventId = eventId;
 	}
 
@@ -53,11 +53,11 @@ public class EventDto implements Serializable {
 		this.childAmount = childAmount;
 	}
 
-	public String getId() {
+	public Long getId() {
 		return eventId;
 	}
 
-	public void setId(String eventId) {
+	public void setId(Long eventId) {
 		this.eventId = eventId;
 	}
 

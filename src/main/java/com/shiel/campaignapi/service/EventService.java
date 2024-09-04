@@ -52,7 +52,7 @@ public class EventService {
 
 	public EventDto updateEvent(EventDto eventDto) {
 		try {
-			Optional<Event> optionalEvent = eventRepository.findById(eventDto.getId());
+			Optional<Event> optionalEvent = eventRepository.findById(eventDto.getId().toString());
 			if (optionalEvent.isPresent()) {
 				Event event = optionalEvent.get();
 				event.setTitle(eventDto.getTitle());
