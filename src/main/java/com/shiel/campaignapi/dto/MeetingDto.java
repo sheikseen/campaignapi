@@ -1,7 +1,5 @@
 package com.shiel.campaignapi.dto;
 
-import java.util.Date;
-
 public class MeetingDto {
 	
 	private Long meetingId;

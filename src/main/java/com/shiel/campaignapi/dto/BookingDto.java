@@ -2,6 +2,7 @@ package com.shiel.campaignapi.dto;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 import com.shiel.campaignapi.entity.Booking;
 import com.shiel.campaignapi.entity.Booking.PaymentMethod;
@@ -116,17 +117,17 @@ public class BookingDto {
 		this.loggedInUserId = loggedInUserId;
 	}
 
-	//
-//  public List<DependentDTO> dependents;
-//
-//  public List<DependentDTO> getDependents() {
-//      return dependents;
-//  }
-//
-//  public BookingDto setDependents(List<DependentDTO> dependents) {
-//      this.dependents = dependents;
-//      return this;
-//  }
+	public List<DependentDto> dependents;
+
+	public List<DependentDto> getDependents() {
+		return dependents;
+	}
+
+	public BookingDto setDependents(List<DependentDto> dependents) {
+		this.dependents = dependents;
+		return this;
+	}
+
 	public BookingDto() {
 
 	}

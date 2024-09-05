@@ -8,12 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.shiel.campaignapi.dto.BookingDto;
+import com.shiel.campaignapi.dto.DependentDto;
 import com.shiel.campaignapi.dto.EventDto;
 import com.shiel.campaignapi.entity.Booking;
+import com.shiel.campaignapi.entity.Dependent;
 import com.shiel.campaignapi.entity.Event;
 import com.shiel.campaignapi.entity.Meeting;
 import com.shiel.campaignapi.entity.User;
 import com.shiel.campaignapi.repository.BookingRepository;
+import com.shiel.campaignapi.repository.DependentRepository;
 import com.shiel.campaignapi.repository.EventRepository;
 import com.shiel.campaignapi.repository.UserRepository;
 
@@ -26,6 +29,9 @@ public class BookingService {
 
 	@Autowired
 	UserRepository userRepository;
+	
+	@Autowired
+	DependentRepository dependentRepository;
 
 	public BookingService(BookingRepository bookingRepository) {
 		this.bookingRepository = bookingRepository;
@@ -52,8 +58,32 @@ public class BookingService {
 				.orElseThrow(() -> new RuntimeException("Event not found with ID: " + bookingDto.getEventId()));
 		booking.setEventId(event);
 
-		return bookingRepository.save(booking);
+		Booking savedBooking = bookingRepository.save(booking);
 
+		// Save dependents if provided
+
+		if (bookingDto.getDependents() != null && !bookingDto.getDependents().isEmpty()) {
+			List<Dependent> dependents = new ArrayList<>();
+			for (DependentDto dependentDto : bookingDto.getDependents()) {
+
+				Dependent dependent = new Dependent();
+				dependent.setName(dependentDto.getName());
+				dependent.setPlace(dependentDto.getPlace());
+				dependent.setGender(dependentDto.getGender());
+				dependent.setAge(dependentDto.getAge());
+				dependent.setRelation(dependentDto.getRelation());
+				
+				User dependentUser = userRepository.findById(dependentDto.getUserId()).orElseThrow(
+						() -> new RuntimeException("Dependent user not found with ID: " + dependentDto.getUserId()));
+				dependent.setUserId(dependentUser);
+			
+
+				dependent.setBookingId(savedBooking);
+				dependents.add(dependent);
+			}
+			dependentRepository.saveAll(dependents);
+		}
+		return savedBooking;
 	}
 
 	public List<Booking> findAllBookings() {
@@ -86,6 +116,7 @@ public class BookingService {
 				booking.setEventId(event);
 
 				return bookingRepository.save(booking);
+
 			} else {
 				throw new RuntimeException("Booking Not Found");
 			}
@@ -94,6 +125,5 @@ public class BookingService {
 		}
 
 	}
-	
 
 }
