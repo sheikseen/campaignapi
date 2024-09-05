@@ -75,15 +75,14 @@ public class MeetingService {
 		if (optionalMeeting.isPresent()) {
 			Meeting meeting = optionalMeeting.get();
 			meetingRepository.delete(meeting);
-			 
 
-		        return  mapToMeetingtDto(meeting);
+			return mapToMeetingtDto(meeting);
 		} else {
 
 			return null;
 		}
 	}
-	
+
 	private MeetingDto mapToMeetingtDto(Meeting meeting) {
 		MeetingDto meetingDto = new MeetingDto();
 		meetingDto.setTitle(meeting.getTitle());
@@ -91,7 +90,7 @@ public class MeetingService {
 		meetingDto.setPlace(meeting.getPlace());
 		meetingDto.setDay(meeting.getDay());
 		return meetingDto;
-		
+
 	}
 
 }

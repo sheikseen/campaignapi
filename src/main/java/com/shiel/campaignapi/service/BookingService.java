@@ -63,4 +63,37 @@ public class BookingService {
 		return bookings;
 	}
 
+	public Booking updateBooking(BookingDto bookingDto) {
+		try {
+			Optional<Booking> optionalBooking = bookingRepository.findById(bookingDto.getBookingId().toString());
+
+			if (optionalBooking.isPresent()) {
+				Booking booking = optionalBooking.get();
+				booking.setPaymentVia(bookingDto.getPaymentVia());
+				booking.setTotalAmount(bookingDto.getTotalAmount());
+				booking.setAmountPaid(bookingDto.getAmountPaid());
+				booking.setBookingStatus(bookingDto.getBookingStatus());
+				booking.setIsPaid(bookingDto.getIsPaid());
+				booking.setBookingDate(bookingDto.getBookingDate());
+				booking.setDependentCount(bookingDto.getDependentCount());
+
+				User user = userRepository.findById(bookingDto.getUserId())
+						.orElseThrow(() -> new RuntimeException("User not found with ID: " + bookingDto.getUserId()));
+				booking.setUserId(user);
+
+				Event event = eventRepository.findById(bookingDto.getEventId().toString())
+						.orElseThrow(() -> new RuntimeException("Event not found with ID: " + bookingDto.getEventId()));
+				booking.setEventId(event);
+
+				return bookingRepository.save(booking);
+			} else {
+				throw new RuntimeException("Booking Not Found");
+			}
+		} catch (Exception e) {
+			return null;
+		}
+
+	}
+	
+
 }
