@@ -47,6 +47,12 @@ public class BookingController {
 			return ResponseEntity.ok().body(bookings);
 		}
 	}
+	
+	 @GetMapping("/{bookingId}")
+	    public ResponseEntity<BookingDto> getBookingWithDependents(@PathVariable Long bookingId) {
+	        BookingDto bookingDto = bookingService.getBookingWithDependents(bookingId);
+	        return ResponseEntity.ok(bookingDto);
+	    }
 
 	@PostMapping("/update/{id}")
 	public ResponseEntity<?> updateBooking(@PathVariable("id") Long bookingId,

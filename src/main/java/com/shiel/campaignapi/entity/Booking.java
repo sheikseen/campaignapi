@@ -2,14 +2,18 @@ package com.shiel.campaignapi.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Table(name = "booking")
@@ -47,14 +51,11 @@ public class Booking {
 	private User userId;
 
 	@ManyToOne
-	@JoinColumn(name = "eventid", referencedColumnName = "eventid",nullable = true)
+	@JoinColumn(name = "eventid", referencedColumnName = "eventid", nullable = true)
 	private Event eventId;
 
-//	@ManyToOne
-//	@JoinColumn(name = "dependentid", referencedColumnName = "dependentid",nullable = true)
-//	private Dependent dependentId;
-	
-	
+	@OneToMany(mappedBy = "bookingId", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
+	private List<Dependent> dependents;
 
 	public Long getBookingId() {
 		return bookingId;
@@ -136,17 +137,18 @@ public class Booking {
 		this.eventId = eventId;
 	}
 
-//	public Dependent getDependentId() {
-//		return dependentId;
-//	}
-//
-//	public void setDependentId(Dependent dependentId) {
-//		this.dependentId = dependentId;
-//	}
+	public List<Dependent> getDependents() {
+		return dependents;
+	}
+
+	public void setDependents(List<Dependent> dependents) {
+		this.dependents = dependents;
+	}
 
 	public enum PaymentMethod {
 		CASH, GOOGLE_PAY
 	}
+
 	public enum BookingStatus {
 		PENDING, CONFIRMED, CANCELLED, COMPLETED, REJECTED
 	}
@@ -154,7 +156,7 @@ public class Booking {
 	public enum PaymentStatus {
 		PENDING, PAID, REFUNDED, CANCELLED,
 	}
-	
+
 	public Booking() {
 	}
 
@@ -165,6 +167,5 @@ public class Booking {
 				+ ", bookingStatus=" + bookingStatus + ", bookingDate=" + bookingDate + ", userId=" + userId
 				+ ", eventId=" + eventId + "]";
 	}
-	
-	
+
 }

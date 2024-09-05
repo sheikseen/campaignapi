@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -33,6 +35,7 @@ public class Dependent implements Serializable {
 	private String gender;
 
 	@Column(name = "relation", nullable = false)
+	@Enumerated(EnumType.STRING)
 	private Relation relation;
 
 	@ManyToOne
@@ -41,7 +44,7 @@ public class Dependent implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "bookingid", referencedColumnName = "bookingid", nullable = true)
-	private Booking bokingId;
+	private Booking bookingId;
 
 	public Long getDependentId() {
 		return dependentId;
@@ -83,6 +86,14 @@ public class Dependent implements Serializable {
 		this.gender = gender;
 	}
 
+	public Relation getRelation() {
+		return relation;
+	}
+
+	public void setRelation(Relation relation) {
+		this.relation = relation;
+	}
+
 	public User getUserId() {
 		return userId;
 	}
@@ -92,23 +103,15 @@ public class Dependent implements Serializable {
 	}
 
 	public Booking getBookingId() {
-		return bokingId;
+		return bookingId;
 	}
 
-	public void setBookingId(Booking eventId) {
-		this.bokingId = eventId;
-	}
-
-	public Relation getRelation() {
-		return relation;
-	}
-
-	public void setRelation(Relation relation) {
-		this.relation = relation;
+	public void setBookingId(Booking bookingId) {
+		this.bookingId = bookingId;
 	}
 
 	public Dependent(Long dependentId, String name, String place, Integer age, String gender, User userId,
-			Booking bokingId, Relation relation) {
+			Booking bookingId, Relation relation) {
 		super();
 		this.dependentId = dependentId;
 		this.name = name;
@@ -116,8 +119,8 @@ public class Dependent implements Serializable {
 		this.age = age;
 		this.gender = gender;
 		this.userId = userId;
-		this.bokingId = bokingId;
-		this.relation=relation;
+		this.bookingId = bookingId;
+		this.relation = relation;
 	}
 
 	public enum Relation {

@@ -3,6 +3,7 @@ package com.shiel.campaignapi.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -124,6 +125,39 @@ public class BookingService {
 			return null;
 		}
 
+	}
+
+	public BookingDto getBookingWithDependents(Long bookingId) {
+		  Booking booking = bookingRepository.findById(bookingId.toString())
+	                .orElseThrow(() -> new RuntimeException("Booking not found with ID: " + bookingId));
+		  
+	    BookingDto bookingDto = new BookingDto();
+	    bookingDto.setBookingId(booking.getBookingId());
+	    bookingDto.setPaymentVia(booking.getPaymentVia());
+	    bookingDto.setTotalAmount(booking.getTotalAmount());
+	    bookingDto.setAmountPaid(booking.getAmountPaid());
+	    bookingDto.setBookingStatus(booking.getBookingStatus());
+	    bookingDto.setIsPaid(booking.getIsPaid());
+	    bookingDto.setBookingDate(booking.getBookingDate());
+	    bookingDto.setDependentCount(booking.getDependentCount());
+	    bookingDto.setUserId(booking.getUserId().getUserId());  
+	    bookingDto.setEventId(booking.getEventId().getEventId()); 
+
+	  
+	    List<DependentDto> dependentDtos = booking.getDependents().stream().map(dependent -> {
+	        DependentDto dependentDto = new DependentDto();
+	        dependentDto.setName(dependent.getName());
+	        dependentDto.setPlace(dependent.getPlace());
+	        dependentDto.setAge(dependent.getAge());
+	        dependentDto.setRelation(dependent.getRelation());
+	        dependentDto.setUserId(dependent.getUserId().getUserId()); 
+	        dependentDto.setBookingId(dependent.getBookingId().getBookingId()); 
+	        return dependentDto;
+	    }).collect(Collectors.toList());
+
+	    bookingDto.setDependents(dependentDtos);
+
+	    return bookingDto;
 	}
 
 }

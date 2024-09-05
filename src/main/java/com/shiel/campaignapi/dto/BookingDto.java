@@ -123,9 +123,9 @@ public class BookingDto {
 		return dependents;
 	}
 
-	public BookingDto setDependents(List<DependentDto> dependents) {
+	public void setDependents(List<DependentDto> dependents) {
 		this.dependents = dependents;
-		return this;
+		
 	}
 
 	public BookingDto() {
