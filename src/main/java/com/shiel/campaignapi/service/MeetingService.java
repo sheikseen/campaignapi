@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import com.shiel.campaignapi.dto.MeetingDto;
@@ -37,6 +38,7 @@ public class MeetingService {
 		return meetingRepository.existsByTitle(title);
 	}
 
+	@PreAuthorize("hasRole('APPLICATION') or hasRole('USER')")
 	public List<Meeting> findAllMeetings() {
 		List<Meeting> meetings = new ArrayList<>();
 		meetingRepository.findAll().forEach(meetings::add);

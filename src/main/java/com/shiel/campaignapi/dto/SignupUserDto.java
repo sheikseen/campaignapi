@@ -1,5 +1,7 @@
 package com.shiel.campaignapi.dto;
 
+import java.util.List;
+
 public class SignupUserDto {
 	private Integer userId;
 	private String fullName;
@@ -76,6 +78,8 @@ public class SignupUserDto {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+
+	
 
 	@Override
 	public String toString() {

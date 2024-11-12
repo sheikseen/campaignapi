@@ -41,7 +41,7 @@ public class UserService {
 				user.setGender(userDto.getGender());
 				user.setEmail(userDto.getEmail());
 				user.setPassword(userDto.getPassword());
-
+				
 				return userRepository.save(user); 
 			} else {
 				throw new RuntimeException("User not found with id " + userDto.getUserId());

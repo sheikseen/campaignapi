@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +19,6 @@ import com.shiel.campaignapi.service.EventService;
 
 import jakarta.validation.Valid;
 
-
 @RestController
 @RequestMapping("/events")
 public class EventController {
@@ -26,6 +26,7 @@ public class EventController {
 	@Autowired
 	EventService eventService;
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/add")
 	public ResponseEntity<?> addEvent(@RequestBody EventDto eventDto) {
 		if (eventService.existsByTitle(eventDto.getTitle())) {
@@ -40,6 +41,7 @@ public class EventController {
 		return ResponseEntity.ok(message);
 	}
 
+	//@PreAuthorize("hasAnyRole('APPLICATION', 'USER', 'ADMIN')")
 	@GetMapping("/all")
 	public ResponseEntity<?> getAllEvent() {
 		List<EventDto> events = eventService.findAllEvents();
@@ -64,6 +66,7 @@ public class EventController {
 		}
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/update/{id}")
 	public ResponseEntity<?> updateEvent(@PathVariable("id") @Valid String eventId,
 			@Valid @RequestBody EventDto eventDto) {
@@ -86,6 +89,7 @@ public class EventController {
 
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> deleteUserById(@PathVariable("id") @Valid String eventId) {
 		if (eventId.isBlank()) {

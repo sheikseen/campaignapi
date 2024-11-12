@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +27,7 @@ public class MeetingController {
 	@Autowired
 	MeetingService meetingService;
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/add")
 	public ResponseEntity<?> addMeeting(@RequestBody MeetingDto meetingDto) {
 		if (meetingService.existsByTitle(meetingDto.getTitle())) {
@@ -37,6 +39,7 @@ public class MeetingController {
 
 	}
 
+	//@PreAuthorize("hasAnyRole('APPLICATION', 'USER', 'ADMIN')")
 	@GetMapping("/all")
 	public ResponseEntity<?> getAllMeeting() {
 		List<Meeting> meetings = meetingService.findAllMeetings();
@@ -47,6 +50,7 @@ public class MeetingController {
 		}
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/update/{id}")
 	public ResponseEntity<?> updateMeeting(@PathVariable("id") Long meetingId,
 			@Valid @RequestBody MeetingDto meetingDto) {
@@ -67,18 +71,19 @@ public class MeetingController {
 		}
 
 	}
+
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> deleteMeetingById(@PathVariable("id") @Valid Long meetingId){
-		
-		if(meetingId== null) {
+	public ResponseEntity<?> deleteMeetingById(@PathVariable("id") @Valid Long meetingId) {
+
+		if (meetingId == null) {
 			return ResponseEntity.badRequest().body("Meeting Id cannot be Null");
 		}
-	MeetingDto meeting = meetingService.deleteMeetingById(meetingId);
-	if(meeting == null) {
-		ResponseEntity.status(HttpStatus.NOT_FOUND).body("Meeting not found with ID: " + meetingId);
-	}
-	return ResponseEntity.ok().body("Meeting deleted successfully");
-		
+		MeetingDto meeting = meetingService.deleteMeetingById(meetingId);
+		if (meeting == null) {
+			ResponseEntity.status(HttpStatus.NOT_FOUND).body("Meeting not found with ID: " + meetingId);
+		}
+		return ResponseEntity.ok().body("Meeting deleted successfully");
+
 	}
 
 }

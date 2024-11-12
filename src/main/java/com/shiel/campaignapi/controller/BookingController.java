@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,6 +27,7 @@ public class BookingController {
 	@Autowired
 	BookingService bookingService;
 
+	@PreAuthorize("hasRole('USER')")
 	@PostMapping("/add")
 	public ResponseEntity<?> addBooking(@RequestBody BookingDto bookingDto) {
 		try {
@@ -39,20 +41,20 @@ public class BookingController {
 	}
 
 	@GetMapping("/all")
-	public ResponseEntity<?> getAllMeeting() {
-		List<Booking> bookings = bookingService.findAllBookings();
+	public ResponseEntity<?> getAllBooking() {
+		List<BookingDto> bookings = bookingService.findAllBookings();
 		if (bookings.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No booking Found");
 		} else {
 			return ResponseEntity.ok().body(bookings);
 		}
 	}
-	
-	 @GetMapping("/{bookingId}")
-	    public ResponseEntity<BookingDto> getBookingWithDependents(@PathVariable Long bookingId) {
-	        BookingDto bookingDto = bookingService.getBookingWithDependents(bookingId);
-	        return ResponseEntity.ok(bookingDto);
-	    }
+
+	@GetMapping("/{bookingId}")
+	public ResponseEntity<BookingDto> getBookingWithDependents(@PathVariable Long bookingId) {
+		BookingDto bookingDto = bookingService.getBookingWithDependents(bookingId);
+		return ResponseEntity.ok(bookingDto);
+	}
 
 	@PostMapping("/update/{id}")
 	public ResponseEntity<?> updateBooking(@PathVariable("id") Long bookingId,

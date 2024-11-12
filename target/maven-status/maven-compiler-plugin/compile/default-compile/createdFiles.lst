@@ -1,6 +1,8 @@
 com\shiel\campaignapi\service\EventService.class
 com\shiel\campaignapi\dto\DependentDto.class
+com\shiel\campaignapi\repository\RoleRepository.class
 com\shiel\campaignapi\service\AuthenticationService.class
+com\shiel\campaignapi\service\RoleService.class
 com\shiel\campaignapi\entity\Event$EventStatus.class
 com\shiel\campaignapi\config\ApplicationConfiguration.class
 com\shiel\campaignapi\controller\AuthenticationController.class
@@ -10,10 +12,14 @@ com\shiel\campaignapi\entity\Dependent.class
 com\shiel\campaignapi\dto\MeetingDto.class
 com\shiel\campaignapi\entity\Booking$BookingStatus.class
 com\shiel\campaignapi\dto\SignupUserDto.class
+com\shiel\campaignapi\repository\UserRoleRepository.class
 com\shiel\campaignapi\dto\SigninUserDto.class
 com\shiel\campaignapi\controller\BookingController.class
+com\shiel\campaignapi\service\UserRoleService.class
+com\shiel\campaignapi\entity\Role.class
 com\shiel\campaignapi\controller\MeetingController.class
 com\shiel\campaignapi\repository\UserRepository.class
+com\shiel\campaignapi\entity\UserRole.class
 com\shiel\campaignapi\entity\Dependent$Relation.class
 com\shiel\campaignapi\repository\BookingRepository.class
 com\shiel\campaignapi\repository\MeetingRepository.class
@@ -25,8 +31,11 @@ com\shiel\campaignapi\repository\EventRepository.class
 com\shiel\campaignapi\CampaignApiApplication.class
 com\shiel\campaignapi\entity\Booking$PaymentStatus.class
 com\shiel\campaignapi\dto\EventDto.class
+com\shiel\campaignapi\controller\RoleController.class
 com\shiel\campaignapi\service\BookingService.class
+com\shiel\campaignapi\dto\RoleDto.class
 com\shiel\campaignapi\service\MeetingService.class
+com\shiel\campaignapi\dto\UserRoleDto.class
 com\shiel\campaignapi\entity\Booking.class
 com\shiel\campaignapi\entity\Booking$PaymentMethod.class
 com\shiel\campaignapi\controller\EventController.class

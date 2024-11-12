@@ -3,11 +3,9 @@ package com.shiel.campaignapi.service;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
+
 import java.util.stream.Collectors;
-
 import org.springframework.stereotype.Service;
-
 import com.shiel.campaignapi.dto.EventDto;
 import com.shiel.campaignapi.entity.Event;
 import com.shiel.campaignapi.repository.EventRepository;
@@ -24,7 +22,7 @@ public class EventService {
 	public String saveEvent(EventDto eventDto) {
 
 		Event event = new Event();
-		//event.setEventId(UUID.randomUUID().toString());
+		// event.setEventId(UUID.randomUUID().toString());
 		event.setTitle(eventDto.getTitle());
 		event.setDescription(eventDto.getDescription());
 		event.setStartDate(eventDto.getStartDate());
@@ -36,13 +34,14 @@ public class EventService {
 		event.setSeatsBooked(eventDto.getSeatsBooked());
 		event.setStatus(Event.EventStatus.CREATED);
 
-		Event save =eventRepository.save(event);
+		Event save = eventRepository.save(event);
 		return save.getEventId().toString();
 	}
 
 	public EventDto findEventById(String eventId) {
 		return eventRepository.findById(eventId).map(this::mapToEventDto).orElse(null);
 	}
+
 
 	public List<EventDto> findAllEvents() {
 		List<Event> events = eventRepository.findAll();
@@ -88,7 +87,7 @@ public class EventService {
 
 	private EventDto mapToEventDto(Event event) {
 		EventDto eventDto = new EventDto();
-		//eventDto.setEventId(event.getEventId());
+		// eventDto.setEventId(event.getEventId());
 		eventDto.setTitle(event.getTitle());
 		eventDto.setDescription(event.getDescription());
 		eventDto.setPlace(event.getPlace());

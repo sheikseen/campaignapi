@@ -6,11 +6,13 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import com.shiel.campaignapi.dto.BookingDto;
 import com.shiel.campaignapi.dto.DependentDto;
 import com.shiel.campaignapi.dto.EventDto;
+import com.shiel.campaignapi.dto.SignupUserDto;
 import com.shiel.campaignapi.entity.Booking;
 import com.shiel.campaignapi.entity.Dependent;
 import com.shiel.campaignapi.entity.Event;
@@ -30,7 +32,7 @@ public class BookingService {
 
 	@Autowired
 	UserRepository userRepository;
-	
+
 	@Autowired
 	DependentRepository dependentRepository;
 
@@ -39,6 +41,7 @@ public class BookingService {
 
 	}
 
+	@PreAuthorize("hasRole('USER')")
 	public Booking saveBooking(BookingDto bookingDto) {
 
 		Booking booking = new Booking();
@@ -73,11 +76,10 @@ public class BookingService {
 				dependent.setGender(dependentDto.getGender());
 				dependent.setAge(dependentDto.getAge());
 				dependent.setRelation(dependentDto.getRelation());
-				
+
 				User dependentUser = userRepository.findById(dependentDto.getUserId()).orElseThrow(
 						() -> new RuntimeException("Dependent user not found with ID: " + dependentDto.getUserId()));
 				dependent.setUserId(dependentUser);
-			
 
 				dependent.setBookingId(savedBooking);
 				dependents.add(dependent);
@@ -87,11 +89,51 @@ public class BookingService {
 		return savedBooking;
 	}
 
-	public List<Booking> findAllBookings() {
-		List<Booking> bookings = new ArrayList<>();
-		bookingRepository.findAll().forEach(bookings::add);
-		;
-		return bookings;
+	public List<BookingDto> findAllBookings() {
+		List<Booking> bookings = bookingRepository.findAll();
+		List<BookingDto> bookingDtos = new ArrayList<>();
+
+		for (Booking booking : bookings) {
+			BookingDto bookingDto = new BookingDto();
+			bookingDto.setBookingId(booking.getBookingId());
+			bookingDto.setPaymentVia(booking.getPaymentVia());
+			bookingDto.setTotalAmount(booking.getTotalAmount());
+			bookingDto.setAmountPaid(booking.getAmountPaid());
+			bookingDto.setBookingStatus(booking.getBookingStatus());
+			bookingDto.setIsPaid(booking.getIsPaid());
+			bookingDto.setBookingDate(booking.getBookingDate());
+			bookingDto.setDependentCount(booking.getDependentCount());
+
+			User user = booking.getUserId();
+			if (user != null) {
+				SignupUserDto userDto = new SignupUserDto();
+				userDto.setUserId(user.getUserId());
+				userDto.setFullName(user.getFullName());
+				userDto.setEmail(user.getEmail());
+				userDto.setAge(user.getAge());
+				userDto.setPlace(user.getPlace());
+				userDto.setPhone(user.getPhone());
+				userDto.setGender(user.getGender());
+				bookingDto.setUser(userDto);
+			}
+			Event event = booking.getEventId();
+			if (event != null) {
+				EventDto eventDto = new EventDto();
+
+				eventDto.setTitle(event.getTitle());
+				eventDto.setDescription(event.getDescription());
+				eventDto.setPlace(event.getPlace());
+				eventDto.setAdultAmount(event.getAdultAmount());
+				eventDto.setStartDate(event.getStartDate());
+				eventDto.setEndDate(event.getEndDate());
+				eventDto.setSeats(event.getSeats());
+				eventDto.setStatus(event.getStatus());
+				bookingDto.setEvent(eventDto);
+			}
+
+			bookingDtos.add(bookingDto);
+		}
+		return bookingDtos;
 	}
 
 	public Booking updateBooking(BookingDto bookingDto) {
@@ -128,36 +170,35 @@ public class BookingService {
 	}
 
 	public BookingDto getBookingWithDependents(Long bookingId) {
-		  Booking booking = bookingRepository.findById(bookingId.toString())
-	                .orElseThrow(() -> new RuntimeException("Booking not found with ID: " + bookingId));
-		  
-	    BookingDto bookingDto = new BookingDto();
-	    bookingDto.setBookingId(booking.getBookingId());
-	    bookingDto.setPaymentVia(booking.getPaymentVia());
-	    bookingDto.setTotalAmount(booking.getTotalAmount());
-	    bookingDto.setAmountPaid(booking.getAmountPaid());
-	    bookingDto.setBookingStatus(booking.getBookingStatus());
-	    bookingDto.setIsPaid(booking.getIsPaid());
-	    bookingDto.setBookingDate(booking.getBookingDate());
-	    bookingDto.setDependentCount(booking.getDependentCount());
-	    bookingDto.setUserId(booking.getUserId().getUserId());  
-	    bookingDto.setEventId(booking.getEventId().getEventId()); 
+		Booking booking = bookingRepository.findById(bookingId.toString())
+				.orElseThrow(() -> new RuntimeException("Booking not found with ID: " + bookingId));
 
-	  
-	    List<DependentDto> dependentDtos = booking.getDependents().stream().map(dependent -> {
-	        DependentDto dependentDto = new DependentDto();
-	        dependentDto.setName(dependent.getName());
-	        dependentDto.setPlace(dependent.getPlace());
-	        dependentDto.setAge(dependent.getAge());
-	        dependentDto.setRelation(dependent.getRelation());
-	        dependentDto.setUserId(dependent.getUserId().getUserId()); 
-	        dependentDto.setBookingId(dependent.getBookingId().getBookingId()); 
-	        return dependentDto;
-	    }).collect(Collectors.toList());
+		BookingDto bookingDto = new BookingDto();
+		bookingDto.setBookingId(booking.getBookingId());
+		bookingDto.setPaymentVia(booking.getPaymentVia());
+		bookingDto.setTotalAmount(booking.getTotalAmount());
+		bookingDto.setAmountPaid(booking.getAmountPaid());
+		bookingDto.setBookingStatus(booking.getBookingStatus());
+		bookingDto.setIsPaid(booking.getIsPaid());
+		bookingDto.setBookingDate(booking.getBookingDate());
+		bookingDto.setDependentCount(booking.getDependentCount());
+		bookingDto.setUserId(booking.getUserId().getUserId());
+		bookingDto.setEventId(booking.getEventId().getEventId());
 
-	    bookingDto.setDependents(dependentDtos);
+		List<DependentDto> dependentDtos = booking.getDependents().stream().map(dependent -> {
+			DependentDto dependentDto = new DependentDto();
+			dependentDto.setName(dependent.getName());
+			dependentDto.setPlace(dependent.getPlace());
+			dependentDto.setAge(dependent.getAge());
+			dependentDto.setRelation(dependent.getRelation());
+			dependentDto.setUserId(dependent.getUserId().getUserId());
+			dependentDto.setBookingId(dependent.getBookingId().getBookingId());
+			return dependentDto;
+		}).collect(Collectors.toList());
 
-	    return bookingDto;
+		bookingDto.setDependents(dependentDtos);
+
+		return bookingDto;
 	}
 
 }
