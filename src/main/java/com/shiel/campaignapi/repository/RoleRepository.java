@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.shiel.campaignapi.entity.Role;
 
-public interface RoleRepository extends JpaRepository<Role,String>{
+public interface RoleRepository extends JpaRepository<Role,Long>{
 	   Optional<Role> findByRoleName(String roleName);
 }

@@ -2,21 +2,27 @@ package com.shiel.campaignapi.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
-@Table(name = "role")
 @Entity
-public class Role implements Serializable {
+@Table(name = "role")
 
+public class Role implements Serializable {
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "roleid", nullable = false)
@@ -27,6 +33,8 @@ public class Role implements Serializable {
 
 	@Column(name = "description", nullable = false)
 	private String description;
+
+
 	
 	@CreationTimestamp
 	@Column(updatable = false, name = "createdat")
@@ -35,7 +43,6 @@ public class Role implements Serializable {
 	@UpdateTimestamp
 	@Column(name = "updatedat")
 	private Date updatedAt;
-
 
 	public Long getRoleId() {
 		return roleId;
@@ -60,7 +67,6 @@ public class Role implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
 
 	public Date getCreatedAt() {
 		return createdAt;
@@ -77,11 +83,12 @@ public class Role implements Serializable {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	
+
 
 	public Role() {
 
 	}
-
 
 	public Role(Long roleId, String roleName, String description, Date createdAt, Date updatedAt) {
 		super();

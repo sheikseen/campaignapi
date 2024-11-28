@@ -13,7 +13,6 @@ import com.shiel.campaignapi.response.SigninResponse;
 import com.shiel.campaignapi.service.AuthenticationService;
 import com.shiel.campaignapi.service.JwtService;
 
-
 @RequestMapping("/auth")
 @RestController
 public class AuthenticationController {
@@ -26,7 +25,25 @@ public class AuthenticationController {
 	}
 
 	@PostMapping("/signup")
-	public ResponseEntity<User> register(@RequestBody SignupUserDto signupUserDto) {
+	public ResponseEntity<?> register(@RequestBody SignupUserDto signupUserDto) {
+
+		try {
+			int age = signupUserDto.getAge();
+			if (age < 15 || age > 100) {
+				return ResponseEntity.badRequest().body("Error: Age must be between 15 and 100!");
+			}
+		} catch (NumberFormatException e) {
+			return ResponseEntity.badRequest().body("Error: Invalid age format!");
+		}
+
+		// Validate Phone
+		if (!signupUserDto.getPhone().matches("^\\d{10}$")) {
+			return ResponseEntity.badRequest().body("Error: Invalid phone number ");
+		}
+
+		if (authenticationService.existsByPhone(signupUserDto.getPhone())) {
+			return ResponseEntity.badRequest().body("Error: Phone Number is already taken!");
+		}
 		User registeredUser = authenticationService.signup(signupUserDto);
 
 		return ResponseEntity.ok(registeredUser);

@@ -1,4 +1,4 @@
-package com.shiel.campaignapi.dto;
+/*package com.shiel.campaignapi.dto;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ public class UserRoleDto {
 	private Long id;
 	private Long userId;
 	private Long roleId;
-
+	 private String roleName;
 	// Constructors
 	public UserRoleDto() {
 	}
@@ -44,6 +44,14 @@ public class UserRoleDto {
 		this.roleId = roleId;
 	}
 
+	public String getRoleName() {
+		return roleName;
+	}
+
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
+
 	public List<UserRoleDto> userRole;
 
 	public List<UserRoleDto> getUserRole() {
@@ -55,3 +63,4 @@ public class UserRoleDto {
 	}
 
 }
+*/

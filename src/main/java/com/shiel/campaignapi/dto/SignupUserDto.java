@@ -1,6 +1,9 @@
 package com.shiel.campaignapi.dto;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
+import com.shiel.campaignapi.entity.Role;
 
 public class SignupUserDto {
 	private Integer userId;
@@ -11,6 +14,8 @@ public class SignupUserDto {
 	private String gender;
 	private String email;
 	private String password;
+	private List<Role> roles;
+	private Long roleId;
 
 	public String getEmail() {
 		return email;
@@ -79,12 +84,27 @@ public class SignupUserDto {
 		this.gender = gender;
 	}
 
-	
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+
+	public Long getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(Long roleId) {
+		this.roleId = roleId;
+	}
 
 	@Override
 	public String toString() {
 		return "SignupUserDto [userId=" + userId + ", fullName=" + fullName + ", place=" + place + ", phone=" + phone
-				+ ", age=" + age + ", gender=" + gender + ", email=" + email + ", password=" + password + "]";
+				+ ", age=" + age + ", gender=" + gender + ", email=" + email + ", password=" + password + ",roles="
+				+ roles + ",roleId=" + roleId + "]";
 	}
 
 }

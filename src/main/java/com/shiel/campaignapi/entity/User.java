@@ -3,18 +3,24 @@ package com.shiel.campaignapi.entity;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.*;
 import jakarta.persistence.Table;
 
 @Table(name = "user")
@@ -55,6 +61,14 @@ public class User implements UserDetails {
 	@UpdateTimestamp
 	@Column(name = "updatedat")
 	private Date updatedAt;
+
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private List<Role> roles;
+
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -170,6 +184,14 @@ public class User implements UserDetails {
 		return this;
 	}
 
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+
 	@Override
 	public boolean isEnabled() {
 		return true;
@@ -179,7 +201,7 @@ public class User implements UserDetails {
 	public String toString() {
 		return "User [userId=" + userId + ", fullName=" + fullName + ", email=" + email + ", password=" + password
 				+ ", place=" + place + ", phone=" + phone + ", age=" + age + ", gender=" + gender + ", createdAt="
-				+ createdAt + ", updatedAt=" + updatedAt + "]";
+				+ createdAt + ", updatedAt=" + updatedAt + "roles=" + roles + "]";
 	}
 
 }

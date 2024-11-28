@@ -1,4 +1,4 @@
-package com.shiel.campaignapi.service;
+/*package com.shiel.campaignapi.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,5 +40,6 @@ public class UserRoleService {
 		return savedUserRole;
 
 	}
-
+	 
 }
+*/

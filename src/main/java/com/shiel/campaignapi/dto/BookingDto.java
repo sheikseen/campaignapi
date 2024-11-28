@@ -1,11 +1,11 @@
 package com.shiel.campaignapi.dto;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import com.shiel.campaignapi.entity.Booking;
-import com.shiel.campaignapi.entity.Booking.PaymentMethod;
+
 
 public class BookingDto {
 	public Long bookingId;
@@ -15,7 +15,7 @@ public class BookingDto {
 	public BigDecimal amountPaid;
 	public boolean isPaid;
 	public Booking.BookingStatus bookingStatus;
-	public Date bookingDate;
+	public LocalDateTime bookingDate;
 	public Integer userId;
 //	public Long dependentId;
 	public Long eventId;
@@ -79,12 +79,12 @@ public class BookingDto {
 		this.isPaid = isPaid;
 	}
 
-	public Date getBookingDate() {
+	public LocalDateTime getBookingDate() {
 		return bookingDate;
 	}
 
-	public void setBookingDate(Date bookingDate) {
-		this.bookingDate = bookingDate;
+	public void setBookingDate(LocalDateTime localDateTime) {
+		this.bookingDate = localDateTime;
 	}
 
 	public Integer getUserId() {

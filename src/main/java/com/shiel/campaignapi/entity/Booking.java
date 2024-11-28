@@ -1,7 +1,7 @@
 package com.shiel.campaignapi.entity;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -44,7 +44,7 @@ public class Booking {
 	private BookingStatus bookingStatus;
 
 	@Column(name = "bookingdate")
-	private Date bookingDate;
+	private LocalDateTime bookingDate;
 
 	@ManyToOne
 	@JoinColumn(name = "userid", referencedColumnName = "userid")
@@ -113,12 +113,12 @@ public class Booking {
 		this.bookingStatus = bookingStatus;
 	}
 
-	public Date getBookingDate() {
+	public LocalDateTime getBookingDate() {
 		return bookingDate;
 	}
 
-	public void setBookingDate(Date bookingDate) {
-		this.bookingDate = bookingDate;
+	public void setBookingDate(LocalDateTime localDateTime) {
+		this.bookingDate = localDateTime;
 	}
 
 	public User getUserId() {

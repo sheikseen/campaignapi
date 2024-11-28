@@ -38,7 +38,7 @@ public class RoleController {
 
 	}
 
-	//@PreAuthorize("hasAnyRole('APPLICATION', 'USER', 'ADMIN')")
+
 	@GetMapping("/all")
 	public ResponseEntity<?> getAllRole() {
 		List<RoleDto> roles = roleService.findAllRoles();

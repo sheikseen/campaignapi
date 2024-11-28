@@ -10,8 +10,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +39,11 @@ public class JwtService {
     }
 
     public String generateToken(Map<String, Object> extraClaims, UserDetails userDetails) {
+    	 extraClaims.put("roles", userDetails.getAuthorities().stream()
+    			   .map(GrantedAuthority::getAuthority) // Extract role names
+    		        .collect(Collectors.toList()));
+    	
+    	 
         return buildToken(extraClaims, userDetails, jwtExpiration);
     }
 
@@ -49,6 +56,8 @@ public class JwtService {
             UserDetails userDetails,
             long expiration
     ) {
+    	
+    	
         return Jwts
                 .builder()
                 .setClaims(extraClaims)
@@ -72,7 +81,7 @@ public class JwtService {
         return extractClaim(token, Claims::getExpiration);
     }
 
-    private Claims extractAllClaims(String token) {
+    public Claims extractAllClaims(String token) {
         return Jwts
                 .parserBuilder()
                 .setSigningKey(getSignInKey())

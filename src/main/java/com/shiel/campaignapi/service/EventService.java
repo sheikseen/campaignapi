@@ -51,7 +51,7 @@ public class EventService {
 
 	public EventDto updateEvent(EventDto eventDto) {
 		try {
-			Optional<Event> optionalEvent = eventRepository.findById(eventDto.getId().toString());
+			Optional<Event> optionalEvent = eventRepository.findById(eventDto.getEventId().toString());
 			if (optionalEvent.isPresent()) {
 				Event event = optionalEvent.get();
 				event.setTitle(eventDto.getTitle());
@@ -87,14 +87,16 @@ public class EventService {
 
 	private EventDto mapToEventDto(Event event) {
 		EventDto eventDto = new EventDto();
-		// eventDto.setEventId(event.getEventId());
+		eventDto.setEventId(event.getEventId());
 		eventDto.setTitle(event.getTitle());
 		eventDto.setDescription(event.getDescription());
 		eventDto.setPlace(event.getPlace());
+		eventDto.setChildAmount(event.getChildAmount());
 		eventDto.setAdultAmount(event.getAdultAmount());
 		eventDto.setStartDate(event.getStartDate());
 		eventDto.setEndDate(event.getEndDate());
 		eventDto.setSeats(event.getSeats());
+		eventDto.setSeatsBooked(event.getSeatsBooked());
 		eventDto.setStatus(event.getStatus());
 
 		return eventDto;

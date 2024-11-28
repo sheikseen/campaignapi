@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,7 +25,7 @@ public class EventController {
 	@Autowired
 	EventService eventService;
 
-	@PreAuthorize("hasRole('ADMIN')")
+
 	@PostMapping("/add")
 	public ResponseEntity<?> addEvent(@RequestBody EventDto eventDto) {
 		if (eventService.existsByTitle(eventDto.getTitle())) {
@@ -41,7 +40,7 @@ public class EventController {
 		return ResponseEntity.ok(message);
 	}
 
-	//@PreAuthorize("hasAnyRole('APPLICATION', 'USER', 'ADMIN')")
+
 	@GetMapping("/all")
 	public ResponseEntity<?> getAllEvent() {
 		List<EventDto> events = eventService.findAllEvents();
@@ -53,27 +52,27 @@ public class EventController {
 
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping("{id}")
 	public ResponseEntity<?> getEventById(@PathVariable("id") @Valid String eventId) {
 		if (eventId.isBlank()) {
 			return ResponseEntity.badRequest().body("Event Id cannot be null");
 		}
 		EventDto eventDto = eventService.findEventById(eventId);
 		if (eventDto == null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No Users found");
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No Events found");
 		} else {
 			return ResponseEntity.ok().body(eventDto);
 		}
 	}
 
-	@PreAuthorize("hasRole('ADMIN')")
+
 	@PostMapping("/update/{id}")
 	public ResponseEntity<?> updateEvent(@PathVariable("id") @Valid String eventId,
 			@Valid @RequestBody EventDto eventDto) {
 		if (eventDto == null || eventId.isBlank()) {
 			return ResponseEntity.badRequest().body("Request cannot be empty ");
 		}
-		if (!eventId.equals(eventDto.getId())) {
+		if (!eventId.equals(eventDto.getEventId())) {
 			return ResponseEntity.badRequest().body("Invalid event ID in the request");
 		}
 		if (!eventService.isValidDate(eventDto.getStartDate(), eventDto.getEndDate())) {
@@ -89,7 +88,7 @@ public class EventController {
 
 	}
 
-	@PreAuthorize("hasRole('ADMIN')")
+	
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> deleteUserById(@PathVariable("id") @Valid String eventId) {
 		if (eventId.isBlank()) {

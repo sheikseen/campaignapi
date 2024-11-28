@@ -1,4 +1,4 @@
-package com.shiel.campaignapi.entity;
+/*package com.shiel.campaignapi.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -14,9 +14,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-
-@Table(name = "user_role")
 @Entity
+@Table(name = "user_role")
+
 public class UserRole implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -99,3 +99,4 @@ public class UserRole implements Serializable {
 
 
 }
+*/

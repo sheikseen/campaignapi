@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,9 +16,16 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 
+import com.shiel.campaignapi.entity.Role;
+import com.shiel.campaignapi.entity.User;
+import com.shiel.campaignapi.repository.UserRepository;
 import com.shiel.campaignapi.service.JwtService;
 
+import io.jsonwebtoken.Claims;
+
 import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
@@ -25,15 +33,17 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
     private final UserDetailsService userDetailsService;
-
+    private final UserRepository userRepository; 
     public JwtAuthenticationFilter(
         JwtService jwtService,
         UserDetailsService userDetailsService,
-        HandlerExceptionResolver handlerExceptionResolver
+        HandlerExceptionResolver handlerExceptionResolver,
+        UserRepository userRepository
     ) {
         this.jwtService = jwtService;
         this.userDetailsService = userDetailsService;
         this.handlerExceptionResolver = handlerExceptionResolver;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -59,10 +69,29 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 UserDetails userDetails = this.userDetailsService.loadUserByUsername(userEmail);
 
                 if (jwtService.isTokenValid(jwt, userDetails)) {
-                    UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
+                   
+                //	 Claims claims = jwtService.extractAllClaims(jwt);
+                    
+                	  // Dynamically fetch roles from the database
+                      User user = userRepository.findByEmail(userEmail)
+                          .orElseThrow(() -> new RuntimeException("User not found: " + userEmail));
+
+                      List<String> roles = user.getRoles().stream()
+                          .map(Role::getRoleName) // Fetch role names from the Role entity
+                          .collect(Collectors.toList());
+
+                      // Convert roles to GrantedAuthority
+                      var authorities = roles.stream()
+                          .map(SimpleGrantedAuthority::new) // Spring Security requires authorities
+                          .collect(Collectors.toList());
+
+                  
+                	
+                	UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                             userDetails,
                             null,
-                            userDetails.getAuthorities()
+                            authorities
+                           
                     );
 
                     authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));

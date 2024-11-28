@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
+
 import com.shiel.campaignapi.dto.RoleDto;
 import com.shiel.campaignapi.entity.Role;
 import com.shiel.campaignapi.repository.RoleRepository;
@@ -40,7 +41,7 @@ public class RoleService {
 
 	public Role updateRole(RoleDto roleDto) {
 		try {
-			Optional<Role> roleOptional = roleRepository.findById(roleDto.getRoleId().toString());
+			Optional<Role> roleOptional = roleRepository.findById(roleDto.getRoleId());
 			if (roleOptional.isPresent()) {
 				Role role = roleOptional.get();
 				
@@ -57,7 +58,7 @@ public class RoleService {
 	}
 
 	public RoleDto deleteRoleById(@Valid Long roleId) {
-		Optional<Role> optionalMeeting = roleRepository.findById(roleId.toString());
+		Optional<Role> optionalMeeting = roleRepository.findById(roleId);
 		if (optionalMeeting.isPresent()) {
 			Role role = optionalMeeting.get();
 			roleRepository.delete(role);

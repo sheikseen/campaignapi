@@ -1,17 +1,8 @@
 package com.shiel.campaignapi.dto;
 
 public class SigninUserDto {
-	private String email;
+	private String identifier;
 	private String password;
-
-	public String getEmail() {
-		return email;
-	}
-
-	public SigninUserDto setEmail(String email) {
-		this.email = email;
-		return this;
-	}
 
 	public String getPassword() {
 		return password;
@@ -22,8 +13,17 @@ public class SigninUserDto {
 		return this;
 	}
 
+	public String getIdentifier() {
+		return identifier;
+	}
+
+	public SigninUserDto setIdentifier(String identifier) {
+		this.identifier = identifier;
+		return this;
+	}
+
 	@Override
 	public String toString() {
-		return "SigninUserDto{" + "email='" + email + '\'' + ", password='" + password + '\'' + '}';
+		return "SigninUserDto{" + "identifier='" + identifier + '\'' + ", password='" + password + '\'' + '}';
 	}
 }
