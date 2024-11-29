@@ -52,8 +52,8 @@ public class EventController {
 
 	}
 
-	@GetMapping("{id}")
-	public ResponseEntity<?> getEventById(@PathVariable("id") @Valid String eventId) {
+	@GetMapping("{eventId}")
+	public ResponseEntity<?> getEventById(@PathVariable("eventId") @Valid String eventId) {
 		if (eventId.isBlank()) {
 			return ResponseEntity.badRequest().body("Event Id cannot be null");
 		}
@@ -66,8 +66,8 @@ public class EventController {
 	}
 
 
-	@PostMapping("/update/{id}")
-	public ResponseEntity<?> updateEvent(@PathVariable("id") @Valid String eventId,
+	@PostMapping("/update/{eventId}")
+	public ResponseEntity<?> updateEvent(@PathVariable("eventId") @Valid String eventId,
 			@Valid @RequestBody EventDto eventDto) {
 		if (eventDto == null || eventId.isBlank()) {
 			return ResponseEntity.badRequest().body("Request cannot be empty ");
@@ -89,8 +89,8 @@ public class EventController {
 	}
 
 	
-	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> deleteUserById(@PathVariable("id") @Valid String eventId) {
+	@DeleteMapping("/delete/{eventId}")
+	public ResponseEntity<?> deleteUserById(@PathVariable("eventId") @Valid String eventId) {
 		if (eventId.isBlank()) {
 			return ResponseEntity.badRequest().body("Event ID cannot be empty");
 		}

@@ -77,8 +77,5 @@ public class RoleService {
 		return roleDto;
 	}
 	
-//	public boolean existsByTitle(String roleName) {
-//		return roleRepository.existsByTitle(roleName);
-//	}
 
 }

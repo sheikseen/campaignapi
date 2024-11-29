@@ -64,8 +64,7 @@ public class BookingService {
 
 		Booking savedBooking = bookingRepository.save(booking);
 
-		// Save dependents if provided
-		// int dependentCount = 0;
+		
 		if (bookingDto.getDependents() != null && !bookingDto.getDependents().isEmpty()) {
 			List<Dependent> dependents = new ArrayList<>();
 			for (DependentDto dependentDto : bookingDto.getDependents()) {
@@ -81,7 +80,6 @@ public class BookingService {
 				User loggedUser = userRepository.findByEmail(loggedUserEmail).orElseThrow(
 						() -> new RuntimeException("Current user not found with email: " + loggedUserEmail));
 				dependent.setUserId(loggedUser);
-
 				dependent.setBookingId(savedBooking);
 				dependents.add(dependent);
 			}

@@ -17,7 +17,6 @@ public class BookingDto {
 	public Booking.BookingStatus bookingStatus;
 	public LocalDateTime bookingDate;
 	public Integer userId;
-//	public Long dependentId;
 	public Long eventId;
 	private Integer loggedInUserId;
 	private SignupUserDto user;
@@ -95,14 +94,6 @@ public class BookingDto {
 		this.userId = userId;
 	}
 
-//	public Long getDependentId() {
-//		return dependentId;
-//	}
-//
-//	public void setDependentId(Long dependentId) {
-//		this.dependentId = dependentId;
-//	}
-
 	public Long getEventId() {
 		return eventId;
 	}
@@ -129,8 +120,6 @@ public class BookingDto {
 		this.dependents = dependents;
 		
 	}
-	
-	
 
 	public SignupUserDto getUser() {
 		return user;

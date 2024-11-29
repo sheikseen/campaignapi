@@ -29,9 +29,7 @@ public class RoleController {
 	
 	@PostMapping("/add")
 	public ResponseEntity<?> addRole(@RequestBody RoleDto roleDto) {
-		//if (roleService.existsByTitle(roleDto.getRoleName())) {
-		//	return ResponseEntity.badRequest().body("Error: Role already Exist");
-		//}
+	
 		Role roleId = roleService.saveRole(roleDto);
 		String message = String.format("role registered successfully!",roleId);
 		return ResponseEntity.ok(message);

@@ -18,7 +18,6 @@ public class RoleDto {
 
 	}
 
-	// Getters and Setters
 	public Long getRoleId() {
 		return roleId;
 	}

@@ -36,7 +36,6 @@ public class AuthenticationController {
 			return ResponseEntity.badRequest().body("Error: Invalid age format!");
 		}
 
-		// Validate Phone
 		if (!signupUserDto.getPhone().matches("^\\d{10}$")) {
 			return ResponseEntity.badRequest().body("Error: Invalid phone number ");
 		}

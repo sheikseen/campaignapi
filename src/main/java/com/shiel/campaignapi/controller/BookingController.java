@@ -94,7 +94,7 @@ public class BookingController {
 	        }
 	    }
 	 
-	  @DeleteMapping("/{bookingId}")
+	  @DeleteMapping("/delete/{bookingId}")
 	    public ResponseEntity<?> cancelBooking(@PathVariable Long bookingId) {
 	        try {
 	            Booking updatedBooking = bookingService.cancelBooking(bookingId);

@@ -50,8 +50,8 @@ public class MeetingController {
 	}
 
 
-	@PostMapping("/update/{id}")
-	public ResponseEntity<?> updateMeeting(@PathVariable("id") Long meetingId,
+	@PostMapping("/update/{meetingId}")
+	public ResponseEntity<?> updateMeeting(@PathVariable("meetingId") Long meetingId,
 			@Valid @RequestBody MeetingDto meetingDto) {
 
 		if (meetingId == null || meetingDto == null) {
@@ -71,7 +71,7 @@ public class MeetingController {
 
 	}
 
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("/delete/{meetingId}")
 	public ResponseEntity<?> deleteMeetingById(@PathVariable("id") @Valid Long meetingId) {
 
 		if (meetingId == null) {
@@ -85,8 +85,8 @@ public class MeetingController {
 
 	}
 	
-	@GetMapping("{id}")
-	public ResponseEntity<?> getMeetingById(@PathVariable("id") @Valid String meetingId) {
+	@GetMapping("{meetingId}")
+	public ResponseEntity<?> getMeetingById(@PathVariable("meetingId") @Valid String meetingId) {
 		if (meetingId.isBlank()) {
 			return ResponseEntity.badRequest().body("Meeting Id cannot be null");
 		}

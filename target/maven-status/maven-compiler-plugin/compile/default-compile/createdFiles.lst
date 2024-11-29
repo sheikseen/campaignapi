@@ -36,6 +36,7 @@ com\shiel\campaignapi\entity\Booking.class
 com\shiel\campaignapi\entity\Booking$PaymentMethod.class
 com\shiel\campaignapi\controller\EventController.class
 com\shiel\campaignapi\controller\UserController.class
+com\shiel\campaignapi\exception\UserNotFoundException.class
 com\shiel\campaignapi\repository\DependentRepository.class
 com\shiel\campaignapi\entity\Meeting.class
 com\shiel\campaignapi\entity\Event.class

@@ -43,9 +43,9 @@ public class AuthenticationService {
 
 		if (signupUserDto.getRoleId() != null) {
 
-			Role assignedRole = roleRepository.findById(signupUserDto.getRoleId())
+			Role role = roleRepository.findById(signupUserDto.getRoleId())
 					.orElseThrow(() -> new RuntimeException("Role not found with ID: " + signupUserDto.getRoleId()));
-			roles.add(assignedRole);
+			roles.add(role);
 		} else {
 
 			Role defaultRole = roleRepository.findByRoleName("ROLE_USER")
@@ -60,7 +60,6 @@ public class AuthenticationService {
 	}
 
 	public User authenticate(SigninUserDto signinUserDto) {
-		// Determine if the input is an email or phone number
 		String identifier = signinUserDto.getIdentifier();
 
 		if (identifier == null || signinUserDto.getPassword() == null) {
@@ -97,9 +96,8 @@ public class AuthenticationService {
 		return input.matches("^[\\w.%+-]+@[\\w.-]+\\.[a-zA-Z]{2,6}$");
 	}
 
-	// Helper method to validate phone number (basic example)
 	private boolean isPhone(String input) {
-		return input.matches("^\\+?[1-9]\\d{1,14}$"); // E.164 format
+		return input.matches("^\\+?[1-9]\\d{1,14}$"); 
 	}
 
 }

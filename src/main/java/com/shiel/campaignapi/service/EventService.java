@@ -22,7 +22,6 @@ public class EventService {
 	public String saveEvent(EventDto eventDto) {
 
 		Event event = new Event();
-		// event.setEventId(UUID.randomUUID().toString());
 		event.setTitle(eventDto.getTitle());
 		event.setDescription(eventDto.getDescription());
 		event.setStartDate(eventDto.getStartDate());

@@ -29,79 +29,62 @@ import java.util.stream.Collectors;
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
-    private final HandlerExceptionResolver handlerExceptionResolver;
+	private final HandlerExceptionResolver handlerExceptionResolver;
 
-    private final JwtService jwtService;
-    private final UserDetailsService userDetailsService;
-    private final UserRepository userRepository; 
-    public JwtAuthenticationFilter(
-        JwtService jwtService,
-        UserDetailsService userDetailsService,
-        HandlerExceptionResolver handlerExceptionResolver,
-        UserRepository userRepository
-    ) {
-        this.jwtService = jwtService;
-        this.userDetailsService = userDetailsService;
-        this.handlerExceptionResolver = handlerExceptionResolver;
-        this.userRepository = userRepository;
-    }
+	private final JwtService jwtService;
+	private final UserDetailsService userDetailsService;
+	private final UserRepository userRepository;
 
-    @Override
-    protected void doFilterInternal(
-        @NonNull HttpServletRequest request,
-        @NonNull HttpServletResponse response,
-        @NonNull FilterChain filterChain
-    ) throws ServletException, IOException {
-        final String authHeader = request.getHeader("Authorization");
+	public JwtAuthenticationFilter(JwtService jwtService, UserDetailsService userDetailsService,
+			HandlerExceptionResolver handlerExceptionResolver, UserRepository userRepository) {
+		this.jwtService = jwtService;
+		this.userDetailsService = userDetailsService;
+		this.handlerExceptionResolver = handlerExceptionResolver;
+		this.userRepository = userRepository;
+	}
 
-        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-            filterChain.doFilter(request, response);
-            return;
-        }
+	@Override
+	protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response,
+			@NonNull FilterChain filterChain) throws ServletException, IOException {
+		final String authHeader = request.getHeader("Authorization");
 
-        try {
-            final String jwt = authHeader.substring(7);
-            final String userEmail = jwtService.extractUsername(jwt);
+		if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+			filterChain.doFilter(request, response);
+			return;
+		}
 
-            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		try {
+			final String jwt = authHeader.substring(7);
+			final String email = jwtService.extractUsername(jwt);
 
-            if (userEmail != null && authentication == null) {
-                UserDetails userDetails = this.userDetailsService.loadUserByUsername(userEmail);
+			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-                if (jwtService.isTokenValid(jwt, userDetails)) {
-                   
-                //	 Claims claims = jwtService.extractAllClaims(jwt);
-                    
-                	  // Dynamically fetch roles from the database
-                      User user = userRepository.findByEmail(userEmail)
-                          .orElseThrow(() -> new RuntimeException("User not found: " + userEmail));
+			if (email != null && authentication == null) {			
+				UserDetails userDetails = this.userDetailsService.loadUserByUsername(email);
+				if (jwtService.isTokenValid(jwt, userDetails)) {
 
-                      List<String> roles = user.getRoles().stream()
-                          .map(Role::getRoleName) // Fetch role names from the Role entity
-                          .collect(Collectors.toList());
+					User user = userRepository.findByEmail(email)
+							.orElseThrow(() -> new RuntimeException("User not found: " + email));
 
-                      // Convert roles to GrantedAuthority
-                      var authorities = roles.stream()
-                          .map(SimpleGrantedAuthority::new) // Spring Security requires authorities
-                          .collect(Collectors.toList());
+					List<String> roles = user.getRoles().stream().map(Role::getRoleName) 
+							.collect(Collectors.toList());
 
-                  
-                	
-                	UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
-                            userDetails,
-                            null,
-                            authorities
-                           
-                    );
+					// Convert roles to GrantedAuthority
+					var authorities = roles.stream().map(SimpleGrantedAuthority::new) 
+							.collect(Collectors.toList());
 
-                    authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                    SecurityContextHolder.getContext().setAuthentication(authToken);
-                }
-            }
+					UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetails,
+							null, authorities
 
-            filterChain.doFilter(request, response);
-        } catch (Exception exception) {
-            handlerExceptionResolver.resolveException(request, response, null, exception);
-        }
-    }
+					);
+					authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+					SecurityContextHolder.getContext().setAuthentication(authToken);
+				}
+			}
+
+			filterChain.doFilter(request, response);
+		} catch (Exception exception) {
+			handlerExceptionResolver.resolveException(request, response, null, exception);
+		}
+	}
 }

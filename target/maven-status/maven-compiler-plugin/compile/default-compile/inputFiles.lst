@@ -6,6 +6,7 @@ D:\project\camp-api\campaignapi\src\main\java\com\shiel\campaignapi\controller\B
 D:\project\camp-api\campaignapi\src\main\java\com\shiel\campaignapi\entity\Dependent.java
 D:\project\camp-api\campaignapi\src\main\java\com\shiel\campaignapi\entity\UserRole.java
 D:\project\camp-api\campaignapi\src\main\java\com\shiel\campaignapi\service\UserService.java
+D:\project\camp-api\campaignapi\src\main\java\com\shiel\campaignapi\exception\UserNotFoundException.java
 D:\project\camp-api\campaignapi\src\main\java\com\shiel\campaignapi\exception\GlobalExceptionHandler.java
 D:\project\camp-api\campaignapi\src\main\java\com\shiel\campaignapi\controller\MeetingController.java
 D:\project\camp-api\campaignapi\src\main\java\com\shiel\campaignapi\service\EventService.java
