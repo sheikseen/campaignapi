@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +20,9 @@ import com.shiel.campaignapi.service.UserService;
 
 import jakarta.validation.Valid;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @RequestMapping("/users")
 @RestController
@@ -93,5 +96,20 @@ public class UserController {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage()); // Correct
 		}
 	}
+	
+    @DeleteMapping("delete/{userId}")
+    public ResponseEntity<Void> softDeleteEntity(@PathVariable Integer userId) {
+        Optional<User> user = userRepository.findById(userId);
+
+        if (user.isPresent()) {
+            User users = user.get();
+            users.setDeletedAt(LocalDateTime.now());
+            users.setStatus(User.UserStatus.DEACTIVATED);
+            userRepository.save(users);
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 }

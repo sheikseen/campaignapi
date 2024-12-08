@@ -30,7 +30,6 @@ public class EventService {
 		event.setAdultAmount(eventDto.getAdultAmount());
 		event.setChildAmount(eventDto.getChildAmount());
 		event.setSeats(eventDto.getSeats());
-		event.setSeatsBooked(eventDto.getSeatsBooked());
 		event.setStatus(Event.EventStatus.CREATED);
 
 		Event save = eventRepository.save(event);
@@ -41,34 +40,33 @@ public class EventService {
 		return eventRepository.findById(eventId).map(this::mapToEventDto).orElse(null);
 	}
 
-
 	public List<EventDto> findAllEvents() {
 		List<Event> events = eventRepository.findAll();
 		return events.stream().map((event) -> mapToEventDto(event)).collect(Collectors.toList());
 
 	}
 
-	public EventDto updateEvent(EventDto eventDto) {
+	public Event updateEvent(EventDto eventDto) {
 		try {
 			Optional<Event> optionalEvent = eventRepository.findById(eventDto.getEventId().toString());
 			if (optionalEvent.isPresent()) {
 				Event event = optionalEvent.get();
+
 				event.setTitle(eventDto.getTitle());
 				event.setDescription(eventDto.getDescription());
 				event.setPlace(eventDto.getPlace());
 				event.setAdultAmount(eventDto.getAdultAmount());
 				event.setChildAmount(eventDto.getChildAmount());
 				event.setSeats(eventDto.getSeats());
-				event.setSeatsBooked(eventDto.getSeatsBooked());
 				event.setStatus(eventDto.getStatus());
 
-				eventRepository.save(event);
-				return eventDto;
+				return eventRepository.save(event);
+			} else {
+				throw new RuntimeException("Event not found with id " + eventDto.getEventId());
 			}
 		} catch (Exception e) {
 			return null;
 		}
-		return null;
 
 	}
 
@@ -96,7 +94,7 @@ public class EventService {
 		eventDto.setEndDate(event.getEndDate());
 		eventDto.setSeats(event.getSeats());
 		eventDto.setSeatsBooked(event.getSeatsBooked());
-		eventDto.setStatus(event.getStatus());
+		eventDto.setStatus(Event.EventStatus.CREATED);
 
 		return eventDto;
 
@@ -107,6 +105,11 @@ public class EventService {
 	}
 
 	public boolean isValidDate(Date startDate, Date endDate) {
-		return startDate != null && endDate != null && startDate.before(endDate) && startDate.after(new Date());
+	    Date today = new Date();
+	    return startDate != null 
+	        && endDate != null 
+	        && startDate.before(endDate) 
+	        && startDate.after(today)   
+	        && endDate.after(today);   
 	}
 }

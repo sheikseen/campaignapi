@@ -5,6 +5,9 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,8 +20,8 @@ public class Event implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "eventid",nullable = false)
-	private Long  eventId;
+	@Column(name = "eventid", nullable = false)
+	private Long eventId;
 
 	@Column(name = "title", nullable = false)
 	private String title;
@@ -50,14 +53,22 @@ public class Event implements Serializable {
 	@Column(name = "seatsbooked", nullable = true)
 	private int seatsBooked;
 
+	@CreationTimestamp
+	@Column(updatable = false, name = "createdat")
+	private Date createdAt;
+
+	@UpdateTimestamp
+	@Column(name = "updatedat")
+	private Date updatedAt;
+
 	public Event() {
 	}
 
-	public Long  getEventId() {
+	public Long getEventId() {
 		return eventId;
 	}
 
-	public void setEventId(Long  eventId) {
+	public void setEventId(Long eventId) {
 		this.eventId = eventId;
 	}
 
@@ -142,8 +153,25 @@ public class Event implements Serializable {
 		this.status = status;
 		return this;
 	}
+	
 
-	public Event(Long  eventId, String title, String description, Date startDate, Date endDate, String place,
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+
+	public Event(Long eventId, String title, String description, Date startDate, Date endDate, String place,
 			BigDecimal adultAmount, BigDecimal childAmount, int seats, int seatsBooked, EventStatus status) {
 		this.eventId = eventId;
 		this.title = title;

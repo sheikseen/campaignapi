@@ -30,16 +30,18 @@ public class SecurityConfiguration {
 		http.csrf(csrf -> csrf.disable()).authorizeHttpRequests().requestMatchers("/auth/**").hasRole("APPLICATION")
 				.requestMatchers("/events/add", "/events/update/*", "/events/delete/*", "/meetings/add",
 						"/meetings/update/*", "/meetings/delete/*", "/booking/all", "/users/all",
-						"booking/event/{eventId}", "booking/user/{userId}", "booking/delete/{bookingId}")
+						"booking/event/{eventId}", "booking/user/{userId}", "booking/delete/{bookingId}",
+						"/zoom-meetings/add","/zoom-meetings/delete/*","/zoom-meetings/update/*","/roles/**")
 				.hasRole("ADMIN")
-			
-				.requestMatchers("/events/all", "/meetings/all", "/meetings/{meetingId}", "/events/{eventId}")
+
+				.requestMatchers("/events/all", "/meetings/all", "/meetings/{meetingId}", "/events/{eventId}",
+						"/zoom-meetings/all", "/zoom-meetings/{meetingId}")
 				.hasAnyRole("APPLICATION", "USER", "ADMIN")
 
 				.requestMatchers(
-						"/booking/add", "/booking/{id}	", "/booking/update/*", "/users/update/*", "/users/{userId}")
+						"/booking/add", "/booking/{id}	", "/booking/update/*", "/users/update/*", "/users/{userId}","/users/delete/*")
 				.hasAnyRole("USER", "ADMIN").and()
-				
+
 				.anonymous(anonymous -> anonymous
 						.authorities(Collections.singletonList(new SimpleGrantedAuthority("ROLE_APPLICATION"))))
 				.sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

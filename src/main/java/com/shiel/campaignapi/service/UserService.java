@@ -38,6 +38,7 @@ public class UserService {
 			signupDto.setPlace(user.getPlace());
 			signupDto.setRoles(user.getRoles());
 			signupDto.setUserId(user.getUserId());
+			signupDto.setStatus(user.getStatus());
 			userDtoList.add(signupDto);
 		}
 

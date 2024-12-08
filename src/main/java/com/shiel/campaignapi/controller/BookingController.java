@@ -30,15 +30,16 @@ public class BookingController {
 
 	@PostMapping("/add")
 	public ResponseEntity<?> addBooking(@RequestBody BookingDto bookingDto) {
-		try {
-			Booking bookingid = bookingService.saveBooking(bookingDto);
-
-			return ResponseEntity.ok(bookingid);
-
-		} catch (RuntimeException e) {
-			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-		}
+	    try {
+	        Booking booking = bookingService.saveBooking(bookingDto);
+	        return ResponseEntity.ok(booking);
+	    } catch (RuntimeException e) {
+	        e.printStackTrace(); // Log the error for debugging
+	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+	                .body("Error occurred: " + e.getMessage());
+	    }
 	}
+
 
 	@GetMapping("/all")
 	public ResponseEntity<?> getAllBooking() {

@@ -16,6 +16,7 @@ com\shiel\campaignapi\dto\SigninUserDto.class
 com\shiel\campaignapi\controller\BookingController.class
 com\shiel\campaignapi\entity\Role.class
 com\shiel\campaignapi\controller\MeetingController.class
+com\shiel\campaignapi\config\WebConfig.class
 com\shiel\campaignapi\repository\UserRepository.class
 com\shiel\campaignapi\entity\Dependent$Relation.class
 com\shiel\campaignapi\repository\BookingRepository.class
@@ -26,6 +27,7 @@ com\shiel\campaignapi\entity\User.class
 com\shiel\campaignapi\exception\GlobalExceptionHandler.class
 com\shiel\campaignapi\repository\EventRepository.class
 com\shiel\campaignapi\CampaignApiApplication.class
+com\shiel\campaignapi\config\WebConfig$1.class
 com\shiel\campaignapi\entity\Booking$PaymentStatus.class
 com\shiel\campaignapi\dto\EventDto.class
 com\shiel\campaignapi\controller\RoleController.class

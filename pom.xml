@@ -76,6 +76,11 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>7.0.0.Final</version>  <!-- or the version you need -->
 		</dependency>
+		<dependency>
+			<groupId>com.razorpay</groupId>
+			<artifactId>razorpay-java</artifactId>
+			<version>1.4.8</version>
+		</dependency>
 
 	</dependencies>
 

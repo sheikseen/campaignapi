@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -37,8 +38,8 @@ public class AuthenticationService {
 		var user = new User().setFullName(signupUserDto.getFullName()).setEmail(signupUserDto.getEmail())
 				.setPassword(passwordEncoder.encode(signupUserDto.getPassword())).setAge(signupUserDto.getAge())
 				.setGender(signupUserDto.getGender()).setPhone(signupUserDto.getPhone())
-				.setPlace(signupUserDto.getPlace());
-
+				.setPlace(signupUserDto.getPlace()).setPhoneExt(signupUserDto.getPhoneExt()).setStatus(User.UserStatus.ACTIVE);
+		
 		List<Role> roles = new ArrayList<>();
 
 		if (signupUserDto.getRoleId() != null) {
@@ -61,6 +62,7 @@ public class AuthenticationService {
 
 	public User authenticate(SigninUserDto signinUserDto) {
 		String identifier = signinUserDto.getIdentifier();
+		String password = signinUserDto.getPassword();
 
 		if (identifier == null || signinUserDto.getPassword() == null) {
 			throw new IllegalArgumentException("Email/Phone number or password cannot be null");
@@ -75,9 +77,15 @@ public class AuthenticationService {
 		} else {
 			throw new IllegalArgumentException("Invalid identifier format. Must be a valid email or phone number.");
 		}
-		User user = optionalUser.orElseThrow(() -> new UsernameNotFoundException("User not found"));
-		authenticationManager
-				.authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(), signinUserDto.getPassword()));
+
+		User user = optionalUser
+				.orElseThrow(() -> new UsernameNotFoundException("User not found, Please register to login"));
+		try {
+			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(), password));
+		} catch (BadCredentialsException ex) {
+
+			throw new BadCredentialsException("Incorrect email/phone or password.");
+		}
 
 		return user;
 	}
@@ -97,7 +105,7 @@ public class AuthenticationService {
 	}
 
 	private boolean isPhone(String input) {
-		return input.matches("^\\+?[1-9]\\d{1,14}$"); 
+		return input.matches("^\\+?[1-9]\\d{1,14}$");
 	}
 
 }

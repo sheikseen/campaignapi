@@ -1,16 +1,14 @@
 
 package com.shiel.campaignapi.entity;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.persistence.Column;
@@ -46,6 +44,9 @@ public class User implements UserDetails {
 	private String place;
 
 	@Column(nullable = false)
+	private String phoneExt;
+
+	@Column(nullable = false)
 	private String phone;
 
 	@Column(nullable = false)
@@ -53,6 +54,9 @@ public class User implements UserDetails {
 
 	@Column(nullable = false)
 	private String gender;
+
+	@Column(name = "status", nullable = true)
+	private UserStatus status;
 
 	@CreationTimestamp
 	@Column(updatable = false, name = "createdat")
@@ -62,12 +66,14 @@ public class User implements UserDetails {
 	@Column(name = "updatedat")
 	private Date updatedAt;
 
+	@Column
+	private LocalDateTime deletedAt;
+
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private List<Role> roles;
 
 	public User() {
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -140,6 +146,15 @@ public class User implements UserDetails {
 		return this;
 	}
 
+	public LocalDateTime getDeletedAt() {
+		return deletedAt;
+	}
+
+	public User setDeletedAt(LocalDateTime deletedAt) {
+		this.deletedAt = deletedAt;
+		return this;
+	}
+
 	public Integer getUserId() {
 		return userId;
 	}
@@ -154,6 +169,15 @@ public class User implements UserDetails {
 
 	public User setPlace(String place) {
 		this.place = place;
+		return this;
+	}
+
+	public String getPhoneExt() {
+		return phoneExt;
+	}
+
+	public User setPhoneExt(String phoneExt) {
+		this.phoneExt = phoneExt;
 		return this;
 	}
 
@@ -192,6 +216,17 @@ public class User implements UserDetails {
 		this.roles = roles;
 	}
 
+	
+	public UserStatus getStatus() {
+		return status;
+	}
+
+	public User setStatus(UserStatus status) {
+		this.status = status;
+		return this;
+		
+	}
+
 	@Override
 	public boolean isEnabled() {
 		return true;
@@ -200,8 +235,13 @@ public class User implements UserDetails {
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", fullName=" + fullName + ", email=" + email + ", password=" + password
-				+ ", place=" + place + ", phone=" + phone + ", age=" + age + ", gender=" + gender + ", createdAt="
-				+ createdAt + ", updatedAt=" + updatedAt + "roles=" + roles + "]";
+				+ ", place=" + place + ", phoneExt=" + phoneExt + ", phone=" + phone + ", age=" + age + ", gender="
+				+ gender + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", deltedAt=" + deletedAt
+				+ "roles=" + roles + ",status=" + status + "]";
+	}
+
+	public enum UserStatus {
+		ACTIVE, DEACTIVATED
 	}
 
 }

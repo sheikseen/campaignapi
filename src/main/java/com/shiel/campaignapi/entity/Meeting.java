@@ -1,6 +1,10 @@
 package com.shiel.campaignapi.entity;
 
 import java.io.Serializable;
+import java.util.Date;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,6 +34,29 @@ public class Meeting implements Serializable {
 
 	@Column(name = "day", nullable = false)
 	private String day;
+	@CreationTimestamp
+	@Column(updatable = false, name = "createdat")
+	private Date createdAt;
+
+	@UpdateTimestamp
+	@Column(name = "updatedat")
+	private Date updatedAt;
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
 
 	public Long getMeetingId() {
 		return meetingId;
@@ -71,17 +98,19 @@ public class Meeting implements Serializable {
 		this.day = day;
 	}
 
-	public Meeting(Long meetingId, String title, String place, String description, String day) {
-		
+	public Meeting(Long meetingId, String title, String place, String description, String day, Date createdAt,
+			Date updatedAt) {
+
 		this.meetingId = meetingId;
 		this.title = title;
 		this.place = place;
 		this.description = description;
 		this.day = day;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
 	}
 
 	public Meeting() {
-		// TODO Auto-generated constructor stub
 	}
 
 }

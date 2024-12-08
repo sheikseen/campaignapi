@@ -2,7 +2,11 @@ package com.shiel.campaignapi.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -54,8 +58,16 @@ public class Booking {
 	@JoinColumn(name = "eventid", referencedColumnName = "eventid", nullable = true)
 	private Event eventId;
 
-	@OneToMany(mappedBy = "bookingId", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "bookingId", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 	private List<Dependent> dependents;
+
+	@CreationTimestamp
+	@Column(updatable = false, name = "createdat")
+	private Date createdAt;
+
+	@UpdateTimestamp
+	@Column(name = "updatedat")
+	private Date updatedAt;
 
 	public Long getBookingId() {
 		return bookingId;
@@ -146,7 +158,7 @@ public class Booking {
 	}
 
 	public enum PaymentMethod {
-		CASH, GOOGLE_PAY
+		CASH, GOOGLE_PAY, CARD
 	}
 
 	public enum BookingStatus {
@@ -157,6 +169,24 @@ public class Booking {
 		PENDING, PAID, REFUNDED, CANCELLED,
 	}
 
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public Booking setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+		return this;
+	}
+
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public Booking setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+		return this;
+	}
+
 	public Booking() {
 	}
 
@@ -165,7 +195,7 @@ public class Booking {
 		return "Booking [bookingId=" + bookingId + ", dependentCount=" + dependentCount + ", paymentVia=" + paymentVia
 				+ ", totalAmount=" + totalAmount + ", amountPaid=" + amountPaid + ", isPaid=" + isPaid
 				+ ", bookingStatus=" + bookingStatus + ", bookingDate=" + bookingDate + ", userId=" + userId
-				+ ", eventId=" + eventId + "]";
+				+ ", eventId=" + eventId + ",createdAt=" + createdAt + ",updatedat=" + updatedAt + "]";
 	}
 
 }

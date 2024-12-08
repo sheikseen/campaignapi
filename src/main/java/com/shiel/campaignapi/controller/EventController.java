@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.shiel.campaignapi.dto.EventDto;
+import com.shiel.campaignapi.entity.Event;
 import com.shiel.campaignapi.service.EventService;
 
 import jakarta.validation.Valid;
@@ -25,7 +26,6 @@ public class EventController {
 	@Autowired
 	EventService eventService;
 
-
 	@PostMapping("/add")
 	public ResponseEntity<?> addEvent(@RequestBody EventDto eventDto) {
 		if (eventService.existsByTitle(eventDto.getTitle())) {
@@ -35,11 +35,14 @@ public class EventController {
 			return ResponseEntity.badRequest()
 					.body("Error: start date must be before end date and both dates must be in the future");
 		}
+		if (eventDto.getChildAmount().compareTo(eventDto.getAdultAmount()) > 0) {
+			return ResponseEntity.badRequest()
+					.body("Child amount cannot be more than adult amount.");
+		}
 		String eventid = eventService.saveEvent(eventDto);
 		String message = String.format("Event %s registered successfully!", eventid);
 		return ResponseEntity.ok(message);
 	}
-
 
 	@GetMapping("/all")
 	public ResponseEntity<?> getAllEvent() {
@@ -65,21 +68,25 @@ public class EventController {
 		}
 	}
 
-
 	@PostMapping("/update/{eventId}")
-	public ResponseEntity<?> updateEvent(@PathVariable("eventId") @Valid String eventId,
+	public ResponseEntity<?> updateEvent(@PathVariable("eventId") @Valid Long eventId,
 			@Valid @RequestBody EventDto eventDto) {
-		if (eventDto == null || eventId.isBlank()) {
+
+		if (eventDto == null || eventId == null) {
 			return ResponseEntity.badRequest().body("Request cannot be empty ");
 		}
+
 		if (!eventId.equals(eventDto.getEventId())) {
-			return ResponseEntity.badRequest().body("Invalid event ID in the request");
+			return ResponseEntity.badRequest().body("Invalid Meeting ID in the request");
+
 		}
+
 		if (!eventService.isValidDate(eventDto.getStartDate(), eventDto.getEndDate())) {
 			return ResponseEntity.badRequest()
 					.body("Error: start date must be before end date and both dates must be in the future");
 		}
-		EventDto event = eventService.updateEvent(eventDto);
+
+		Event event = eventService.updateEvent(eventDto);
 		if (event == null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No Event found");
 		} else {
@@ -88,7 +95,6 @@ public class EventController {
 
 	}
 
-	
 	@DeleteMapping("/delete/{eventId}")
 	public ResponseEntity<?> deleteUserById(@PathVariable("eventId") @Valid String eventId) {
 		if (eventId.isBlank()) {
