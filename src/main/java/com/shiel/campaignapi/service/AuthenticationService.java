@@ -142,6 +142,10 @@ public class AuthenticationService {
 		logger.debug("Checking if user exists with phone: {}", phone);
 		return userRepository.existsByPhone(phone);
 	}
+	public boolean existsByEmail(String email) {
+		logger.debug("Checking if user exists with phone: {}", email);
+		return userRepository.existsByEmail(email);
+	}
 
 	private boolean isEmail(String input) {
 		boolean result = input.matches("^[\\w.%+-]+@[\\w.-]+\\.[a-zA-Z]{2,6}$");

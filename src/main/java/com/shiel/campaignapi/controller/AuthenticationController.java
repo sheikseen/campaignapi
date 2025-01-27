@@ -49,6 +49,9 @@ public class AuthenticationController {
 		if (authenticationService.existsByPhone(signupUserDto.getPhone())) {
 			  throw new UserBadRequest("Duplicate Phone Number", "Phone Number is already taken!", 400);
 		}
+		if (authenticationService.existsByEmail(signupUserDto.getEmail())) {
+			  throw new UserBadRequest("Duplicate Email ID", "Email ID is already taken!", 400);
+		}
 		User registeredUser = authenticationService.signup(signupUserDto);
 
 		return ResponseEntity.ok(registeredUser);
