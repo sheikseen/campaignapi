@@ -1,5 +1,6 @@
 package com.shiel.campaignapi.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -22,8 +23,8 @@ import jakarta.persistence.Table;
 
 @Table(name = "booking")
 @Entity
-public class Booking {
-
+public class Booking implements Serializable{
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "bookingid")
@@ -60,9 +61,10 @@ public class Booking {
 	@ManyToOne
 	@JoinColumn(name = "eventid", referencedColumnName = "eventid", nullable = true)
 	private Event eventId;
-
+	
 	@OneToMany(mappedBy = "bookingId", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 	private List<Dependent> dependents;
+
 
 	@CreationTimestamp
 	@Column(updatable = false, name = "createdat")
@@ -71,6 +73,8 @@ public class Booking {
 	@UpdateTimestamp
 	@Column(name = "updatedat")
 	private Date updatedAt;
+	
+
 
 	public Long getBookingId() {
 		return bookingId;
@@ -152,14 +156,6 @@ public class Booking {
 		this.eventId = eventId;
 	}
 
-	public List<Dependent> getDependents() {
-		return dependents;
-	}
-
-	public void setDependents(List<Dependent> dependents) {
-		this.dependents = dependents;
-	}
-
 	public enum PaymentMethod {
 		CASH, GOOGLE_PAY, CARD
 	}
@@ -200,6 +196,14 @@ public class Booking {
 
 	public void setPaid(boolean isPaid) {
 		this.isPaid = isPaid;
+	}
+	
+	public List<Dependent> getDependents() {
+		return dependents;
+	}
+
+	public void setDependents(List<Dependent> dependents) {
+		this.dependents = dependents;
 	}
 
 	public Booking() {

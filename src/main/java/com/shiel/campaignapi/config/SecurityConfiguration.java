@@ -40,7 +40,7 @@ public class SecurityConfiguration {
 
 				.requestMatchers("/booking/add", "/booking/{bookingId}", "booking/user/{userId}", "/booking/update/*",
 						"/users/update/*", "/users/{userId}", "/users/delete/*", "/booking/isUserBooked",
-						"dependent/update/{dependentId}", "dependent/delete/*")
+						"dependent/update/{dependentId}", "dependent/delete/**")
 				.hasAnyRole("USER", "ADMIN").and()
 
 				.anonymous(anonymous -> anonymous

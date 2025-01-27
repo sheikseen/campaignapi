@@ -324,6 +324,8 @@ public class BookingService {
 
 			List<DependentDto> dependentDtos = booking.getDependents().stream().map(dependent -> {
 				DependentDto dependentDto = new DependentDto();
+				
+				dependentDto.setDependentId(dependent.getDependentId());
 				dependentDto.setName(dependent.getName());
 				dependentDto.setPlace(dependent.getPlace());
 				dependentDto.setAge(dependent.getAge());

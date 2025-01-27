@@ -96,8 +96,8 @@ public class EventController {
 	}
 
 	@DeleteMapping("/delete/{eventId}")
-	public ResponseEntity<?> deleteUserById(@PathVariable("eventId") @Valid String eventId) {
-		if (eventId.isBlank()) {
+	public ResponseEntity<?> deleteEventById(@PathVariable("eventId") @Valid Long eventId) {
+		if (eventId == null) {
 			return ResponseEntity.badRequest().body("Event ID cannot be empty");
 		}
 		EventDto event = eventService.deleteEventById(eventId);

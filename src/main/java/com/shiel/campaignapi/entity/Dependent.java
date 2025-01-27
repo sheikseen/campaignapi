@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -42,13 +41,14 @@ public class Dependent implements Serializable {
 	private Relation relation;
 
 	@ManyToOne
-	@JoinColumn(name = "userid", referencedColumnName = "userid")
+	@JoinColumn(name = "userid", referencedColumnName = "userid", nullable = true)
 	private User userId;
 
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne 
 	@JsonIgnore
 	@JoinColumn(name = "bookingid", referencedColumnName = "bookingid", nullable = true)
 	private Booking bookingId;
+
 
 	public Long getDependentId() {
 		return dependentId;

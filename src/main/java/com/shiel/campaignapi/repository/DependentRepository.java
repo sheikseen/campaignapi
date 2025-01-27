@@ -1,6 +1,5 @@
 package com.shiel.campaignapi.repository;
 
-import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

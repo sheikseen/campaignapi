@@ -96,10 +96,10 @@ public class EventService {
 
 	}
 
-	public EventDto deleteEventById(String eventId) {
+	public EventDto deleteEventById(Long eventId) {
 		logger.info("Deleting event by ID: {}", eventId);
 		try {
-			Optional<Event> optionalEvent = eventRepository.findById(eventId);
+			Optional<Event> optionalEvent = eventRepository.findById(eventId.toString());
 			if (optionalEvent.isPresent()) {
 				Event event = optionalEvent.get();
 				eventRepository.delete(event);

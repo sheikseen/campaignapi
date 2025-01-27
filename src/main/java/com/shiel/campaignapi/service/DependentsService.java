@@ -1,11 +1,14 @@
 package com.shiel.campaignapi.service;
 
+import java.math.BigDecimal;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
 import com.shiel.campaignapi.dto.DependentDto;
+import com.shiel.campaignapi.entity.Booking;
 import com.shiel.campaignapi.entity.Dependent;
+import com.shiel.campaignapi.repository.BookingRepository;
 import com.shiel.campaignapi.repository.DependentRepository;
 
 import jakarta.transaction.Transactional;
@@ -14,9 +17,11 @@ import jakarta.validation.Valid;
 @Service
 public class DependentsService {
 	private final DependentRepository dependentRepository;
+	private final BookingRepository bookingRepository;
 
-	public DependentsService(DependentRepository dependentRepository) {
+	public DependentsService(DependentRepository dependentRepository, BookingRepository bookingRepository) {
 		this.dependentRepository = dependentRepository;
+		this.bookingRepository = bookingRepository;
 	}
 
 	public Dependent updateDependent(DependentDto dependentDto) {
@@ -42,21 +47,31 @@ public class DependentsService {
 
 	@Transactional
 	public DependentDto deleteDependentById(@Valid Long dependentId) {
-	    Optional<Dependent> optionalDependent = dependentRepository.findById(dependentId);
-	    if (optionalDependent.isPresent()) {
-	        Dependent dependent = optionalDependent.get();
-	        dependent.setBookingId(null);  // Set bookingId to null
+		try {
+			Dependent dependent = dependentRepository.findById(dependentId)
+					.orElseThrow(() -> new RuntimeException("Dependent not found with ID: " + dependentId));
 
-	        dependentRepository.save(dependent);  // Save the updated dependent to persist the null value
-	        dependentRepository.flush();
-	        dependentRepository.delete(dependent);  // Delete the dependent
-	        dependentRepository.flush();
-	        return mapToDependentDto(dependent);
-	    } else {
-	        return null;
-	    }
+			Booking booking = dependent.getBookingId();
+
+			if (booking != null) {
+
+				booking.getDependents().remove(dependent);
+				booking.setDependentCount(booking.getDependents().size());
+
+				BigDecimal amountToSubtract = (dependent.getAge() >= 12)
+						? booking.getEventId().getAdultAmount()
+						: booking.getEventId().getChildAmount();
+
+				booking.setTotalAmount(booking.getTotalAmount().subtract(amountToSubtract));
+
+				bookingRepository.save(booking); 
+			}
+			return mapToDependentDto(dependent);
+		} catch (Exception e) {
+			throw new RuntimeException("Error deleting dependent with ID: " + dependentId, e);
+		}
+		
 	}
-
 
 	private DependentDto mapToDependentDto(Dependent dependent) {
 		DependentDto dependentDto = new DependentDto();
