@@ -3,6 +3,7 @@ package com.shiel.campaignapi.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -117,5 +118,20 @@ public class BookingController {
 	                .body(false);
 	    }
 	}
+    @GetMapping("/download/{eventId}")
+    public ResponseEntity<byte[]> downloadAllBookings(@PathVariable Long eventId) {
+        try {
+            byte[] pdfData = bookingService.generateBookingsPdf(eventId);
 
+            // Set response headers
+            HttpHeaders headers = new HttpHeaders();
+            headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=bookings.pdf");
+            headers.add(HttpHeaders.CONTENT_TYPE, "application/pdf");
+
+            return new ResponseEntity<>(pdfData, headers, HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
 }

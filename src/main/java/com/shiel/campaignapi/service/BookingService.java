@@ -1,5 +1,6 @@
 package com.shiel.campaignapi.service;
 
+import java.io.ByteArrayOutputStream;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -14,6 +15,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Cell;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Table;
+import com.itextpdf.layout.properties.TextAlignment;
 import com.shiel.campaignapi.dto.BookingDto;
 import com.shiel.campaignapi.dto.DependentDto;
 import com.shiel.campaignapi.dto.EventDto;
@@ -24,7 +32,7 @@ import com.shiel.campaignapi.entity.Dependent.Relation;
 import com.shiel.campaignapi.entity.Event;
 import com.shiel.campaignapi.entity.User;
 import com.shiel.campaignapi.exception.UserIllegalArgumentException;
-	import com.shiel.campaignapi.repository.BookingRepository;
+import com.shiel.campaignapi.repository.BookingRepository;
 import com.shiel.campaignapi.repository.DependentRepository;
 import com.shiel.campaignapi.repository.EventRepository;
 import com.shiel.campaignapi.repository.UserRepository;
@@ -131,11 +139,12 @@ public class BookingService {
 									"Invalid relation for male gender", 500);
 						}
 						if (relation == Relation.HUSBAND && hasHusband) {
-							throw new UserIllegalArgumentException("Only one husband can be added", "Duplicate Husband", 500);
+							throw new UserIllegalArgumentException("Only one husband can be added", "Duplicate Husband",
+									500);
 						}
 						if (relation == Relation.HUSBAND && dependentDto.getAge() < 21) {
-							throw new UserIllegalArgumentException("Husband age must be atleast 21", "Verify Husband's Age",
-									500);
+							throw new UserIllegalArgumentException("Husband age must be atleast 21",
+									"Verify Husband's Age", 500);
 						}
 						if (relation == Relation.FATHER && dependentDto.getAge() <= currentUser.getAge()) {
 							throw new UserIllegalArgumentException("Father's age must be greater than the user's age",
@@ -324,7 +333,7 @@ public class BookingService {
 
 			List<DependentDto> dependentDtos = booking.getDependents().stream().map(dependent -> {
 				DependentDto dependentDto = new DependentDto();
-				
+
 				dependentDto.setDependentId(dependent.getDependentId());
 				dependentDto.setName(dependent.getName());
 				dependentDto.setPlace(dependent.getPlace());
@@ -482,6 +491,71 @@ public class BookingService {
 			return bookingRepository.existsByUserIdAndEventId(userId, eventId);
 		} catch (Exception e) {
 			throw new RuntimeException("Error checking booking status: " + e.getMessage(), e);
+		}
+	}
+
+	public byte[] generateBookingsPdf(Long eventId) {
+		try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
+			PdfWriter writer = new PdfWriter(outputStream);
+			PdfDocument pdfDocument = new PdfDocument(writer);
+			Document document = new Document(pdfDocument);
+
+			Event event = eventRepository.findById(eventId.toString())
+					.orElseThrow(() -> new RuntimeException("Event not found"));
+			List<Booking> bookings = bookingRepository.findByEventId(event);
+
+			document.add(new com.itextpdf.layout.element.Paragraph("SHIEL BIBLE HOME").setBold().setFontSize(16)
+					.setTextAlignment(TextAlignment.CENTER));
+			document.add(new Paragraph(" "));
+			document.add(new Paragraph(" "));
+			document.add(new Paragraph("Bookings List for " + event.getTitle()).setBold().setFontSize(15)
+					.setTextAlignment(TextAlignment.CENTER));
+			document.add(new Paragraph(" "));
+
+			Table table = new Table(7);
+			table.addCell(new Cell().add(new Paragraph(" Name ")).setBold().setTextAlignment(TextAlignment.CENTER));
+			table.addCell(new Cell().add(new Paragraph(" Phone ")).setBold().setTextAlignment(TextAlignment.CENTER));
+			table.addCell(new Cell().add(new Paragraph(" age ")).setBold().setTextAlignment(TextAlignment.CENTER));
+			table.addCell(new Cell().add(new Paragraph(" Place ")).setBold().setTextAlignment(TextAlignment.CENTER));
+			table.addCell(new Cell().add(new Paragraph(" Gender ")).setBold().setTextAlignment(TextAlignment.CENTER));
+			table.addCell(
+					new Cell().add(new Paragraph(" Total Amount ")).setBold().setTextAlignment(TextAlignment.CENTER));
+			table.addCell(
+					new Cell().add(new Paragraph(" Status ")).setBold().setTextAlignment(TextAlignment.CENTER));
+
+			for (Booking booking : bookings) {
+				table.addCell(" " + booking.getUserId().getFullName() + " ");
+				table.addCell(" " + booking.getUserId().getPhone() + " ");
+				table.addCell(" " + String.valueOf(booking.getUserId().getAge()) + " ");
+				table.addCell(" " + booking.getUserId().getPlace() + " ");
+				table.addCell(" " + booking.getUserId().getGender() + " ");
+				table.addCell(" " + String.valueOf(booking.getTotalAmount()) + " ");
+				table.addCell(" " + booking.getBookingStatus().toString() + " ");
+
+				// Add dependents for this booking
+				if (booking.getDependents() != null && !booking.getDependents().isEmpty()) {
+					Cell dependentCell = new Cell(1, 7).add(new Paragraph("Family Members"));
+					dependentCell.setBold().setTextAlignment(TextAlignment.CENTER);
+					table.addCell(dependentCell);
+
+					for (Dependent dependent : booking.getDependents()) {
+						String dependentInfo = dependent.getName() + ",   Age: " + dependent.getAge() + ",   Relation: "
+								+ dependent.getRelation() + ",   Gender: " + dependent.getGender();
+						table.addCell(new Cell(1, 7).add(new Paragraph(dependentInfo)));
+					}
+				} else {
+					table.addCell(new Cell(1, 7).add(new Paragraph("No Family Members")));
+				}
+
+				table.addCell(new Cell(1, 7).add(new Paragraph(" ")));
+			}
+
+			document.add(table);
+
+			document.close();
+			return outputStream.toByteArray();
+		} catch (Exception e) {
+			throw new RuntimeException("Error generating PDF: " + e.getMessage(), e);
 		}
 	}
 }

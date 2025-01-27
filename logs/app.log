@@ -1167,3 +1167,1458 @@ Caused by: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Da
 2025-01-27 12:28:42 [http-nio-8080-exec-1] INFO  c.s.c.service.BookingService - Booking saved with ID: 9
 2025-01-27 12:30:43 [http-nio-8080-exec-6] INFO  c.s.c.service.BookingService - Fetching booking with dependents for booking ID: 9
 2025-01-27 12:30:43 [http-nio-8080-exec-6] INFO  c.s.c.service.BookingService - Booking with dependents fetched successfully for ID: 9
+2025-01-27 13:31:05 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.0.Final
+2025-01-27 13:31:05 [main] INFO  c.s.c.CampaignApiApplication - Starting CampaignApiApplication using Java 17.0.8.1 with PID 3088 (D:\project\camp-api\campaignapi\target\classes started by shibi in D:\project\camp-api\campaignapi)
+2025-01-27 13:31:05 [main] INFO  c.s.c.CampaignApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-27 13:31:06 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-27 13:31:06 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 56 ms. Found 9 JPA repository interfaces.
+2025-01-27 13:31:06 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-27 13:31:06 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-27 13:31:06 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-27 13:31:06 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-01-27 13:31:06 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-01-27 13:31:06 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1125 ms
+2025-01-27 13:31:06 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-27 13:31:06 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2025-01-27 13:31:06 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-27 13:31:06 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 13:31:07 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-27 13:31:07 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-27 13:31:07 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2b99c937
+2025-01-27 13:31:07 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-27 13:31:07 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 13:31:08 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-27 13:31:08 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-27 13:31:08 [main] INFO  c.s.c.config.FirebaseConfig - Firebase initialized successfully.
+2025-01-27 13:31:08 [main] INFO  c.s.c.service.AuthenticationService - AuthenticationService initialized.
+2025-01-27 13:31:08 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.shiel.campaignapi.service.BookingService.logger
+2025-01-27 13:31:08 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2025-01-27 13:31:08 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-01-27 13:31:08 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2025-01-27 13:31:08 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2025-01-27 13:31:08 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'MeetingScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-01-27 13:31:08 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'MeetingScheduler' initialized from an externally provided properties instance.
+2025-01-27 13:31:08 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2025-01-27 13:31:08 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@6cb2d5ea
+2025-01-27 13:31:09 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3670af2b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7c8537e9, org.springframework.security.web.context.SecurityContextHolderFilter@7f39bcb5, org.springframework.security.web.header.HeaderWriterFilter@2c2dfde3, org.springframework.security.web.authentication.logout.LogoutFilter@5e6b2641, com.shiel.campaignapi.config.JwtAuthenticationFilter@76929266, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@25192b6e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ea0dfaa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@42d4de20, org.springframework.security.web.session.SessionManagementFilter@f1e8753, org.springframework.security.web.access.ExceptionTranslationFilter@66d62c59, org.springframework.security.web.access.intercept.AuthorizationFilter@58f259bd]
+2025-01-27 13:31:09 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-27 13:31:09 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-01-27 13:31:09 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2025-01-27 13:31:09 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED started.
+2025-01-27 13:31:09 [main] INFO  c.s.c.CampaignApiApplication - Started CampaignApiApplication in 4.061 seconds (process running for 4.707)
+2025-01-27 13:32:11 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-27 13:32:11 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-27 13:32:11 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-01-27 13:32:11 [http-nio-8080-exec-2] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "download"]
+2025-01-27 13:33:28 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.0.Final
+2025-01-27 13:33:28 [main] INFO  c.s.c.CampaignApiApplication - Starting CampaignApiApplication using Java 17.0.8.1 with PID 2940 (D:\project\camp-api\campaignapi\target\classes started by shibi in D:\project\camp-api\campaignapi)
+2025-01-27 13:33:28 [main] INFO  c.s.c.CampaignApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-27 13:33:28 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-27 13:33:29 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 54 ms. Found 9 JPA repository interfaces.
+2025-01-27 13:33:29 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-27 13:33:29 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-27 13:33:29 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-27 13:33:29 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-01-27 13:33:29 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-01-27 13:33:29 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1064 ms
+2025-01-27 13:33:29 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-27 13:33:29 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2025-01-27 13:33:29 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-27 13:33:29 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 13:33:29 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-27 13:33:29 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-27 13:33:30 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4aeaff64
+2025-01-27 13:33:30 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-27 13:33:30 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 13:33:30 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-27 13:33:31 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-27 13:33:31 [main] INFO  c.s.c.config.FirebaseConfig - Firebase initialized successfully.
+2025-01-27 13:33:31 [main] INFO  c.s.c.service.AuthenticationService - AuthenticationService initialized.
+2025-01-27 13:33:31 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.shiel.campaignapi.service.BookingService.logger
+2025-01-27 13:33:31 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2025-01-27 13:33:31 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-01-27 13:33:31 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2025-01-27 13:33:31 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2025-01-27 13:33:31 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'MeetingScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-01-27 13:33:31 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'MeetingScheduler' initialized from an externally provided properties instance.
+2025-01-27 13:33:31 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2025-01-27 13:33:31 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@2e729fea
+2025-01-27 13:33:31 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1ff35ee7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4a9c188f, org.springframework.security.web.context.SecurityContextHolderFilter@32180efb, org.springframework.security.web.header.HeaderWriterFilter@529cd3ba, org.springframework.security.web.authentication.logout.LogoutFilter@4bf2c697, com.shiel.campaignapi.config.JwtAuthenticationFilter@798d8247, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6ea0dfaa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@36b6802f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2e5dea22, org.springframework.security.web.session.SessionManagementFilter@4e6881e, org.springframework.security.web.access.ExceptionTranslationFilter@46d2be66, org.springframework.security.web.access.intercept.AuthorizationFilter@7c8537e9]
+2025-01-27 13:33:32 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-27 13:33:32 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-01-27 13:33:32 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2025-01-27 13:33:32 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED started.
+2025-01-27 13:33:32 [main] INFO  c.s.c.CampaignApiApplication - Started CampaignApiApplication in 4.049 seconds (process running for 4.703)
+2025-01-27 13:33:36 [http-nio-8080-exec-3] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-27 13:33:36 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-27 13:33:36 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-01-27 13:33:36 [http-nio-8080-exec-3] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "download"]
+2025-01-27 13:35:16 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.0.Final
+2025-01-27 13:35:16 [main] INFO  c.s.c.CampaignApiApplication - Starting CampaignApiApplication using Java 17.0.8.1 with PID 9024 (D:\project\camp-api\campaignapi\target\classes started by shibi in D:\project\camp-api\campaignapi)
+2025-01-27 13:35:16 [main] INFO  c.s.c.CampaignApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-27 13:35:17 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-27 13:35:17 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 53 ms. Found 9 JPA repository interfaces.
+2025-01-27 13:35:17 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-27 13:35:17 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-27 13:35:17 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-27 13:35:17 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-01-27 13:35:17 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-01-27 13:35:17 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1120 ms
+2025-01-27 13:35:18 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-27 13:35:18 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2025-01-27 13:35:18 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-27 13:35:18 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 13:35:18 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-27 13:35:18 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-27 13:35:18 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@403f7aa2
+2025-01-27 13:35:18 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-27 13:35:18 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 13:35:19 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-27 13:35:19 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-27 13:35:19 [main] INFO  c.s.c.config.FirebaseConfig - Firebase initialized successfully.
+2025-01-27 13:35:19 [main] INFO  c.s.c.service.AuthenticationService - AuthenticationService initialized.
+2025-01-27 13:35:19 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.shiel.campaignapi.service.BookingService.logger
+2025-01-27 13:35:20 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2025-01-27 13:35:20 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-01-27 13:35:20 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2025-01-27 13:35:20 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2025-01-27 13:35:20 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'MeetingScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-01-27 13:35:20 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'MeetingScheduler' initialized from an externally provided properties instance.
+2025-01-27 13:35:20 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2025-01-27 13:35:20 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@1a345c6c
+2025-01-27 13:35:20 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4a9c188f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2e5dea22, org.springframework.security.web.context.SecurityContextHolderFilter@20ed6de, org.springframework.security.web.header.HeaderWriterFilter@4c541b00, org.springframework.security.web.authentication.logout.LogoutFilter@16a3d9a7, com.shiel.campaignapi.config.JwtAuthenticationFilter@41623694, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5852605c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7d2d5625, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4fd8aefe, org.springframework.security.web.session.SessionManagementFilter@25192b6e, org.springframework.security.web.access.ExceptionTranslationFilter@119de68f, org.springframework.security.web.access.intercept.AuthorizationFilter@42d4de20]
+2025-01-27 13:35:20 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-27 13:35:20 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-01-27 13:35:20 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2025-01-27 13:35:20 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED started.
+2025-01-27 13:35:20 [main] INFO  c.s.c.CampaignApiApplication - Started CampaignApiApplication in 4.071 seconds (process running for 4.709)
+2025-01-27 13:35:22 [http-nio-8080-exec-3] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-27 13:35:22 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-27 13:35:22 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-01-27 13:35:22 [http-nio-8080-exec-3] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "download-all"]
+2025-01-27 13:37:37 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.0.Final
+2025-01-27 13:37:37 [main] INFO  c.s.c.CampaignApiApplication - Starting CampaignApiApplication using Java 17.0.8.1 with PID 17536 (D:\project\camp-api\campaignapi\target\classes started by shibi in D:\project\camp-api\campaignapi)
+2025-01-27 13:37:37 [main] INFO  c.s.c.CampaignApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-27 13:37:38 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-27 13:37:38 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 57 ms. Found 9 JPA repository interfaces.
+2025-01-27 13:37:38 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-27 13:37:38 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-27 13:37:38 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-27 13:37:38 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-01-27 13:37:38 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-01-27 13:37:38 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1188 ms
+2025-01-27 13:37:38 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-27 13:37:38 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2025-01-27 13:37:38 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-27 13:37:38 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 13:37:38 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-27 13:37:38 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-27 13:37:39 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@563843f1
+2025-01-27 13:37:39 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-27 13:37:39 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 13:37:40 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-27 13:37:40 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-27 13:37:40 [main] INFO  c.s.c.config.FirebaseConfig - Firebase initialized successfully.
+2025-01-27 13:37:40 [main] INFO  c.s.c.service.AuthenticationService - AuthenticationService initialized.
+2025-01-27 13:37:40 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.shiel.campaignapi.service.BookingService.logger
+2025-01-27 13:37:40 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2025-01-27 13:37:40 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-01-27 13:37:40 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2025-01-27 13:37:40 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2025-01-27 13:37:40 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'MeetingScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-01-27 13:37:40 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'MeetingScheduler' initialized from an externally provided properties instance.
+2025-01-27 13:37:40 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2025-01-27 13:37:40 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@67263db7
+2025-01-27 13:37:41 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2b43eb71, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2f32fe68, org.springframework.security.web.context.SecurityContextHolderFilter@7d2d5625, org.springframework.security.web.header.HeaderWriterFilter@7e93e396, org.springframework.security.web.authentication.logout.LogoutFilter@4075c0d8, com.shiel.campaignapi.config.JwtAuthenticationFilter@1e387974, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6dacde96, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@729a98e9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1007954a, org.springframework.security.web.session.SessionManagementFilter@2acfd27b, org.springframework.security.web.access.ExceptionTranslationFilter@39240aa3, org.springframework.security.web.access.intercept.AuthorizationFilter@4a59d584]
+2025-01-27 13:37:41 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-27 13:37:41 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-01-27 13:37:41 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2025-01-27 13:37:41 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED started.
+2025-01-27 13:37:41 [main] INFO  c.s.c.CampaignApiApplication - Started CampaignApiApplication in 4.338 seconds (process running for 4.995)
+2025-01-27 13:37:50 [http-nio-8080-exec-3] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-27 13:37:50 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-27 13:37:50 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-01-27 13:44:55 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.0.Final
+2025-01-27 13:44:55 [main] INFO  c.s.c.CampaignApiApplication - Starting CampaignApiApplication using Java 17.0.8.1 with PID 18120 (D:\project\camp-api\campaignapi\target\classes started by shibi in D:\project\camp-api\campaignapi)
+2025-01-27 13:44:55 [main] INFO  c.s.c.CampaignApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-27 13:44:56 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-27 13:44:56 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 55 ms. Found 9 JPA repository interfaces.
+2025-01-27 13:44:56 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-27 13:44:56 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-27 13:44:56 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-27 13:44:56 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-01-27 13:44:56 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-01-27 13:44:56 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1137 ms
+2025-01-27 13:44:57 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-27 13:44:57 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2025-01-27 13:44:57 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-27 13:44:57 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 13:44:57 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-27 13:44:57 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-27 13:44:57 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@545604a9
+2025-01-27 13:44:57 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-27 13:44:57 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 13:44:58 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-27 13:44:58 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-27 13:44:58 [main] INFO  c.s.c.config.FirebaseConfig - Firebase initialized successfully.
+2025-01-27 13:44:58 [main] INFO  c.s.c.service.AuthenticationService - AuthenticationService initialized.
+2025-01-27 13:44:58 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.shiel.campaignapi.service.BookingService.logger
+2025-01-27 13:44:59 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2025-01-27 13:44:59 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-01-27 13:44:59 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2025-01-27 13:44:59 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2025-01-27 13:44:59 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'MeetingScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-01-27 13:44:59 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'MeetingScheduler' initialized from an externally provided properties instance.
+2025-01-27 13:44:59 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2025-01-27 13:44:59 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@6b26839d
+2025-01-27 13:44:59 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4a9c188f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2e5dea22, org.springframework.security.web.context.SecurityContextHolderFilter@20ed6de, org.springframework.security.web.header.HeaderWriterFilter@4c541b00, org.springframework.security.web.authentication.logout.LogoutFilter@16a3d9a7, com.shiel.campaignapi.config.JwtAuthenticationFilter@46d83ec4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5852605c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7d2d5625, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4fd8aefe, org.springframework.security.web.session.SessionManagementFilter@25192b6e, org.springframework.security.web.access.ExceptionTranslationFilter@119de68f, org.springframework.security.web.access.intercept.AuthorizationFilter@42d4de20]
+2025-01-27 13:44:59 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-27 13:44:59 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-01-27 13:44:59 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2025-01-27 13:44:59 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED started.
+2025-01-27 13:44:59 [main] INFO  c.s.c.CampaignApiApplication - Started CampaignApiApplication in 4.053 seconds (process running for 4.696)
+2025-01-27 13:45:19 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-27 13:45:19 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-27 13:45:19 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-01-27 14:02:08 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.0.Final
+2025-01-27 14:02:08 [main] INFO  c.s.c.CampaignApiApplication - Starting CampaignApiApplication using Java 17.0.8.1 with PID 15772 (D:\project\camp-api\campaignapi\target\classes started by shibi in D:\project\camp-api\campaignapi)
+2025-01-27 14:02:08 [main] INFO  c.s.c.CampaignApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-27 14:02:09 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-27 14:02:09 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 54 ms. Found 9 JPA repository interfaces.
+2025-01-27 14:02:09 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-27 14:02:09 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-27 14:02:09 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-27 14:02:09 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-01-27 14:02:10 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-01-27 14:02:10 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1082 ms
+2025-01-27 14:02:10 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-27 14:02:10 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2025-01-27 14:02:10 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-27 14:02:10 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 14:02:10 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-27 14:02:10 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-27 14:02:10 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4348fa35
+2025-01-27 14:02:10 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-27 14:02:10 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 14:02:11 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-27 14:02:11 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-27 14:02:11 [main] INFO  c.s.c.config.FirebaseConfig - Firebase initialized successfully.
+2025-01-27 14:02:11 [main] INFO  c.s.c.service.AuthenticationService - AuthenticationService initialized.
+2025-01-27 14:02:12 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.shiel.campaignapi.service.BookingService.logger
+2025-01-27 14:02:12 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2025-01-27 14:02:12 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-01-27 14:02:12 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2025-01-27 14:02:12 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2025-01-27 14:02:12 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'MeetingScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-01-27 14:02:12 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'MeetingScheduler' initialized from an externally provided properties instance.
+2025-01-27 14:02:12 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2025-01-27 14:02:12 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@4a1abba1
+2025-01-27 14:02:12 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@21e60eed, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2b43eb71, org.springframework.security.web.context.SecurityContextHolderFilter@36b6802f, org.springframework.security.web.header.HeaderWriterFilter@13c36d48, org.springframework.security.web.authentication.logout.LogoutFilter@362109d0, com.shiel.campaignapi.config.JwtAuthenticationFilter@6e6ec71f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@29a51ff1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@79c9a128, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2f32fe68, org.springframework.security.web.session.SessionManagementFilter@5852605c, org.springframework.security.web.access.ExceptionTranslationFilter@55448710, org.springframework.security.web.access.intercept.AuthorizationFilter@4fd8aefe]
+2025-01-27 14:02:12 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-27 14:02:12 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-01-27 14:02:12 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2025-01-27 14:02:12 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED started.
+2025-01-27 14:02:12 [main] INFO  c.s.c.CampaignApiApplication - Started CampaignApiApplication in 4.056 seconds (process running for 4.717)
+2025-01-27 14:02:25 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-27 14:02:25 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-27 14:02:25 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-01-27 14:05:31 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.0.Final
+2025-01-27 14:05:31 [main] INFO  c.s.c.CampaignApiApplication - Starting CampaignApiApplication using Java 17.0.8.1 with PID 1752 (D:\project\camp-api\campaignapi\target\classes started by shibi in D:\project\camp-api\campaignapi)
+2025-01-27 14:05:31 [main] INFO  c.s.c.CampaignApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-27 14:05:32 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-27 14:05:32 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 55 ms. Found 9 JPA repository interfaces.
+2025-01-27 14:05:33 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-27 14:05:33 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-27 14:05:33 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-27 14:05:33 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-01-27 14:05:33 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-01-27 14:05:33 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1138 ms
+2025-01-27 14:05:33 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-27 14:05:33 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2025-01-27 14:05:33 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-27 14:05:33 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 14:05:33 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-27 14:05:33 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-27 14:05:33 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2b99c937
+2025-01-27 14:05:33 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-27 14:05:33 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 14:05:34 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-27 14:05:34 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-27 14:05:35 [main] INFO  c.s.c.config.FirebaseConfig - Firebase initialized successfully.
+2025-01-27 14:05:35 [main] INFO  c.s.c.service.AuthenticationService - AuthenticationService initialized.
+2025-01-27 14:05:35 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.shiel.campaignapi.service.BookingService.logger
+2025-01-27 14:05:35 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2025-01-27 14:05:35 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-01-27 14:05:35 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2025-01-27 14:05:35 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2025-01-27 14:05:35 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'MeetingScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-01-27 14:05:35 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'MeetingScheduler' initialized from an externally provided properties instance.
+2025-01-27 14:05:35 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2025-01-27 14:05:35 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@6cb2d5ea
+2025-01-27 14:05:35 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3670af2b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7c8537e9, org.springframework.security.web.context.SecurityContextHolderFilter@7f39bcb5, org.springframework.security.web.header.HeaderWriterFilter@2c2dfde3, org.springframework.security.web.authentication.logout.LogoutFilter@5e6b2641, com.shiel.campaignapi.config.JwtAuthenticationFilter@76929266, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@25192b6e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ea0dfaa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@42d4de20, org.springframework.security.web.session.SessionManagementFilter@f1e8753, org.springframework.security.web.access.ExceptionTranslationFilter@66d62c59, org.springframework.security.web.access.intercept.AuthorizationFilter@58f259bd]
+2025-01-27 14:05:35 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-27 14:05:35 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-01-27 14:05:35 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2025-01-27 14:05:35 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED started.
+2025-01-27 14:05:35 [main] INFO  c.s.c.CampaignApiApplication - Started CampaignApiApplication in 4.209 seconds (process running for 4.865)
+2025-01-27 14:05:40 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-27 14:05:40 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-27 14:05:40 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-01-27 14:06:17 [http-nio-8080-exec-3] INFO  c.s.c.service.BookingService - Starting booking process for event ID: 1
+2025-01-27 14:06:17 [http-nio-8080-exec-3] INFO  c.s.c.service.BookingService - Booking saved with ID: 9
+2025-01-27 14:12:26 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.0.Final
+2025-01-27 14:12:26 [main] INFO  c.s.c.CampaignApiApplication - Starting CampaignApiApplication using Java 17.0.8.1 with PID 16720 (D:\project\camp-api\campaignapi\target\classes started by shibi in D:\project\camp-api\campaignapi)
+2025-01-27 14:12:26 [main] INFO  c.s.c.CampaignApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-27 14:12:27 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-27 14:12:27 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 54 ms. Found 9 JPA repository interfaces.
+2025-01-27 14:12:27 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-27 14:12:27 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-27 14:12:27 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-27 14:12:27 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-01-27 14:12:27 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-01-27 14:12:27 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1124 ms
+2025-01-27 14:12:27 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-27 14:12:27 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2025-01-27 14:12:27 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-27 14:12:28 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 14:12:28 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-27 14:12:28 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-27 14:12:28 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@563843f1
+2025-01-27 14:12:28 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-27 14:12:28 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 14:12:29 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-27 14:12:29 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-27 14:12:29 [main] INFO  c.s.c.config.FirebaseConfig - Firebase initialized successfully.
+2025-01-27 14:12:29 [main] INFO  c.s.c.service.AuthenticationService - AuthenticationService initialized.
+2025-01-27 14:12:29 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.shiel.campaignapi.service.BookingService.logger
+2025-01-27 14:12:29 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2025-01-27 14:12:29 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-01-27 14:12:29 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2025-01-27 14:12:29 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2025-01-27 14:12:29 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'MeetingScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-01-27 14:12:29 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'MeetingScheduler' initialized from an externally provided properties instance.
+2025-01-27 14:12:29 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2025-01-27 14:12:29 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@67263db7
+2025-01-27 14:12:30 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2b43eb71, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2f32fe68, org.springframework.security.web.context.SecurityContextHolderFilter@7d2d5625, org.springframework.security.web.header.HeaderWriterFilter@7e93e396, org.springframework.security.web.authentication.logout.LogoutFilter@4075c0d8, com.shiel.campaignapi.config.JwtAuthenticationFilter@1e387974, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6dacde96, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@729a98e9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1007954a, org.springframework.security.web.session.SessionManagementFilter@2acfd27b, org.springframework.security.web.access.ExceptionTranslationFilter@39240aa3, org.springframework.security.web.access.intercept.AuthorizationFilter@4a59d584]
+2025-01-27 14:12:30 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-27 14:12:30 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-01-27 14:12:30 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2025-01-27 14:12:30 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED started.
+2025-01-27 14:12:30 [main] INFO  c.s.c.CampaignApiApplication - Started CampaignApiApplication in 4.044 seconds (process running for 4.681)
+2025-01-27 14:12:35 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-27 14:12:35 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-27 14:12:35 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-01-27 14:13:12 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.0.Final
+2025-01-27 14:13:12 [main] INFO  c.s.c.CampaignApiApplication - Starting CampaignApiApplication using Java 17.0.8.1 with PID 14616 (D:\project\camp-api\campaignapi\target\classes started by shibi in D:\project\camp-api\campaignapi)
+2025-01-27 14:13:12 [main] INFO  c.s.c.CampaignApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-27 14:13:13 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-27 14:13:13 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 56 ms. Found 9 JPA repository interfaces.
+2025-01-27 14:13:14 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-27 14:13:14 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-27 14:13:14 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-27 14:13:14 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-01-27 14:13:14 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-01-27 14:13:14 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1116 ms
+2025-01-27 14:13:14 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-27 14:13:14 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2025-01-27 14:13:14 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-27 14:13:14 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 14:13:14 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-27 14:13:14 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-27 14:13:14 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@27dfd12b
+2025-01-27 14:13:14 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-27 14:13:14 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 14:13:15 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-27 14:13:15 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-27 14:13:16 [main] INFO  c.s.c.config.FirebaseConfig - Firebase initialized successfully.
+2025-01-27 14:13:16 [main] INFO  c.s.c.service.AuthenticationService - AuthenticationService initialized.
+2025-01-27 14:13:16 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.shiel.campaignapi.service.BookingService.logger
+2025-01-27 14:13:16 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2025-01-27 14:13:16 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-01-27 14:13:16 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2025-01-27 14:13:16 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2025-01-27 14:13:16 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'MeetingScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-01-27 14:13:16 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'MeetingScheduler' initialized from an externally provided properties instance.
+2025-01-27 14:13:16 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2025-01-27 14:13:16 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@157ff8f8
+2025-01-27 14:13:16 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@60abe420, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@21e60eed, org.springframework.security.web.context.SecurityContextHolderFilter@5e8359da, org.springframework.security.web.header.HeaderWriterFilter@39240aa3, org.springframework.security.web.authentication.logout.LogoutFilter@58f259bd, com.shiel.campaignapi.config.JwtAuthenticationFilter@69c7eafd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7d2d5625, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7892635c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2b43eb71, org.springframework.security.web.session.SessionManagementFilter@6ea0dfaa, org.springframework.security.web.access.ExceptionTranslationFilter@61f18997, org.springframework.security.web.access.intercept.AuthorizationFilter@2e5dea22]
+2025-01-27 14:13:16 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-27 14:13:16 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-01-27 14:13:16 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2025-01-27 14:13:16 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED started.
+2025-01-27 14:13:16 [main] INFO  c.s.c.CampaignApiApplication - Started CampaignApiApplication in 4.121 seconds (process running for 4.766)
+2025-01-27 14:13:21 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.0.Final
+2025-01-27 14:13:21 [main] INFO  c.s.c.CampaignApiApplication - Starting CampaignApiApplication using Java 17.0.8.1 with PID 15556 (D:\project\camp-api\campaignapi\target\classes started by shibi in D:\project\camp-api\campaignapi)
+2025-01-27 14:13:21 [main] INFO  c.s.c.CampaignApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-27 14:13:22 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-27 14:13:22 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 55 ms. Found 9 JPA repository interfaces.
+2025-01-27 14:13:22 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-27 14:13:22 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-27 14:13:22 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-27 14:13:22 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-01-27 14:13:22 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-01-27 14:13:22 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1066 ms
+2025-01-27 14:13:23 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-27 14:13:23 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2025-01-27 14:13:23 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-27 14:13:23 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 14:13:23 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-27 14:13:23 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-27 14:13:23 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@26c59348
+2025-01-27 14:13:23 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-27 14:13:23 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 14:13:24 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-27 14:13:24 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-27 14:13:24 [main] INFO  c.s.c.config.FirebaseConfig - Firebase initialized successfully.
+2025-01-27 14:13:24 [main] INFO  c.s.c.service.AuthenticationService - AuthenticationService initialized.
+2025-01-27 14:13:24 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.shiel.campaignapi.service.BookingService.logger
+2025-01-27 14:13:25 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2025-01-27 14:13:25 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-01-27 14:13:25 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2025-01-27 14:13:25 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2025-01-27 14:13:25 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'MeetingScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-01-27 14:13:25 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'MeetingScheduler' initialized from an externally provided properties instance.
+2025-01-27 14:13:25 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2025-01-27 14:13:25 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@3ed1446c
+2025-01-27 14:13:25 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3670af2b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7c8537e9, org.springframework.security.web.context.SecurityContextHolderFilter@7f39bcb5, org.springframework.security.web.header.HeaderWriterFilter@2c2dfde3, org.springframework.security.web.authentication.logout.LogoutFilter@5e6b2641, com.shiel.campaignapi.config.JwtAuthenticationFilter@20331c8e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@25192b6e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ea0dfaa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@42d4de20, org.springframework.security.web.session.SessionManagementFilter@f1e8753, org.springframework.security.web.access.ExceptionTranslationFilter@66d62c59, org.springframework.security.web.access.intercept.AuthorizationFilter@58f259bd]
+2025-01-27 14:13:25 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-27 14:13:25 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-01-27 14:13:25 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Shutting down Quartz Scheduler
+2025-01-27 14:13:25 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED shutting down.
+2025-01-27 14:13:25 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED paused.
+2025-01-27 14:13:25 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED shutdown complete.
+2025-01-27 14:13:25 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-27 14:13:25 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-01-27 14:13:25 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-01-27 14:13:25 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-01-27 14:13:25 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-01-27 14:13:25 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-01-27 14:13:25 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2025-01-27 14:13:25 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-01-27 14:13:25 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2025-01-27 14:13:44 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.0.Final
+2025-01-27 14:13:45 [main] INFO  c.s.c.CampaignApiApplication - Starting CampaignApiApplication using Java 17.0.8.1 with PID 7544 (D:\project\camp-api\campaignapi\target\classes started by shibi in D:\project\camp-api\campaignapi)
+2025-01-27 14:13:45 [main] INFO  c.s.c.CampaignApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-27 14:13:45 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-27 14:13:45 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 56 ms. Found 9 JPA repository interfaces.
+2025-01-27 14:13:46 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-27 14:13:46 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-27 14:13:46 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-27 14:13:46 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-01-27 14:13:46 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-01-27 14:13:46 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1146 ms
+2025-01-27 14:13:46 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-27 14:13:46 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2025-01-27 14:13:46 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-27 14:13:46 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 14:13:46 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-27 14:13:46 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-27 14:13:46 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7cdc4070
+2025-01-27 14:13:46 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-27 14:13:46 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 14:13:47 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-27 14:13:47 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-27 14:13:48 [main] INFO  c.s.c.config.FirebaseConfig - Firebase initialized successfully.
+2025-01-27 14:13:48 [main] INFO  c.s.c.service.AuthenticationService - AuthenticationService initialized.
+2025-01-27 14:13:48 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.shiel.campaignapi.service.BookingService.logger
+2025-01-27 14:13:48 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2025-01-27 14:13:48 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-01-27 14:13:48 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2025-01-27 14:13:48 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2025-01-27 14:13:48 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'MeetingScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-01-27 14:13:48 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'MeetingScheduler' initialized from an externally provided properties instance.
+2025-01-27 14:13:48 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2025-01-27 14:13:48 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@509e4d53
+2025-01-27 14:13:48 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@16a3d9a7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@24c94e95, org.springframework.security.web.context.SecurityContextHolderFilter@55448710, org.springframework.security.web.header.HeaderWriterFilter@587df3e4, org.springframework.security.web.authentication.logout.LogoutFilter@62a09668, com.shiel.campaignapi.config.JwtAuthenticationFilter@3100b5cf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@13c36d48, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1ed763aa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@d8f65a1, org.springframework.security.web.session.SessionManagementFilter@4c541b00, org.springframework.security.web.access.ExceptionTranslationFilter@2d036335, org.springframework.security.web.access.intercept.AuthorizationFilter@1ef585bb]
+2025-01-27 14:13:48 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-27 14:13:48 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-01-27 14:13:48 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2025-01-27 14:13:48 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED started.
+2025-01-27 14:13:48 [main] INFO  c.s.c.CampaignApiApplication - Started CampaignApiApplication in 4.129 seconds (process running for 4.784)
+2025-01-27 14:14:01 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-27 14:14:01 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-27 14:14:01 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-01-27 14:14:01 [http-nio-8080-exec-2] WARN  c.i.layout.renderer.TableRenderer - Last row is not completed. Table bottom border may collapse as you do not expect it
+2025-01-27 14:14:36 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.0.Final
+2025-01-27 14:14:36 [main] INFO  c.s.c.CampaignApiApplication - Starting CampaignApiApplication using Java 17.0.8.1 with PID 7316 (D:\project\camp-api\campaignapi\target\classes started by shibi in D:\project\camp-api\campaignapi)
+2025-01-27 14:14:36 [main] INFO  c.s.c.CampaignApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-27 14:14:36 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-27 14:14:36 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 57 ms. Found 9 JPA repository interfaces.
+2025-01-27 14:14:37 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-27 14:14:37 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-27 14:14:37 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-27 14:14:37 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-01-27 14:14:37 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-01-27 14:14:37 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1127 ms
+2025-01-27 14:14:37 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-27 14:14:37 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2025-01-27 14:14:37 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-27 14:14:37 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 14:14:37 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-27 14:14:37 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-27 14:14:37 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1de12397
+2025-01-27 14:14:37 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-27 14:14:37 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 14:14:38 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-27 14:14:38 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-27 14:14:39 [main] INFO  c.s.c.config.FirebaseConfig - Firebase initialized successfully.
+2025-01-27 14:14:39 [main] INFO  c.s.c.service.AuthenticationService - AuthenticationService initialized.
+2025-01-27 14:14:39 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.shiel.campaignapi.service.BookingService.logger
+2025-01-27 14:14:39 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2025-01-27 14:14:39 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-01-27 14:14:39 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2025-01-27 14:14:39 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2025-01-27 14:14:39 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'MeetingScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-01-27 14:14:39 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'MeetingScheduler' initialized from an externally provided properties instance.
+2025-01-27 14:14:39 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2025-01-27 14:14:39 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@2e9bff08
+2025-01-27 14:14:39 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@42d4de20, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2cc9a5a2, org.springframework.security.web.context.SecurityContextHolderFilter@25192b6e, org.springframework.security.web.header.HeaderWriterFilter@46d2be66, org.springframework.security.web.authentication.logout.LogoutFilter@1ef585bb, com.shiel.campaignapi.config.JwtAuthenticationFilter@1a13b5c1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@32180efb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2acfd27b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1ff35ee7, org.springframework.security.web.session.SessionManagementFilter@1ed763aa, org.springframework.security.web.access.ExceptionTranslationFilter@2c2dfde3, org.springframework.security.web.access.intercept.AuthorizationFilter@4075c0d8]
+2025-01-27 14:14:39 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-27 14:14:39 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-01-27 14:14:39 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2025-01-27 14:14:39 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED started.
+2025-01-27 14:14:39 [main] INFO  c.s.c.CampaignApiApplication - Started CampaignApiApplication in 4.078 seconds (process running for 4.709)
+2025-01-27 14:14:41 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-27 14:14:41 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-27 14:14:41 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-01-27 14:14:42 [http-nio-8080-exec-2] WARN  c.i.layout.renderer.TableRenderer - Last row is not completed. Table bottom border may collapse as you do not expect it
+2025-01-27 14:16:29 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.0.Final
+2025-01-27 14:16:29 [main] INFO  c.s.c.CampaignApiApplication - Starting CampaignApiApplication using Java 17.0.8.1 with PID 14516 (D:\project\camp-api\campaignapi\target\classes started by shibi in D:\project\camp-api\campaignapi)
+2025-01-27 14:16:29 [main] INFO  c.s.c.CampaignApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-27 14:16:30 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-27 14:16:30 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 53 ms. Found 9 JPA repository interfaces.
+2025-01-27 14:16:30 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-27 14:16:30 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-27 14:16:30 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-27 14:16:30 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-01-27 14:16:30 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-01-27 14:16:30 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1109 ms
+2025-01-27 14:16:30 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-27 14:16:31 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2025-01-27 14:16:31 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-27 14:16:31 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 14:16:31 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-27 14:16:31 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-27 14:16:31 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@563843f1
+2025-01-27 14:16:31 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-27 14:16:31 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 14:16:32 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-27 14:16:32 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-27 14:16:32 [main] INFO  c.s.c.config.FirebaseConfig - Firebase initialized successfully.
+2025-01-27 14:16:33 [main] INFO  c.s.c.service.AuthenticationService - AuthenticationService initialized.
+2025-01-27 14:16:33 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.shiel.campaignapi.service.BookingService.logger
+2025-01-27 14:16:33 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2025-01-27 14:16:33 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-01-27 14:16:33 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2025-01-27 14:16:33 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2025-01-27 14:16:33 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'MeetingScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-01-27 14:16:33 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'MeetingScheduler' initialized from an externally provided properties instance.
+2025-01-27 14:16:33 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2025-01-27 14:16:33 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@67263db7
+2025-01-27 14:16:33 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@21e60eed, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2b43eb71, org.springframework.security.web.context.SecurityContextHolderFilter@36b6802f, org.springframework.security.web.header.HeaderWriterFilter@13c36d48, org.springframework.security.web.authentication.logout.LogoutFilter@362109d0, com.shiel.campaignapi.config.JwtAuthenticationFilter@1e387974, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@29a51ff1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@79c9a128, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2f32fe68, org.springframework.security.web.session.SessionManagementFilter@5852605c, org.springframework.security.web.access.ExceptionTranslationFilter@55448710, org.springframework.security.web.access.intercept.AuthorizationFilter@4fd8aefe]
+2025-01-27 14:16:33 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-27 14:16:33 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-01-27 14:16:33 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2025-01-27 14:16:33 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED started.
+2025-01-27 14:16:33 [main] INFO  c.s.c.CampaignApiApplication - Started CampaignApiApplication in 4.378 seconds (process running for 5.024)
+2025-01-27 14:16:33 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-27 14:16:33 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-27 14:16:33 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-01-27 14:56:49 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=37m47s661ms443µs800ns).
+2025-01-27 15:01:12 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.0.Final
+2025-01-27 15:01:12 [main] INFO  c.s.c.CampaignApiApplication - Starting CampaignApiApplication using Java 17.0.8.1 with PID 15560 (D:\project\camp-api\campaignapi\target\classes started by shibi in D:\project\camp-api\campaignapi)
+2025-01-27 15:01:12 [main] INFO  c.s.c.CampaignApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-27 15:01:13 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-27 15:01:13 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 77 ms. Found 9 JPA repository interfaces.
+2025-01-27 15:01:14 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-27 15:01:14 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-27 15:01:14 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-27 15:01:14 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-01-27 15:01:14 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-01-27 15:01:14 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1913 ms
+2025-01-27 15:01:14 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-27 15:01:14 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2025-01-27 15:01:14 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-27 15:01:15 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 15:01:15 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-27 15:01:15 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-27 15:01:15 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5f2b9da8
+2025-01-27 15:01:15 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-27 15:01:15 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 15:01:16 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-27 15:01:16 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-27 15:01:17 [main] INFO  c.s.c.config.FirebaseConfig - Firebase initialized successfully.
+2025-01-27 15:01:17 [main] INFO  c.s.c.service.AuthenticationService - AuthenticationService initialized.
+2025-01-27 15:01:17 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.shiel.campaignapi.service.BookingService.logger
+2025-01-27 15:01:17 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2025-01-27 15:01:17 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-01-27 15:01:17 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2025-01-27 15:01:17 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2025-01-27 15:01:17 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'MeetingScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-01-27 15:01:17 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'MeetingScheduler' initialized from an externally provided properties instance.
+2025-01-27 15:01:17 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2025-01-27 15:01:17 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@74f54f8e
+2025-01-27 15:01:18 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@524945e2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@73b63917, org.springframework.security.web.context.SecurityContextHolderFilter@5275d709, org.springframework.security.web.header.HeaderWriterFilter@5e8359da, org.springframework.security.web.authentication.logout.LogoutFilter@2f32fe68, com.shiel.campaignapi.config.JwtAuthenticationFilter@f5314bc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6461c673, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@388ad8aa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2292e793, org.springframework.security.web.session.SessionManagementFilter@28ab7ffb, org.springframework.security.web.access.ExceptionTranslationFilter@5852605c, org.springframework.security.web.access.intercept.AuthorizationFilter@519e0814]
+2025-01-27 15:01:18 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-27 15:01:18 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-01-27 15:01:18 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2025-01-27 15:01:18 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED started.
+2025-01-27 15:01:18 [main] INFO  c.s.c.CampaignApiApplication - Started CampaignApiApplication in 6.283 seconds (process running for 7.866)
+2025-01-27 15:01:21 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-27 15:01:21 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-27 15:01:21 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-01-27 15:16:30 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.0.Final
+2025-01-27 15:16:30 [main] INFO  c.s.c.CampaignApiApplication - Starting CampaignApiApplication using Java 17.0.8.1 with PID 1760 (D:\project\camp-api\campaignapi\target\classes started by shibi in D:\project\camp-api\campaignapi)
+2025-01-27 15:16:30 [main] INFO  c.s.c.CampaignApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-27 15:16:31 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-27 15:16:31 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 85 ms. Found 9 JPA repository interfaces.
+2025-01-27 15:16:32 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-27 15:16:32 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-27 15:16:32 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-27 15:16:32 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-01-27 15:16:32 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-01-27 15:16:32 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1592 ms
+2025-01-27 15:16:32 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-27 15:16:32 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2025-01-27 15:16:32 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-27 15:16:32 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 15:16:32 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-27 15:16:32 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-27 15:16:33 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@38cb1606
+2025-01-27 15:16:33 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-27 15:16:33 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 15:17:11 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.0.Final
+2025-01-27 15:17:11 [main] INFO  c.s.c.CampaignApiApplication - Starting CampaignApiApplication using Java 17.0.8.1 with PID 10880 (D:\project\camp-api\campaignapi\target\classes started by shibi in D:\project\camp-api\campaignapi)
+2025-01-27 15:17:11 [main] INFO  c.s.c.CampaignApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-27 15:17:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-27 15:17:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 83 ms. Found 9 JPA repository interfaces.
+2025-01-27 15:17:13 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-27 15:17:13 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-27 15:17:13 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-27 15:17:13 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-01-27 15:17:13 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-01-27 15:17:13 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1637 ms
+2025-01-27 15:17:13 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-27 15:17:13 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2025-01-27 15:17:13 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-27 15:17:13 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 15:17:13 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-27 15:17:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-27 15:17:13 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2e93108a
+2025-01-27 15:17:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-27 15:17:14 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 15:17:15 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-27 15:17:15 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-27 15:17:15 [main] INFO  c.s.c.config.FirebaseConfig - Firebase initialized successfully.
+2025-01-27 15:17:16 [main] INFO  c.s.c.service.AuthenticationService - AuthenticationService initialized.
+2025-01-27 15:17:16 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.shiel.campaignapi.service.BookingService.logger
+2025-01-27 15:17:16 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2025-01-27 15:17:16 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-01-27 15:17:16 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2025-01-27 15:17:16 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2025-01-27 15:17:16 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'MeetingScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-01-27 15:17:16 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'MeetingScheduler' initialized from an externally provided properties instance.
+2025-01-27 15:17:16 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2025-01-27 15:17:16 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@79e3f444
+2025-01-27 15:17:16 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6829b897, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@519e0814, org.springframework.security.web.context.SecurityContextHolderFilter@e50e308, org.springframework.security.web.header.HeaderWriterFilter@20ed6de, org.springframework.security.web.authentication.logout.LogoutFilter@4a59d584, com.shiel.campaignapi.config.JwtAuthenticationFilter@4b718c45, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@47a05ad8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6461c673, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@d1b9dd7, org.springframework.security.web.session.SessionManagementFilter@729a98e9, org.springframework.security.web.access.ExceptionTranslationFilter@76d654, org.springframework.security.web.access.intercept.AuthorizationFilter@21d30ba5]
+2025-01-27 15:17:16 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-27 15:17:16 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-01-27 15:17:16 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2025-01-27 15:17:16 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED started.
+2025-01-27 15:17:16 [main] INFO  c.s.c.CampaignApiApplication - Started CampaignApiApplication in 5.872 seconds (process running for 6.79)
+2025-01-27 15:17:27 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-27 15:17:27 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-27 15:17:27 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-01-27 15:22:33 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.0.Final
+2025-01-27 15:22:34 [main] INFO  c.s.c.CampaignApiApplication - Starting CampaignApiApplication using Java 17.0.8.1 with PID 7612 (D:\project\camp-api\campaignapi\target\classes started by shibi in D:\project\camp-api\campaignapi)
+2025-01-27 15:22:34 [main] INFO  c.s.c.CampaignApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-27 15:22:34 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-27 15:22:34 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 80 ms. Found 9 JPA repository interfaces.
+2025-01-27 15:22:35 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-27 15:22:35 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-27 15:22:35 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-27 15:22:35 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-01-27 15:22:35 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-01-27 15:22:35 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1617 ms
+2025-01-27 15:22:35 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-27 15:22:35 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2025-01-27 15:22:35 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-27 15:22:36 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 15:22:36 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-27 15:22:36 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-27 15:22:36 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@38cb1606
+2025-01-27 15:22:36 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-27 15:22:36 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 15:22:37 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-27 15:22:37 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-27 15:22:38 [main] INFO  c.s.c.config.FirebaseConfig - Firebase initialized successfully.
+2025-01-27 15:22:38 [main] INFO  c.s.c.service.AuthenticationService - AuthenticationService initialized.
+2025-01-27 15:22:38 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.shiel.campaignapi.service.BookingService.logger
+2025-01-27 15:22:38 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2025-01-27 15:22:38 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-01-27 15:22:38 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2025-01-27 15:22:38 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2025-01-27 15:22:38 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'MeetingScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-01-27 15:22:38 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'MeetingScheduler' initialized from an externally provided properties instance.
+2025-01-27 15:22:38 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2025-01-27 15:22:38 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@4a2bc71f
+2025-01-27 15:22:38 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2f32fe68, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1007954a, org.springframework.security.web.context.SecurityContextHolderFilter@29a51ff1, org.springframework.security.web.header.HeaderWriterFilter@f1e8753, org.springframework.security.web.authentication.logout.LogoutFilter@3670af2b, com.shiel.campaignapi.config.JwtAuthenticationFilter@2a23c061, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6f999cf4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@51c7d472, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@10770c1, org.springframework.security.web.session.SessionManagementFilter@5e8359da, org.springframework.security.web.access.ExceptionTranslationFilter@13c36d48, org.springframework.security.web.access.intercept.AuthorizationFilter@60abe420]
+2025-01-27 15:22:39 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-27 15:22:39 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-01-27 15:22:39 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2025-01-27 15:22:39 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED started.
+2025-01-27 15:22:39 [main] INFO  c.s.c.CampaignApiApplication - Started CampaignApiApplication in 5.816 seconds (process running for 6.716)
+2025-01-27 15:22:43 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-27 15:22:43 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-27 15:22:43 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2025-01-27 15:26:57 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.0.Final
+2025-01-27 15:26:57 [main] INFO  c.s.c.CampaignApiApplication - Starting CampaignApiApplication using Java 17.0.8.1 with PID 8456 (D:\project\camp-api\campaignapi\target\classes started by shibi in D:\project\camp-api\campaignapi)
+2025-01-27 15:26:57 [main] INFO  c.s.c.CampaignApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-27 15:26:58 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-27 15:26:58 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 91 ms. Found 9 JPA repository interfaces.
+2025-01-27 15:26:58 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-27 15:26:58 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-27 15:26:58 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-27 15:26:58 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-01-27 15:26:58 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-01-27 15:26:58 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1603 ms
+2025-01-27 15:26:58 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-27 15:26:59 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2025-01-27 15:26:59 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-27 15:26:59 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 15:26:59 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-27 15:26:59 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-27 15:26:59 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2e93108a
+2025-01-27 15:26:59 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-27 15:26:59 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 15:27:00 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-27 15:27:00 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-27 15:27:01 [main] INFO  c.s.c.config.FirebaseConfig - Firebase initialized successfully.
+2025-01-27 15:27:01 [main] INFO  c.s.c.service.AuthenticationService - AuthenticationService initialized.
+2025-01-27 15:27:01 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.shiel.campaignapi.service.BookingService.logger
+2025-01-27 15:27:01 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2025-01-27 15:27:01 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-01-27 15:27:01 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2025-01-27 15:27:01 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2025-01-27 15:27:01 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'MeetingScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-01-27 15:27:01 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'MeetingScheduler' initialized from an externally provided properties instance.
+2025-01-27 15:27:01 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2025-01-27 15:27:01 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@79e3f444
+2025-01-27 15:27:02 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@519e0814, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@d1b9dd7, org.springframework.security.web.context.SecurityContextHolderFilter@28ab7ffb, org.springframework.security.web.header.HeaderWriterFilter@6ea0dfaa, org.springframework.security.web.authentication.logout.LogoutFilter@60abe420, com.shiel.campaignapi.config.JwtAuthenticationFilter@4b718c45, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5b3427c4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1e11d73c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7701b695, org.springframework.security.web.session.SessionManagementFilter@51c7d472, org.springframework.security.web.access.ExceptionTranslationFilter@32180efb, org.springframework.security.web.access.intercept.AuthorizationFilter@1b68e626]
+2025-01-27 15:27:02 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-27 15:27:02 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-01-27 15:27:02 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2025-01-27 15:27:02 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED started.
+2025-01-27 15:27:02 [main] INFO  c.s.c.CampaignApiApplication - Started CampaignApiApplication in 5.75 seconds (process running for 6.645)
+2025-01-27 15:27:34 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-27 15:27:34 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-27 15:27:34 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-01-27 15:46:31 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.0.Final
+2025-01-27 15:46:31 [main] INFO  c.s.c.CampaignApiApplication - Starting CampaignApiApplication using Java 17.0.8.1 with PID 20208 (D:\project\camp-api\campaignapi\target\classes started by shibi in D:\project\camp-api\campaignapi)
+2025-01-27 15:46:31 [main] INFO  c.s.c.CampaignApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-27 15:46:32 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-27 15:46:32 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 53 ms. Found 9 JPA repository interfaces.
+2025-01-27 15:46:32 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-27 15:46:32 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-27 15:46:32 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-27 15:46:32 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-01-27 15:46:32 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-01-27 15:46:32 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1150 ms
+2025-01-27 15:46:33 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-27 15:46:33 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2025-01-27 15:46:33 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-27 15:46:33 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 15:46:33 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-27 15:46:33 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-27 15:46:33 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@27dfd12b
+2025-01-27 15:46:33 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-27 15:46:33 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 15:46:34 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-27 15:46:34 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-27 15:46:35 [main] INFO  c.s.c.config.FirebaseConfig - Firebase initialized successfully.
+2025-01-27 15:46:35 [main] INFO  c.s.c.service.AuthenticationService - AuthenticationService initialized.
+2025-01-27 15:46:35 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.shiel.campaignapi.service.BookingService.logger
+2025-01-27 15:46:35 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2025-01-27 15:46:35 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-01-27 15:46:35 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2025-01-27 15:46:35 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2025-01-27 15:46:35 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'MeetingScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-01-27 15:46:35 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'MeetingScheduler' initialized from an externally provided properties instance.
+2025-01-27 15:46:35 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2025-01-27 15:46:35 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@157ff8f8
+2025-01-27 15:46:35 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@60abe420, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@21e60eed, org.springframework.security.web.context.SecurityContextHolderFilter@5e8359da, org.springframework.security.web.header.HeaderWriterFilter@39240aa3, org.springframework.security.web.authentication.logout.LogoutFilter@58f259bd, com.shiel.campaignapi.config.JwtAuthenticationFilter@69c7eafd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7d2d5625, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7892635c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2b43eb71, org.springframework.security.web.session.SessionManagementFilter@6ea0dfaa, org.springframework.security.web.access.ExceptionTranslationFilter@61f18997, org.springframework.security.web.access.intercept.AuthorizationFilter@2e5dea22]
+2025-01-27 15:46:35 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-27 15:46:35 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-01-27 15:46:35 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2025-01-27 15:46:35 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED started.
+2025-01-27 15:46:35 [main] INFO  c.s.c.CampaignApiApplication - Started CampaignApiApplication in 4.34 seconds (process running for 4.976)
+2025-01-27 15:46:35 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-27 15:46:35 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-27 15:46:35 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-01-27 15:46:57 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.0.Final
+2025-01-27 15:46:57 [main] INFO  c.s.c.CampaignApiApplication - Starting CampaignApiApplication using Java 17.0.8.1 with PID 18980 (D:\project\camp-api\campaignapi\target\classes started by shibi in D:\project\camp-api\campaignapi)
+2025-01-27 15:46:57 [main] INFO  c.s.c.CampaignApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-27 15:46:58 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-27 15:46:58 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 55 ms. Found 9 JPA repository interfaces.
+2025-01-27 15:46:58 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-27 15:46:58 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-27 15:46:58 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-27 15:46:58 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-01-27 15:46:59 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-01-27 15:46:59 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1133 ms
+2025-01-27 15:46:59 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-27 15:46:59 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2025-01-27 15:46:59 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-27 15:46:59 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 15:46:59 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-27 15:46:59 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-27 15:46:59 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2b99c937
+2025-01-27 15:46:59 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-27 15:46:59 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 15:47:00 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-27 15:47:00 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-27 15:47:00 [main] INFO  c.s.c.config.FirebaseConfig - Firebase initialized successfully.
+2025-01-27 15:47:01 [main] INFO  c.s.c.service.AuthenticationService - AuthenticationService initialized.
+2025-01-27 15:47:01 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.shiel.campaignapi.service.BookingService.logger
+2025-01-27 15:47:01 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2025-01-27 15:47:01 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-01-27 15:47:01 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2025-01-27 15:47:01 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2025-01-27 15:47:01 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'MeetingScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-01-27 15:47:01 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'MeetingScheduler' initialized from an externally provided properties instance.
+2025-01-27 15:47:01 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2025-01-27 15:47:01 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@6cb2d5ea
+2025-01-27 15:47:01 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3670af2b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7c8537e9, org.springframework.security.web.context.SecurityContextHolderFilter@7f39bcb5, org.springframework.security.web.header.HeaderWriterFilter@2c2dfde3, org.springframework.security.web.authentication.logout.LogoutFilter@5e6b2641, com.shiel.campaignapi.config.JwtAuthenticationFilter@76929266, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@25192b6e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ea0dfaa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@42d4de20, org.springframework.security.web.session.SessionManagementFilter@f1e8753, org.springframework.security.web.access.ExceptionTranslationFilter@66d62c59, org.springframework.security.web.access.intercept.AuthorizationFilter@58f259bd]
+2025-01-27 15:47:01 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-27 15:47:01 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-01-27 15:47:01 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2025-01-27 15:47:01 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED started.
+2025-01-27 15:47:01 [main] INFO  c.s.c.CampaignApiApplication - Started CampaignApiApplication in 4.146 seconds (process running for 4.785)
+2025-01-27 15:47:06 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-27 15:47:06 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-27 15:47:06 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-01-27 15:48:51 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.0.Final
+2025-01-27 15:48:51 [main] INFO  c.s.c.CampaignApiApplication - Starting CampaignApiApplication using Java 17.0.8.1 with PID 14120 (D:\project\camp-api\campaignapi\target\classes started by shibi in D:\project\camp-api\campaignapi)
+2025-01-27 15:48:51 [main] INFO  c.s.c.CampaignApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-27 15:48:52 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-27 15:48:52 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 55 ms. Found 9 JPA repository interfaces.
+2025-01-27 15:48:52 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-27 15:48:52 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-27 15:48:52 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-27 15:48:52 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-01-27 15:48:52 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-01-27 15:48:52 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1153 ms
+2025-01-27 15:48:52 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-27 15:48:52 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2025-01-27 15:48:52 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-27 15:48:52 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 15:48:53 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-27 15:48:53 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-27 15:48:53 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@27dfd12b
+2025-01-27 15:48:53 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-27 15:48:53 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 15:48:54 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-27 15:48:54 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-27 15:48:54 [main] INFO  c.s.c.config.FirebaseConfig - Firebase initialized successfully.
+2025-01-27 15:48:54 [main] INFO  c.s.c.service.AuthenticationService - AuthenticationService initialized.
+2025-01-27 15:48:54 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.shiel.campaignapi.service.BookingService.logger
+2025-01-27 15:48:54 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2025-01-27 15:48:54 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-01-27 15:48:54 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2025-01-27 15:48:54 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2025-01-27 15:48:54 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'MeetingScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-01-27 15:48:54 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'MeetingScheduler' initialized from an externally provided properties instance.
+2025-01-27 15:48:54 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2025-01-27 15:48:54 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@67263db7
+2025-01-27 15:48:55 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2b43eb71, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2f32fe68, org.springframework.security.web.context.SecurityContextHolderFilter@7d2d5625, org.springframework.security.web.header.HeaderWriterFilter@7e93e396, org.springframework.security.web.authentication.logout.LogoutFilter@4075c0d8, com.shiel.campaignapi.config.JwtAuthenticationFilter@69c7eafd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6dacde96, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@729a98e9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1007954a, org.springframework.security.web.session.SessionManagementFilter@2acfd27b, org.springframework.security.web.access.ExceptionTranslationFilter@39240aa3, org.springframework.security.web.access.intercept.AuthorizationFilter@4a59d584]
+2025-01-27 15:48:55 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-27 15:48:55 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-01-27 15:48:55 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2025-01-27 15:48:55 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED started.
+2025-01-27 15:48:55 [main] INFO  c.s.c.CampaignApiApplication - Started CampaignApiApplication in 4.232 seconds (process running for 4.879)
+2025-01-27 15:48:57 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-27 15:48:57 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-27 15:48:57 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-01-27 15:50:02 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.0.Final
+2025-01-27 15:50:02 [main] INFO  c.s.c.CampaignApiApplication - Starting CampaignApiApplication using Java 17.0.8.1 with PID 17460 (D:\project\camp-api\campaignapi\target\classes started by shibi in D:\project\camp-api\campaignapi)
+2025-01-27 15:50:02 [main] INFO  c.s.c.CampaignApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-27 15:50:03 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-27 15:50:03 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 56 ms. Found 9 JPA repository interfaces.
+2025-01-27 15:50:03 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-27 15:50:03 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-27 15:50:03 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-27 15:50:03 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-01-27 15:50:04 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-01-27 15:50:04 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1142 ms
+2025-01-27 15:50:04 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-27 15:50:04 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2025-01-27 15:50:04 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-27 15:50:04 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 15:50:04 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-27 15:50:04 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-27 15:50:04 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6abe62bb
+2025-01-27 15:50:04 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-27 15:50:04 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 15:50:05 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-27 15:50:05 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-27 15:50:06 [main] INFO  c.s.c.config.FirebaseConfig - Firebase initialized successfully.
+2025-01-27 15:50:06 [main] INFO  c.s.c.service.AuthenticationService - AuthenticationService initialized.
+2025-01-27 15:50:06 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.shiel.campaignapi.service.BookingService.logger
+2025-01-27 15:50:06 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2025-01-27 15:50:06 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-01-27 15:50:06 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2025-01-27 15:50:06 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2025-01-27 15:50:06 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'MeetingScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-01-27 15:50:06 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'MeetingScheduler' initialized from an externally provided properties instance.
+2025-01-27 15:50:06 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2025-01-27 15:50:06 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@533165e7
+2025-01-27 15:50:06 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@d8f65a1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5014ccf9, org.springframework.security.web.context.SecurityContextHolderFilter@13c36d48, org.springframework.security.web.header.HeaderWriterFilter@5207747c, org.springframework.security.web.authentication.logout.LogoutFilter@388ad8aa, com.shiel.campaignapi.config.JwtAuthenticationFilter@5ad13be4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@f1e8753, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4e6881e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@58f259bd, org.springframework.security.web.session.SessionManagementFilter@61f18997, org.springframework.security.web.access.ExceptionTranslationFilter@587df3e4, org.springframework.security.web.access.intercept.AuthorizationFilter@4bf2c697]
+2025-01-27 15:50:06 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-27 15:50:06 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-01-27 15:50:06 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2025-01-27 15:50:06 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED started.
+2025-01-27 15:50:06 [main] INFO  c.s.c.CampaignApiApplication - Started CampaignApiApplication in 4.15 seconds (process running for 4.803)
+2025-01-27 15:50:33 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-27 15:50:33 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-27 15:50:33 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-01-27 16:00:43 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.0.Final
+2025-01-27 16:00:43 [main] INFO  c.s.c.CampaignApiApplication - Starting CampaignApiApplication using Java 17.0.8.1 with PID 13972 (D:\project\camp-api\campaignapi\target\classes started by shibi in D:\project\camp-api\campaignapi)
+2025-01-27 16:00:43 [main] INFO  c.s.c.CampaignApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-27 16:00:44 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-27 16:00:44 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 55 ms. Found 9 JPA repository interfaces.
+2025-01-27 16:00:44 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-27 16:00:44 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-27 16:00:44 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-27 16:00:44 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-01-27 16:00:44 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-01-27 16:00:44 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1111 ms
+2025-01-27 16:00:44 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-27 16:00:44 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2025-01-27 16:00:44 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-27 16:00:45 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 16:00:45 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-27 16:00:45 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-27 16:00:45 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2b99c937
+2025-01-27 16:00:45 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-27 16:00:45 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-27 16:00:46 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-27 16:00:46 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-27 16:00:46 [main] INFO  c.s.c.config.FirebaseConfig - Firebase initialized successfully.
+2025-01-27 16:00:46 [main] INFO  c.s.c.service.AuthenticationService - AuthenticationService initialized.
+2025-01-27 16:00:46 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.shiel.campaignapi.service.BookingService.logger
+2025-01-27 16:00:47 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2025-01-27 16:00:47 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-01-27 16:00:47 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2025-01-27 16:00:47 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2025-01-27 16:00:47 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'MeetingScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-01-27 16:00:47 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'MeetingScheduler' initialized from an externally provided properties instance.
+2025-01-27 16:00:47 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2025-01-27 16:00:47 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@6cb2d5ea
+2025-01-27 16:00:47 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3670af2b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7c8537e9, org.springframework.security.web.context.SecurityContextHolderFilter@7f39bcb5, org.springframework.security.web.header.HeaderWriterFilter@2c2dfde3, org.springframework.security.web.authentication.logout.LogoutFilter@5e6b2641, com.shiel.campaignapi.config.JwtAuthenticationFilter@76929266, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@25192b6e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ea0dfaa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@42d4de20, org.springframework.security.web.session.SessionManagementFilter@f1e8753, org.springframework.security.web.access.ExceptionTranslationFilter@66d62c59, org.springframework.security.web.access.intercept.AuthorizationFilter@58f259bd]
+2025-01-27 16:00:47 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-27 16:00:47 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-01-27 16:00:47 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2025-01-27 16:00:47 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED started.
+2025-01-27 16:00:47 [main] INFO  c.s.c.CampaignApiApplication - Started CampaignApiApplication in 4.269 seconds (process running for 4.92)
+2025-01-27 16:00:49 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-27 16:00:49 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-27 16:00:49 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-01-27 16:01:02 [http-nio-8080-exec-4] INFO  c.s.c.service.AuthenticationService - Starting signup process for email: country@gmail.com
+2025-01-27 16:01:02 [http-nio-8080-exec-4] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1062, SQLState: 23000
+2025-01-27 16:01:02 [http-nio-8080-exec-4] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Duplicate entry 'country@gmail.com' for key 'user.UK_ob8kqyqqgmefl0aco34akdtpe'
+2025-01-27 16:01:02 [http-nio-8080-exec-4] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: could not execute statement [Duplicate entry 'country@gmail.com' for key 'user.UK_ob8kqyqqgmefl0aco34akdtpe'] [insert into user (age,country_id,createdat,deleted_at,email,fullname,gender,password,phone,place,status,updatedat) values (?,?,?,?,?,?,?,?,?,?,?,?)]; SQL [insert into user (age,country_id,createdat,deleted_at,email,fullname,gender,password,phone,place,status,updatedat) values (?,?,?,?,?,?,?,?,?,?,?,?)]; constraint [user.UK_ob8kqyqqgmefl0aco34akdtpe]] with root cause
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'country@gmail.com' for key 'user.UK_ob8kqyqqgmefl0aco34akdtpe'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:118)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1061)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1009)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1320)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:994)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:275)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:107)
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorPostInsertSingleTable.execute(MutationExecutorPostInsertSingleTable.java:100)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:169)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:111)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2779)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:676)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:272)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:363)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:277)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:180)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:140)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:175)
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:93)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:77)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:54)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:755)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:739)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:311)
+	at jdk.proxy2/jdk.proxy2.$Proxy124.persist(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:618)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:288)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:136)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:120)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:391)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:244)
+	at jdk.proxy2/jdk.proxy2.$Proxy129.save(Unknown Source)
+	at com.shiel.campaignapi.service.AuthenticationService.signup(AuthenticationService.java:85)
+	at com.shiel.campaignapi.controller.AuthenticationController.register(AuthenticationController.java:52)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.shiel.campaignapi.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:53)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2025-01-27 16:01:33 [http-nio-8080-exec-5] INFO  c.s.c.service.AuthenticationService - Starting signup process for email: country@gmail.com
+2025-01-27 16:01:33 [http-nio-8080-exec-5] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1062, SQLState: 23000
+2025-01-27 16:01:33 [http-nio-8080-exec-5] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Duplicate entry 'country@gmail.com' for key 'user.UK_ob8kqyqqgmefl0aco34akdtpe'
+2025-01-27 16:01:33 [http-nio-8080-exec-5] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: could not execute statement [Duplicate entry 'country@gmail.com' for key 'user.UK_ob8kqyqqgmefl0aco34akdtpe'] [insert into user (age,country_id,createdat,deleted_at,email,fullname,gender,password,phone,place,status,updatedat) values (?,?,?,?,?,?,?,?,?,?,?,?)]; SQL [insert into user (age,country_id,createdat,deleted_at,email,fullname,gender,password,phone,place,status,updatedat) values (?,?,?,?,?,?,?,?,?,?,?,?)]; constraint [user.UK_ob8kqyqqgmefl0aco34akdtpe]] with root cause
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'country@gmail.com' for key 'user.UK_ob8kqyqqgmefl0aco34akdtpe'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:118)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1061)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1009)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1320)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:994)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:275)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:107)
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorPostInsertSingleTable.execute(MutationExecutorPostInsertSingleTable.java:100)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:169)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:111)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2779)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:676)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:272)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:363)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:277)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:180)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:140)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:175)
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:93)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:77)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:54)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:755)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:739)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:311)
+	at jdk.proxy2/jdk.proxy2.$Proxy124.persist(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:618)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:288)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:136)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:120)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:391)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:244)
+	at jdk.proxy2/jdk.proxy2.$Proxy129.save(Unknown Source)
+	at com.shiel.campaignapi.service.AuthenticationService.signup(AuthenticationService.java:85)
+	at com.shiel.campaignapi.controller.AuthenticationController.register(AuthenticationController.java:52)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.shiel.campaignapi.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:53)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)

@@ -35,7 +35,8 @@ public class SecurityConfiguration {
 				.requestMatchers("/events/add", "/events/update/*", "/events/delete/*", "/meetings/add",
 						"/meetings/update/*", "/meetings/delete/*", "/booking/all", "/users/all",
 						"booking/event/{eventId}", "booking/delete/{bookingId}", "/zoom-meetings/add",
-						"/zoom-meetings/delete/*", "/zoom-meetings/update/*", "/roles/**", "/country/add")
+						"/zoom-meetings/delete/*", "/zoom-meetings/update/*", "/roles/**", "/country/add",
+						"booking/download/{eventId}")
 				.hasRole("ADMIN")
 
 				.requestMatchers("/booking/add", "/booking/{bookingId}", "booking/user/{userId}", "/booking/update/*",
