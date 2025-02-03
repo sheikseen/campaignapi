@@ -161,7 +161,7 @@ public class Booking implements Serializable{
 	}
 
 	public enum BookingStatus {
-		PENDING, CONFIRMED, CANCELLED, COMPLETED, REJECTED
+		PENDING, CONFIRMED, CANCELLED, COMPLETED, REJECTED, DEPENDENT
 	}
 
 	public enum PaymentStatus {

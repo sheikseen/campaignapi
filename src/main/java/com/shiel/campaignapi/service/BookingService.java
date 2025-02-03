@@ -90,14 +90,15 @@ public class BookingService {
 
 			Booking booking = bookingRepository.findByUserIdAndEventId(currentUser, event).orElse(null);
 			boolean isNewBooking = (booking == null);
+			boolean isUserBookingForSelf = bookingDto.isBookingForSelf();
 
 			logger.debug("Is this a new booking: {}", isNewBooking);
 
 			BigDecimal totalAmount = BigDecimal.ZERO;
 
 			if (isNewBooking) {
-				totalAmount = totalAmount.add(event.getAdultAmount());
-				booking = new Booking(); // Create a new booking for the new user
+				// totalAmount = totalAmount.add(event.getAdultAmount());
+				booking = new Booking(); 
 				booking.setPaymentVia(bookingDto.getPaymentVia());
 				booking.setAmountPaid(bookingDto.getAmountPaid());
 				booking.setBookingStatus(Booking.BookingStatus.CONFIRMED);
@@ -108,114 +109,135 @@ public class BookingService {
 
 				logger.info("Created new booking for user: {}", currentUser.getEmail());
 			}
+			if (isUserBookingForSelf) {
+				totalAmount = totalAmount.add(event.getAdultAmount());
+				booking.setBookingStatus(Booking.BookingStatus.CONFIRMED);
+			} else {
+				booking.setBookingStatus(Booking.BookingStatus.DEPENDENT);
+			}
 
+			List<Dependent> newDependents = new ArrayList<>();
 			if (bookingDto.getDependents() != null && !bookingDto.getDependents().isEmpty()) {
 				for (DependentDto dependentDto : bookingDto.getDependents()) {
-					if (dependentDto.getAge() <= 12) {
-						totalAmount = totalAmount.add(event.getChildAmount());
+					BigDecimal amount = BigDecimal.ZERO;
 
+					if (dependentDto.getAge() >= 7 && dependentDto.getAge() <= 12) {
+						// totalAmount = totalAmount.add(event.getChildAmount());
+						amount = event.getChildAmount();
+
+					} else if (dependentDto.getAge() > 12) {
+						// totalAmount = totalAmount.add(event.getAdultAmount());
+						amount = event.getAdultAmount();
+					}
+					if (dependentDto.getAge() < 7) {
+						amount = BigDecimal.ZERO;
+					}
+
+					totalAmount = totalAmount.add(amount);
+				}
+					List<Dependent> existingDependents = booking.getDependents() != null ? booking.getDependents()
+							: new ArrayList<>();
+
+					boolean hasHusband = existingDependents.stream().anyMatch(d -> d.getRelation() == Relation.HUSBAND);
+					boolean hasWife = existingDependents.stream().anyMatch(d -> d.getRelation() == Relation.WIFE);
+
+					for (DependentDto dependentDto : bookingDto.getDependents()) {
+
+						String gender = dependentDto.getGender();
+						Relation relation = dependentDto.getRelation();
+
+						if ("Male".equalsIgnoreCase(gender)) {
+							if (!Set.of(Relation.SON, Relation.HUSBAND, Relation.BROTHER, Relation.FATHER)
+									.contains(relation)) {
+								throw new UserIllegalArgumentException(
+										" Allowed values are: Son, Husband, Brother, Father",
+										"Invalid relation for male gender", 500);
+							}
+							if (relation == Relation.HUSBAND && hasHusband) {
+								throw new UserIllegalArgumentException("Only one husband can be added",
+										"Duplicate Husband", 500);
+							}
+							if (relation == Relation.HUSBAND && dependentDto.getAge() < 21) {
+								throw new UserIllegalArgumentException("Husband age must be atleast 21",
+										"Verify Husband's Age", 500);
+							}
+							if (relation == Relation.FATHER && dependentDto.getAge() <= currentUser.getAge()) {
+								throw new UserIllegalArgumentException(
+										"Father's age must be greater than the user's age", "Verify Father's Age", 500);
+							}
+
+						} else if ("Female".equalsIgnoreCase(gender)) {
+
+							if (!Set.of(Relation.WIFE, Relation.MOTHER, Relation.DAUGHTER, Relation.SISTER)
+									.contains(relation)) {
+								throw new UserIllegalArgumentException(" Allowed values are: Wife, Mother, Daughter",
+										"Invalid relation for female gender", 400);
+							}
+							if (relation == Relation.WIFE && dependentDto.getAge() < 18) {
+								throw new UserIllegalArgumentException("Wife age must be at least 18",
+										" Verify Wife's Age", 400);
+							}
+							if (relation == Relation.MOTHER && dependentDto.getAge() <= currentUser.getAge()) {
+								throw new UserIllegalArgumentException(
+										"Mother's age must be greater than the user's age", " Verify Mother's Age",
+										400);
+							}
+							if (relation == Relation.WIFE && hasWife) {
+								throw new UserIllegalArgumentException("Only one wife can be added", "Duplicate Wife",
+										500);
+							}
+						}
+
+						Dependent dependent = new Dependent();
+						dependent.setName(dependentDto.getName());
+						dependent.setPlace(dependentDto.getPlace());
+						dependent.setGender(dependentDto.getGender());
+						dependent.setAge(dependentDto.getAge());
+						dependent.setRelation(dependentDto.getRelation());
+						dependent.setUserId(currentUser);
+						dependent.setBookingId(booking);
+						newDependents.add(dependent);
+
+						if (relation == Relation.HUSBAND) {
+							hasHusband = true;
+						}
+						if (relation == Relation.WIFE) {
+							hasWife = true;
+						}
+					}
+					dependentRepository.saveAll(newDependents);
+
+					if (booking.getDependents() != null) {
+						booking.getDependents().addAll(newDependents);
 					} else {
-						totalAmount = totalAmount.add(event.getAdultAmount());
-
+						booking.setDependents(newDependents);
 					}
+					booking.setDependentCount(booking.getDependents().size());
+
+					logger.debug("Added {} dependents to booking.", newDependents.size());
 				}
 
-				List<Dependent> newDependents = new ArrayList<>();
-				List<Dependent> existingDependents = booking.getDependents() != null ? booking.getDependents()
-						: new ArrayList<>();
-
-				boolean hasHusband = existingDependents.stream().anyMatch(d -> d.getRelation() == Relation.HUSBAND);
-				boolean hasWife = existingDependents.stream().anyMatch(d -> d.getRelation() == Relation.WIFE);
-
-				for (DependentDto dependentDto : bookingDto.getDependents()) {
-
-					String gender = dependentDto.getGender();
-					Relation relation = dependentDto.getRelation();
-
-					if ("Male".equalsIgnoreCase(gender)) {
-						if (!Set.of(Relation.SON, Relation.HUSBAND, Relation.BROTHER, Relation.FATHER)
-								.contains(relation)) {
-							throw new UserIllegalArgumentException(" Allowed values are: Son, Husband, Brother, Father",
-									"Invalid relation for male gender", 500);
-						}
-						if (relation == Relation.HUSBAND && hasHusband) {
-							throw new UserIllegalArgumentException("Only one husband can be added", "Duplicate Husband",
-									500);
-						}
-						if (relation == Relation.HUSBAND && dependentDto.getAge() < 21) {
-							throw new UserIllegalArgumentException("Husband age must be atleast 21",
-									"Verify Husband's Age", 500);
-						}
-						if (relation == Relation.FATHER && dependentDto.getAge() <= currentUser.getAge()) {
-							throw new UserIllegalArgumentException("Father's age must be greater than the user's age",
-									"Verify Father's Age", 500);
-						}
-
-					} else if ("Female".equalsIgnoreCase(gender)) {
-
-						if (!Set.of(Relation.WIFE, Relation.MOTHER, Relation.DAUGHTER, Relation.SISTER)
-								.contains(relation)) {
-							throw new UserIllegalArgumentException(" Allowed values are: Wife, Mother, Daughter",
-									"Invalid relation for female gender", 400);
-						}
-						if (relation == Relation.WIFE && dependentDto.getAge() < 18) {
-							throw new UserIllegalArgumentException("Wife age must be at least 18", " Verify Wife's Age",
-									400);
-						}
-						if (relation == Relation.MOTHER && dependentDto.getAge() <= currentUser.getAge()) {
-							throw new UserIllegalArgumentException("Mother's age must be greater than the user's age",
-									" Verify Mother's Age", 400);
-						}
-						if (relation == Relation.WIFE && hasWife) {
-							throw new UserIllegalArgumentException("Only one wife can be added", "Duplicate Wife", 500);
-						}
-					}
-
-					Dependent dependent = new Dependent();
-					dependent.setName(dependentDto.getName());
-					dependent.setPlace(dependentDto.getPlace());
-					dependent.setGender(dependentDto.getGender());
-					dependent.setAge(dependentDto.getAge());
-					dependent.setRelation(dependentDto.getRelation());
-					dependent.setUserId(currentUser);
-					dependent.setBookingId(booking);
-					newDependents.add(dependent);
-
-					if (relation == Relation.HUSBAND) {
-						hasHusband = true;
-					}
-					if (relation == Relation.WIFE) {
-						hasWife = true;
-					}
+				BigDecimal currentTotal = booking.getTotalAmount();
+				if (currentTotal == null) {
+					currentTotal = BigDecimal.ZERO;
 				}
-				dependentRepository.saveAll(newDependents);
+				BigDecimal newTotal = currentTotal.add(totalAmount);
+				booking.setTotalAmount(newTotal);
 
-				if (booking.getDependents() != null) {
-					booking.getDependents().addAll(newDependents);
-				} else {
-					booking.setDependents(newDependents);
-				}
-				booking.setDependentCount(booking.getDependents().size());
-				logger.debug("Added {} dependents to booking.", newDependents.size());
-			}
+				logger.debug("Updated total amount: {}", newTotal);
 
-			BigDecimal currentTotal = booking.getTotalAmount();
-			if (currentTotal == null) {
-				currentTotal = BigDecimal.ZERO;
-			}
-			BigDecimal newTotal = currentTotal.add(totalAmount);
-			booking.setTotalAmount(newTotal);
-			logger.debug("Updated total amount: {}", newTotal);
+				Booking savedBooking = bookingRepository.save(booking);
 
-			Booking savedBooking = bookingRepository.save(booking);
-			logger.info("Booking saved with ID: {}", savedBooking.getBookingId());
+				logger.info("Booking saved with ID: {}", savedBooking.getBookingId());
 
-			int seatsToAdd = isNewBooking ? newDependentsCount + 1 : newDependentsCount;
-			event.setSeatsBooked(event.getSeatsBooked() + seatsToAdd);
-			eventRepository.save(event);
-			logger.debug("Updated event seats booked: {}", event.getSeatsBooked());
+				int seatsToAdd = isNewBooking ? newDependentsCount + 1 : newDependentsCount;
+				event.setSeatsBooked(event.getSeatsBooked() + seatsToAdd);
+				eventRepository.save(event);
 
-			return savedBooking;
+				logger.debug("Updated event seats booked: {}", event.getSeatsBooked());
+
+				return savedBooking;
+		
 
 		} catch (Exception e) {
 			logger.error("Error saving booking: {}", e.getMessage(), e);
@@ -412,6 +434,9 @@ public class BookingService {
 
 			booking.setBookingStatus(Booking.BookingStatus.CANCELLED);
 			logger.info("Booking cancelled successfully for booking ID: {}", bookingId);
+			
+			BigDecimal amountToSubtract = booking.getEventId().getAdultAmount();			
+			booking.setTotalAmount(booking.getTotalAmount().subtract(amountToSubtract));
 
 			return bookingRepository.save(booking);
 		} catch (Exception e) {
@@ -467,6 +492,7 @@ public class BookingService {
 
 			List<DependentDto> dependentDtos = booking.getDependents().stream().map(dependent -> {
 				DependentDto dependentDto = new DependentDto();
+				dependentDto.setDependentId(dependent.getDependentId());
 				dependentDto.setName(dependent.getName());
 				dependentDto.setPlace(dependent.getPlace());
 				dependentDto.setAge(dependent.getAge());
@@ -520,8 +546,7 @@ public class BookingService {
 			table.addCell(new Cell().add(new Paragraph(" Gender ")).setBold().setTextAlignment(TextAlignment.CENTER));
 			table.addCell(
 					new Cell().add(new Paragraph(" Total Amount ")).setBold().setTextAlignment(TextAlignment.CENTER));
-			table.addCell(
-					new Cell().add(new Paragraph(" Status ")).setBold().setTextAlignment(TextAlignment.CENTER));
+			table.addCell(new Cell().add(new Paragraph(" Status ")).setBold().setTextAlignment(TextAlignment.CENTER));
 
 			for (Booking booking : bookings) {
 				table.addCell(" " + booking.getUserId().getFullName() + " ");

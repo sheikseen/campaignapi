@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.shiel.campaignapi.entity.Booking;
-
 
 public class BookingDto {
 	public Long bookingId;
@@ -21,7 +21,19 @@ public class BookingDto {
 	private Integer loggedInUserId;
 	private SignupUserDto user;
 	private EventDto event;
-	public List<DependentDto> dependents;	
+	public List<DependentDto> dependents;
+	
+	@JsonProperty("isBookingForSelf")
+	private boolean isBookingForSelf;
+
+	public boolean isBookingForSelf() {
+		return isBookingForSelf;
+	}
+
+	public void setBookingForSelf(boolean bookingForSelf) {
+		this.isBookingForSelf = bookingForSelf;
+	}
+
 	public Long getBookingId() {
 		return bookingId;
 	}
@@ -116,7 +128,7 @@ public class BookingDto {
 
 	public void setDependents(List<DependentDto> dependents) {
 		this.dependents = dependents;
-		
+
 	}
 
 	public SignupUserDto getUser() {
@@ -127,7 +139,6 @@ public class BookingDto {
 		this.user = user;
 	}
 
-	
 	public EventDto getEvent() {
 		return event;
 	}

@@ -57,10 +57,12 @@ public class DependentsService {
 
 				booking.getDependents().remove(dependent);
 				booking.setDependentCount(booking.getDependents().size());
-
-				BigDecimal amountToSubtract = (dependent.getAge() >= 12)
-						? booking.getEventId().getAdultAmount()
-						: booking.getEventId().getChildAmount();
+				  BigDecimal amountToSubtract = BigDecimal.ZERO;
+				  if (dependent.getAge() > 7 && dependent.getAge() < 12) {
+		                amountToSubtract = booking.getEventId().getChildAmount();
+		            } else if (dependent.getAge() >= 12) {
+		                amountToSubtract = booking.getEventId().getAdultAmount();
+		            }
 
 				booking.setTotalAmount(booking.getTotalAmount().subtract(amountToSubtract));
 

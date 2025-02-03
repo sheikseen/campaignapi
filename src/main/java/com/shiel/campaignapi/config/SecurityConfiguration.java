@@ -34,14 +34,13 @@ public class SecurityConfiguration {
 				.permitAll()
 				.requestMatchers("/events/add", "/events/update/*", "/events/delete/*", "/meetings/add",
 						"/meetings/update/*", "/meetings/delete/*", "/booking/all", "/users/all",
-						"booking/event/{eventId}", "booking/delete/{bookingId}", "/zoom-meetings/add",
-						"/zoom-meetings/delete/*", "/zoom-meetings/update/*", "/roles/**", "/country/add",
-						"booking/download/{eventId}")
+						"/booking/event/{eventId}", "/zoom-meetings/add", "/zoom-meetings/delete/*",
+						"/zoom-meetings/update/*", "/roles/**", "/country/add", "/booking/download/{eventId}")
 				.hasRole("ADMIN")
 
-				.requestMatchers("/booking/add", "/booking/{bookingId}", "booking/user/{userId}", "/booking/update/*",
+				.requestMatchers("/booking/add", "/booking/{bookingId}", "/booking/user/{userId}", "/booking/update/*",
 						"/users/update/*", "/users/{userId}", "/users/delete/*", "/booking/isUserBooked",
-						"dependent/update/{dependentId}", "dependent/delete/**")
+						"/booking/delete/{bookingId}", "/dependent/update/{dependentId}", "/dependent/delete/**")
 				.hasAnyRole("USER", "ADMIN").and()
 
 				.anonymous(anonymous -> anonymous
