@@ -12,7 +12,7 @@ public class SignupUserDto {
 	private Integer countryId;
 	private CountryDto country;
 	private String phone;
-	private int age;
+	private Integer  age;
 	private String gender;
 	private String email;
 	private String password;
@@ -87,11 +87,11 @@ public class SignupUserDto {
 		this.phone = phone;
 	}
 
-	public int getAge() {
+	public Integer  getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(Integer  age) {
 		this.age = age;
 	}
 

@@ -13,6 +13,8 @@ import com.shiel.campaignapi.dto.SignupUserDto;
 import com.shiel.campaignapi.entity.Country;
 import com.shiel.campaignapi.entity.PasswordResetToken;
 import com.shiel.campaignapi.entity.User;
+import com.shiel.campaignapi.exception.UserBadCredential;
+import com.shiel.campaignapi.exception.UserIllegalArgumentException;
 import com.shiel.campaignapi.exception.UserNotFoundException;
 import com.shiel.campaignapi.repository.CountryRepository;
 import com.shiel.campaignapi.repository.PasswordResetTokenRepository;
@@ -52,15 +54,15 @@ public class UserService {
 			for (User user : users) {
 				SignupUserDto signupDto = new SignupUserDto();
 				signupDto.setFullName(user.getFullName());
-				
+
 				Country country = user.getCountryId();
-			    if (country!= null) {
-			        CountryDto countryDto = new CountryDto();
-			        countryDto.setCountryId(country.getCountryId()); 
-			        countryDto.setCountryCode(country.getCountryCode()); 
-			        countryDto.setCountry(country.getCountry());  
-			        signupDto.setCountry(countryDto);
-			    }
+				if (country != null) {
+					CountryDto countryDto = new CountryDto();
+					countryDto.setCountryId(country.getCountryId());
+					countryDto.setCountryCode(country.getCountryCode());
+					countryDto.setCountry(country.getCountry());
+					signupDto.setCountry(countryDto);
+				}
 				signupDto.setPhone(user.getPhone());
 				signupDto.setAge(user.getAge());
 				signupDto.setEmail(user.getEmail());
@@ -82,37 +84,43 @@ public class UserService {
 
 	public User updateUser(SignupUserDto userDto) {
 		logger.info("Updating user with ID: {}", userDto.getUserId());
-		try {
-			Optional<User> optionalUser = userRepository.findById(userDto.getUserId());
 
-			if (optionalUser.isPresent()) {
-				User user = optionalUser.get();
+		Optional<User> optionalUser = userRepository.findById(userDto.getUserId());
 
-				user.setPlace(userDto.getPlace());
-				user.setEmail(userDto.getEmail());
-				user.setFullName(userDto.getFullName());
-				if (userDto.getCountryId() != null) {
-					Country country = countryRepository.findById(userDto.getCountryId().toString()).orElseThrow(
-							() -> new RuntimeException("Country not found with ID: " + userDto.getCountryId()));
-					user.setCountryId(country);
-				}
-				user.setPhone(userDto.getPhone());
-				user.setAge(userDto.getAge());
-				user.setGender(userDto.getGender());
-				if (userDto.getPassword() != null) {
-					user.setPassword(passwordEncoder.encode(userDto.getPassword()));
-				}
-				if (userDto.getRoles() != null) {
-					user.setRoles(userDto.getRoles());
-				}
-				return userRepository.save(user);
-			} else {
-				throw new RuntimeException("User not found with id " + userDto.getUserId());
-			}
-		} catch (Exception e) {
-			logger.error("Error occurred while updating user with ID: {}", userDto.getUserId(), e);
-			throw new RuntimeException("Error updating user" + e.getMessage(), e);
+		if (optionalUser.isEmpty()) {
+			throw new RuntimeException("User not found with id " + userDto.getUserId());
 		}
+		User user = optionalUser.get();
+
+		user.setPlace(userDto.getPlace());
+		user.setEmail(userDto.getEmail());
+		user.setFullName(userDto.getFullName());
+
+		if (userDto.getCountryId() != null) {
+			Country country = countryRepository.findById(userDto.getCountryId().toString())
+					.orElseThrow(() -> new RuntimeException("Country not found with ID: " + userDto.getCountryId()));
+			user.setCountryId(country);
+		}
+
+		user.setPhone(userDto.getPhone());
+
+		if (userDto.getAge() % 1 != 0) {
+			throw new UserBadCredential("Decimal Values are not allowed", "Check the age given", 400);
+		}
+		user.setAge(userDto.getAge());
+
+		user.setGender(userDto.getGender());
+
+		if (userDto.getPassword() != null) {
+			user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+		}
+
+		if (userDto.getRoles() != null) {
+			user.setRoles(userDto.getRoles());
+		}
+
+		return userRepository.save(user);
+
 	}
 
 	public SignupUserDto findUserById(Integer userId) {
@@ -127,15 +135,15 @@ public class UserService {
 		dto.setUserId(user.getUserId());
 		dto.setFullName(user.getFullName());
 		dto.setEmail(user.getEmail());
-		
+
 		Country country = user.getCountryId();
-	    if (country!= null) {
-	        CountryDto countryDto = new CountryDto();
-	        countryDto.setCountryId(country.getCountryId()); 
-	        countryDto.setCountryCode(country.getCountryCode()); 
-	        countryDto.setCountry(country.getCountry()); 
-	        dto.setCountry(countryDto);
-	    }
+		if (country != null) {
+			CountryDto countryDto = new CountryDto();
+			countryDto.setCountryId(country.getCountryId());
+			countryDto.setCountryCode(country.getCountryCode());
+			countryDto.setCountry(country.getCountry());
+			dto.setCountry(countryDto);
+		}
 		dto.setPhone(user.getPhone());
 		dto.setAge(user.getAge());
 		dto.setGender(user.getGender());
@@ -144,7 +152,18 @@ public class UserService {
 		return dto;
 	}
 
-	public PasswordResetToken createPasswordResetToken(User user) {
+	public PasswordResetToken createPasswordResetToken(String email) {
+
+		if (email == null || email.isEmpty()) {
+			throw new UserIllegalArgumentException("Email must be provided", " Fill the field ", 400);
+		}
+		Optional<User> userOpt = userRepository.findByEmail(email);
+
+		if (userOpt.isEmpty()) {
+			throw new UserBadCredential("Invalid email address provided", "Verify the given data", 401);
+		}
+
+		User user = userOpt.get();
 		String otp = generateOtp();
 		LocalDateTime expiryDate = LocalDateTime.now().plusMinutes(10);
 		PasswordResetToken resetToken = new PasswordResetToken(otp, user, expiryDate);
@@ -175,7 +194,9 @@ public class UserService {
 
 	public PasswordResetToken validatePasswordResetToken(String otp) {
 		return passwordResetTokenRepository.findByToken(otp).filter(t -> t.getExpiryDate().isAfter(LocalDateTime.now()))
-				.orElse(null);
+				.orElseThrow(
+						() -> new UserBadCredential("Invalid or expired password reset token", "Incorect Tocken", 400));
+
 	}
 
 	public void invalidatePasswordResetToken(PasswordResetToken token) {

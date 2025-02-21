@@ -30,6 +30,7 @@ com\shiel\campaignapi\repository\DependentRepository.class
 com\shiel\campaignapi\entity\Meeting.class
 com\shiel\campaignapi\entity\PasswordResetToken.class
 com\shiel\campaignapi\entity\ZoomMeetings.class
+com\shiel\campaignapi\exception\BookingIllegalArgument.class
 com\shiel\campaignapi\controller\DependentsController.class
 com\shiel\campaignapi\controller\ZoomMeetingController.class
 com\shiel\campaignapi\entity\Event.class

@@ -78,6 +78,8 @@ public class EventService {
 				event.setTitle(eventDto.getTitle());
 				event.setDescription(eventDto.getDescription());
 				event.setPlace(eventDto.getPlace());
+				event.setStartDate(eventDto.getStartDate());
+				event.setEndDate(eventDto.getEndDate());
 				event.setAdultAmount(eventDto.getAdultAmount());
 				event.setChildAmount(eventDto.getChildAmount());
 				event.setSeats(eventDto.getSeats());

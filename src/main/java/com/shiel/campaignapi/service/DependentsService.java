@@ -57,22 +57,29 @@ public class DependentsService {
 
 				booking.getDependents().remove(dependent);
 				booking.setDependentCount(booking.getDependents().size());
-				  BigDecimal amountToSubtract = BigDecimal.ZERO;
-				  if (dependent.getAge() > 7 && dependent.getAge() < 12) {
-		                amountToSubtract = booking.getEventId().getChildAmount();
-		            } else if (dependent.getAge() >= 12) {
-		                amountToSubtract = booking.getEventId().getAdultAmount();
-		            }
+				
+				BigDecimal amountToSubtract = BigDecimal.ZERO;
+				
+				if (dependent.getAge() > 7 && dependent.getAge() < 12) {
+					amountToSubtract = booking.getEventId().getChildAmount();
+				} else if (dependent.getAge() >= 12) {
+					amountToSubtract = booking.getEventId().getAdultAmount();
+				}
 
 				booking.setTotalAmount(booking.getTotalAmount().subtract(amountToSubtract));
 
-				bookingRepository.save(booking); 
+				if (booking.getBookingStatus() == Booking.BookingStatus.DEPENDENT
+						&& booking.getDependents().isEmpty()) {
+					booking.setBookingStatus(Booking.BookingStatus.CANCELLED);
+				}
+
+				bookingRepository.save(booking);
 			}
 			return mapToDependentDto(dependent);
 		} catch (Exception e) {
 			throw new RuntimeException("Error deleting dependent with ID: " + dependentId, e);
 		}
-		
+
 	}
 
 	private DependentDto mapToDependentDto(Dependent dependent) {

@@ -10,6 +10,7 @@ import com.shiel.campaignapi.repository.ZoomMeetingRepository;
 
 import jakarta.validation.Valid;
 
+import java.time.DateTimeException;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -39,16 +40,33 @@ public class ZoomMeetingService {
 	public ZoomMeetings saveMeeting(ZoomMeetingDto zoomDto) {
 		logger.info("Saving Zoom Meetings");
 		try {
-			// Validate timezone
 			String timeZone = zoomDto.getTimeZone();
-			ZoneId zoneId = ZoneId.of(timeZone);
-			 ZonedDateTime now = ZonedDateTime.now(zoneId);
+			ZoneId zoneId;
+
+			try {
+				zoneId = ZoneId.of(timeZone);
+			} catch (DateTimeException e) {
+				logger.error("Invalid time zone: {}", timeZone, e);
+				throw new IllegalArgumentException("Invalid time zone: " + timeZone, e);
+			}
+
+			// ZonedDateTime now = ZonedDateTime.now(zoneId);
 			// Parse the meeting time from the DTO
+
 			LocalTime meetingTime = zoomDto.getTime();
+			if (meetingTime == null) {
+				logger.error("Meeting time is required");
+				throw new IllegalArgumentException("Meeting time cannot be null");
+			}
 
 			// Delegate to MeetingSchedulerService to calculate next meeting time
 			ZonedDateTime nextMeeting = meetingSchedulerService.getNextMeetingTime(zoomDto.getDay(), meetingTime,
 					timeZone);
+
+			if (nextMeeting == null) {
+				logger.error("Failed to determine the next meeting time");
+				throw new RuntimeException("Could not schedule the next meeting");
+			}
 
 			logger.info("Next meeting scheduled for: {}", nextMeeting);
 
@@ -64,6 +82,10 @@ public class ZoomMeetingService {
 			zoomMeeting.setDistrict(zoomDto.getDistrict());
 
 			return zoomMeetingRepository.save(zoomMeeting);
+
+		} catch (IllegalArgumentException e) {
+			logger.error("Validation error while saving Zoom meeting", e);
+			throw e;
 		} catch (Exception e) {
 			logger.error("Error occurred while saving Zoom meeting", e);
 			throw new RuntimeException("Failed to save Zoom meeting", e);

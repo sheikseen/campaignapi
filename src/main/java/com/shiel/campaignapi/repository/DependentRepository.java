@@ -7,5 +7,5 @@ import com.shiel.campaignapi.entity.Dependent;
 
 public interface DependentRepository  extends JpaRepository<Dependent,Long>{
 
-	
+	boolean existsByBookingId_BookingId(Long bookingId);
 }

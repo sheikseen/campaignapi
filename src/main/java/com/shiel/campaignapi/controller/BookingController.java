@@ -19,7 +19,6 @@ import com.shiel.campaignapi.dto.BookingDto;
 import com.shiel.campaignapi.entity.Booking;
 import com.shiel.campaignapi.entity.Event;
 import com.shiel.campaignapi.entity.User;
-import com.shiel.campaignapi.exception.UserIllegalArgumentException;
 import com.shiel.campaignapi.service.BookingService;
 
 import jakarta.validation.Valid;
@@ -33,22 +32,17 @@ public class BookingController {
 
 	@PostMapping("/add")
 	public ResponseEntity<?> addBooking(@RequestBody BookingDto bookingDto) {
-		   try {
-		        Booking booking = bookingService.saveBooking(bookingDto);
-		        return ResponseEntity.ok(booking);
-		    } catch (UserIllegalArgumentException e) {
-		        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-		    }
+		Booking booking = bookingService.saveBooking(bookingDto);
+		return ResponseEntity.ok(booking);
 	}
 
 	@GetMapping("/all")
 	public ResponseEntity<?> getAllBooking() {
 		List<BookingDto> bookings = bookingService.findAllBookings();
 		if (bookings.isEmpty()) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No booking Found");
-		} else {
-			return ResponseEntity.ok().body(bookings);
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No bookings found");
 		}
+		return ResponseEntity.ok(bookings);
 	}
 
 	@GetMapping("/{bookingId}")
@@ -58,22 +52,14 @@ public class BookingController {
 	}
 
 	@PostMapping("/update/{id}")
-	public ResponseEntity<?> updateBooking(@PathVariable("id") Long bookingId,
+	public ResponseEntity<Booking> updateBooking(@PathVariable("id") Long bookingId,
 			@Valid @RequestBody BookingDto bookingDto) {
-		if (bookingId == null || bookingDto == null) {
-			return ResponseEntity.badRequest().body("Booking Id cannot be Null");
-		}
 		if (!bookingId.equals(bookingDto.getBookingId())) {
-			return ResponseEntity.badRequest().body("Invalid Booking ID in the request");
-
+			return ResponseEntity.badRequest().body(null);
 		}
 
-		Booking updateBooking = bookingService.updateBooking(bookingDto);
-		if (updateBooking == null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Booking Not found");
-		} else {
-			return ResponseEntity.ok().body(updateBooking);
-		}
+		Booking updatedBooking = bookingService.updateBooking(bookingDto);
+		return ResponseEntity.ok(updatedBooking);
 	}
 
 	@GetMapping("/event/{eventId}")
@@ -97,41 +83,25 @@ public class BookingController {
 	}
 
 	@DeleteMapping("/delete/{bookingId}")
-	public ResponseEntity<?> cancelBooking(@PathVariable Long bookingId) {
-		try {
-			Booking updatedBooking = bookingService.cancelBooking(bookingId);
-			return ResponseEntity.ok(updatedBooking);
-		} catch (RuntimeException e) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-		}
+	public ResponseEntity<Booking> cancelBooking(@PathVariable Long bookingId) {
+		Booking updatedBooking = bookingService.cancelBooking(bookingId);
+		return ResponseEntity.ok(updatedBooking);
 	}
 
 	@GetMapping("/isUserBooked")
-	public ResponseEntity<Boolean> isUserBookedForEvent(
-	        @RequestParam User userId,
-	        @RequestParam Event eventId) {
-	    try {
-	        boolean isBooked = bookingService.isUserBookedForEvent(userId, eventId);
-	        return ResponseEntity.ok(isBooked);
-	    } catch (Exception e) {
-	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-	                .body(false);
-	    }
+	public ResponseEntity<Boolean> isUserBookedForEvent(@RequestParam User userId, @RequestParam Event eventId) {
+		boolean isBooked = bookingService.isUserBookedForEvent(userId, eventId);
+		return ResponseEntity.ok(isBooked);
 	}
-    @GetMapping("/download/{eventId}")
-    public ResponseEntity<byte[]> downloadAllBookings(@PathVariable Long eventId) {
-        try {
-            byte[] pdfData = bookingService.generateBookingsPdf(eventId);
 
-            // Set response headers
-            HttpHeaders headers = new HttpHeaders();
-            headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=bookings.pdf");
-            headers.add(HttpHeaders.CONTENT_TYPE, "application/pdf");
+	@GetMapping("/download/{eventId}")
+	public ResponseEntity<byte[]> downloadAllBookings(@PathVariable Long eventId) {
+		byte[] pdfData = bookingService.generateBookingsPdf(eventId);
 
-            return new ResponseEntity<>(pdfData, headers, HttpStatus.OK);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
-    }
+		HttpHeaders headers = new HttpHeaders();
+		headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=bookings.pdf");
+		headers.add(HttpHeaders.CONTENT_TYPE, "application/pdf");
+
+		return new ResponseEntity<>(pdfData, headers, HttpStatus.OK);
+	}
 }

@@ -21,6 +21,7 @@ import com.shiel.campaignapi.dto.ResetPasswordDto;
 import com.shiel.campaignapi.dto.SignupUserDto;
 import com.shiel.campaignapi.entity.PasswordResetToken;
 import com.shiel.campaignapi.entity.User;
+import com.shiel.campaignapi.exception.UserBadRequest;
 import com.shiel.campaignapi.exception.UserNotFoundException;
 import com.shiel.campaignapi.repository.UserRepository;
 import com.shiel.campaignapi.service.UserService;
@@ -64,7 +65,7 @@ public class UserController {
 
 		int age = userDto.getAge();
 		if (age < 15 || age > 100) {
-			return ResponseEntity.badRequest().body("Age must be between 15 and 100.");
+			throw new UserBadRequest("Invalid Age", "Age must be between 15 and 100!", 400);
 		}
 
 		if (!userId.equals(userDto.getUserId())) {
@@ -136,17 +137,11 @@ public class UserController {
 
 	@PostMapping("/forgot-password")
 	public ResponseEntity<?> forgotPassword(@Valid @RequestBody ForgotPasswordDto forgotPasswordDto) {
-		Optional<User> userOpt = userRepository.findByEmail(forgotPasswordDto.getEmail());
 
-		if (userOpt.isEmpty()) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found with the provided email");
-		}
-
-		User user = userOpt.get();
-		PasswordResetToken resetToken = userService.createPasswordResetToken(user);
+		PasswordResetToken resetToken = userService.createPasswordResetToken(forgotPasswordDto.getEmail());
 
 		SimpleMailMessage message = new SimpleMailMessage();
-		message.setTo(user.getEmail());
+		message.setTo(resetToken.getUser().getEmail());
 		message.setSubject("Password Reset Request");
 		message.setText("Use this OTP to reset your password:\n\n" + resetToken.getToken());
 
@@ -158,10 +153,6 @@ public class UserController {
 	@PostMapping("/reset-password")
 	public ResponseEntity<?> resetPassword(@Valid @RequestBody ResetPasswordDto resetPasswordDto) {
 		PasswordResetToken token = userService.validatePasswordResetToken(resetPasswordDto.getToken());
-
-		if (token == null) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid or expired password reset token");
-		}
 
 		User user = token.getUser();
 		user.setPassword(passwordEncoder.encode(resetPasswordDto.getNewPassword()));

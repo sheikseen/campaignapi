@@ -124,7 +124,7 @@ public class AuthenticationService {
 			
 			logger.error("Incorrect email/phone or password user with email: {}", user.getEmail());
 			
-			throw new UserBadCredential("Incorrect email/phone or password", "Verify the Given data", 401);
+			throw new UserBadCredential("Incorrect email/phone or password", "Verify the given data", 401);
 		}
 
 		return user;

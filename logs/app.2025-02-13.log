@@ -1,0 +1,46 @@
+2025-02-13 17:35:01 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.0.Final
+2025-02-13 17:35:01 [main] INFO  c.s.c.CampaignApiApplication - Starting CampaignApiApplication using Java 17.0.8.1 with PID 19512 (D:\project\camp-api\campaignapi\target\classes started by shibi in D:\project\camp-api\campaignapi)
+2025-02-13 17:35:01 [main] INFO  c.s.c.CampaignApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-13 17:35:02 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-13 17:35:02 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 55 ms. Found 9 JPA repository interfaces.
+2025-02-13 17:35:03 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-02-13 17:35:03 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-13 17:35:03 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-13 17:35:03 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-02-13 17:35:03 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-02-13 17:35:03 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1077 ms
+2025-02-13 17:35:03 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-13 17:35:03 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2025-02-13 17:35:03 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-02-13 17:35:03 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-02-13 17:35:03 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-13 17:35:03 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-13 17:35:03 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@45424c0
+2025-02-13 17:35:03 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-13 17:35:04 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-02-13 17:35:04 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-02-13 17:35:04 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13 17:35:05 [main] INFO  c.s.c.config.FirebaseConfig - Firebase initialized successfully.
+2025-02-13 17:35:05 [main] INFO  c.s.c.service.AuthenticationService - AuthenticationService initialized.
+2025-02-13 17:35:05 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: private static final org.slf4j.Logger com.shiel.campaignapi.service.BookingService.logger
+2025-02-13 17:35:05 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2025-02-13 17:35:05 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-02-13 17:35:05 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2025-02-13 17:35:05 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2025-02-13 17:35:05 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'MeetingScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-02-13 17:35:05 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'MeetingScheduler' initialized from an externally provided properties instance.
+2025-02-13 17:35:05 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2025-02-13 17:35:05 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@6ad2cb6d
+2025-02-13 17:35:05 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@521032a6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@18a9e8db, org.springframework.security.web.context.SecurityContextHolderFilter@1007954a, org.springframework.security.web.header.HeaderWriterFilter@362109d0, org.springframework.security.web.authentication.logout.LogoutFilter@ca31ad7, com.shiel.campaignapi.config.JwtAuthenticationFilter@106387cf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@35ab0bf3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7671922b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@24032706, org.springframework.security.web.session.SessionManagementFilter@21e60eed, org.springframework.security.web.access.ExceptionTranslationFilter@5014ccf9, org.springframework.security.web.access.intercept.AuthorizationFilter@306f439c]
+2025-02-13 17:35:05 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-13 17:35:05 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api'
+2025-02-13 17:35:05 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2025-02-13 17:35:05 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler MeetingScheduler_$_NON_CLUSTERED started.
+2025-02-13 17:35:05 [main] INFO  c.s.c.CampaignApiApplication - Started CampaignApiApplication in 4.357 seconds (process running for 5.035)

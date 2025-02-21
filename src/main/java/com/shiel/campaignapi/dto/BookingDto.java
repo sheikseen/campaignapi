@@ -22,12 +22,21 @@ public class BookingDto {
 	private SignupUserDto user;
 	private EventDto event;
 	public List<DependentDto> dependents;
+	private boolean isBooked; 
 	
 	@JsonProperty("isBookingForSelf")
 	private boolean isBookingForSelf;
 
 	public boolean isBookingForSelf() {
 		return isBookingForSelf;
+	}
+
+	public boolean isBooked() {
+		return isBooked;
+	}
+
+	public void setBooked(boolean isBooked) {
+		this.isBooked = isBooked;
 	}
 
 	public void setBookingForSelf(boolean bookingForSelf) {
@@ -147,8 +156,7 @@ public class BookingDto {
 		this.event = event;
 	}
 
-	public BookingDto() {
+	
 
-	}
-
+	
 }
